@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Analysis of ATP Tennis, 2006 - 2015: Data Cleaning"
+title: "Analysis of ATP Tennis, 2006 - 2015: An Introduction and Data Cleaning"
 author: "Ethan Wicker"
 categories: journal
 tags: [tennis, data cleaning, analysis]
@@ -15,7 +15,8 @@ Thanks to Jeff Sackmann (insert link to github here), I was able to get my hands
 Jeff has player and match statistics on just about every ATP match going back to 1968.  He has also data on many WTA (Woman's Tennis Association)
 matches as well as many Challenger level matches.
 
-For my analysis, I looked at the subset of ATP matches covering the 10 year span from 2006 to 2015.
+For my analysis, I looked at the subset of ATP matches covering the 10 year span from 2006 to 2015.  In future posts, I may expand on this
+to cover more years, and especially more recent years.
 
 In this post, I will briefly explain the structure of data, and then I will explain my methodology and rationale for wrangling and cleaning
 the data.  In future posts, I will reference the cleaned data from this post, as well as the R code.
