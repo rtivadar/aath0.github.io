@@ -1,18 +1,25 @@
 ---
 layout: page
-title: Welcome to Lagrange!
+title: Hi, I'm Ethan!
 ---
 
-Lagrange is a minimalist Jekyll theme. The purpose of this theme is to provide a simple, clean, content-focused blogging platform for your personal site or blog. Below you can find everything you need to get started.
+I'm going to come back and update this later.
 
-### Getting Started
+For now, I'm an future Data Analyst and a current AP Statistics Teacher at East Chapel Hill High School.
 
-[Getting Started]({{ site.github.url }}{% post_url 2015-10-10-getting-started %}): getting started with installing Lagrange, whether you are completely new to using Jekyll, or simply just migrating to a new Jekyll theme.
+This blog has three purposes.  I'll come back and add detail to this later.
 
-### Example Content
+For now though, the purposes of this blog are
 
-[Text and Formatting]({{ site.github.url }}{% post_url 2014-01-01-text-formatting-examples %})
+* to give myself a creative space and platform to post my personal data analytics projects
+* to give potentional employers proof of my analytical abilities
+* to provide an education resource to anyone new to data analytics or the statistical analytics languaage R.  I hope my posts will be engaging and useful, but also clear and concise, and easy to understand.
 
-### Questions?
+
+
+
+# Want to know how I built this blog?
+
+Update this information - give credit to LeNPaul - link his github and Lagrange theme - say thanks.
 
 This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=My%question%about%Lagrange%is:%&amp;via=paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new).
