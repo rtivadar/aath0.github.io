@@ -30,7 +30,18 @@ clear code is greater than clever code, in hopes that anyone can easily follow m
 
 For anyone interested, my entire R project for this analysis can be found here. (INSERT LINK)
 
-## Packages Needed and Reading in Data
+## Loading Packages and Reading in Data
+
+This portion of the analysis is pretty straight forward.
+
+* I used `read_csv` from the `readr` package to read in the CSV files.  For reproducibility, I read in the files directly from their source URL.
+
+* The `matchnum` variable was read in as a integer type for years 2013-2015, while it was read in as a character type for years 2006-2012.  In order to combine the data frames into the larger `atp` data frame, I coerced `matchnum` to a charcter type for the 2013-2015 years, so that it was the same as the other data frames.  The `matchnum` variable should actually be an integer type (it details the particular number of a match for each tournament), but since I end up deleting the variable entirely, it doesn't actually matter.  (REWORD THIS)
+
+* Using `bind_rows` from the `dplyr` package, I created the `atp` data frame.
+
+* Lastly, as a bit of personal preference, I used the remove function `rm` to remove the now unnecessary data frames from the workspace.
+This step is not necesary, but it allows for a cleaner working environment.
 
 ```r
 library(tidyverse)        # dplyr, ggplot2, purrr, readr
@@ -38,7 +49,7 @@ library(lubridate)
 library(data.table)
 library(directlabels)     # used for labeling plots with ggplot
 
-#reading data from source
+# Reading data from source
 atp_matches_2006 <- read_csv("https://raw.githubusercontent.com/JeffSackmann/tennis_atp/master/atp_matches_2006.csv")
 atp_matches_2007 <- read_csv("https://raw.githubusercontent.com/JeffSackmann/tennis_atp/master/atp_matches_2007.csv")
 atp_matches_2008 <- read_csv("https://raw.githubusercontent.com/JeffSackmann/tennis_atp/master/atp_matches_2008.csv")
