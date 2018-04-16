@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Welcome to TESTPILOT6!"
+title: "Welcome to TESTPILOT77!"
 author: "Paul Le"
 categories: journal
 tags: [documentation,sample]
