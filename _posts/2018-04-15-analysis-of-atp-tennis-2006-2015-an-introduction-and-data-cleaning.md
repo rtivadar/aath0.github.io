@@ -36,12 +36,12 @@ This portion of the analysis is pretty straight forward.
 
 * I used `read_csv` from the `readr` package to read in the CSV files.  For reproducibility, I read in the files directly from their source URL.
 
-* The `matchnum` variable was read in as a integer type for years 2013-2015, while it was read in as a character type for years 2006-2012.  In order to combine the data frames into the larger `atp` data frame, I coerced `matchnum` to a charcter type for the 2013-2015 years, so that it was the same as the other data frames.  The `matchnum` variable should actually be an integer type (it details the particular number of a match for each tournament), but since I end up deleting the variable entirely, it doesn't actually matter.  (REWORD THIS)
+ (REWORD THIS)* The `matchnum` variable was read in as a integer type for years 2013-2015, while it was read in as a character type for years 2006-2012.  In order to combine the data frames into the larger `atp` data frame, I coerced `matchnum` to a charcter type for the 2013-2015 years, so that it was the same as the other data frames.  The `matchnum` variable should actually be an integer type (it details the particular number of a match for each tournament), but since I end up deleting the variable entirely, it doesn't actually matter.
 
 * Using `bind_rows` from the `dplyr` package, I created the `atp` data frame.
 
 * Lastly, as a bit of personal preference, I used the remove function `rm` to remove the now unnecessary data frames from the workspace.
-This step is not necesary, but it allows for a cleaner working environment.
+This step is not necessary, but it allows for a cleaner working environment.
 
 ```r
 library(tidyverse)        # dplyr, ggplot2, purrr, readr
@@ -97,3 +97,20 @@ rm(atp_2006, atp_2007, atp_2008, atp_2009, atp_2010,
   
 ```
 
+## Structure of the data
+
+```r
+atp
+```
+
+
+## Data Cleaning
+
+The next portion of the analysis involves actually cleaning the data.  Clearly, there was quite a bit of exploratory data analysis involved throughout this process (as well as the rest of the the project).  The below code and explanation is the result of refining my code to make it presentable. 
+
+
+
+```r
+# tourney_date read in as an integer type
+atp$tourney_date <- ymd(atp$tourney_date)
+```
