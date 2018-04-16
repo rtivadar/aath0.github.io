@@ -499,3 +499,5 @@ th, td {
 .fa-rss-square:hover {
 	color: #ff6600;
 }
+
+.highlight { width: 100px; }
