@@ -229,7 +229,7 @@ index_empty_rows <- which(is.na(atp$w_ace) & is.na(atp$l_ace))
 atp <- atp[-index_empty_rows, ]
 
 ```
-                            
+```r
 
 # Deleting unnecessary columns
 atp <- subset(atp, select = -c(match_num, winner_entry, loser_entry, winner_rank_points, loser_rank_points))
@@ -283,4 +283,6 @@ atp$best_of <- as.factor(atp$best_of)
 atp$draw_size <- as.factor(atp$draw_size)
 
 atp$tourney_level <- as.factor(atp$tourney_level)
+
+```
 
