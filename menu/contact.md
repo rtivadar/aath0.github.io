@@ -6,7 +6,8 @@ title: Contact
 Add contact info here
 
 For now,
-ethanwicker[at]gmail[dot]com
+ethanwicker@gmail.com
+
 linkedin.com/in/ethanwicker
 
 
