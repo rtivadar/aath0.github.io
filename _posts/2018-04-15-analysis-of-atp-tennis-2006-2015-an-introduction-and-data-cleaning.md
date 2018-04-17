@@ -211,12 +211,24 @@ atp <- atp[-index_beijing_olmpyics, ]
 
 ```
 
+Here I just reformatted one particular tournament name that slightly different for one year of matches.  Notice the unnecessary apostrophe.
+
+```r
+
 atp$tourney_name <- recode(atp$tourney_name, 
                            "'s-Hertogenbosch" = "s-Hertogenbosch")
+                           
+```                           
+
+Next, there was approximately 20 or so rows in my data frame with entirely incompletely match statistics, which had little value to my analysis.  To delete them, I first indexed the rows by finding which rows had missing data for both the `w_ace` and `l_ace` columns.
+
+```r
 
 # Removing rows with entirely incomplete data
 index_empty_rows <- which(is.na(atp$w_ace) & is.na(atp$l_ace))
 atp <- atp[-index_empty_rows, ]
+
+```
                             
 
 # Deleting unnecessary columns
