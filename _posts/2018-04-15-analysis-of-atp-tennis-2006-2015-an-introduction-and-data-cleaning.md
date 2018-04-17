@@ -167,13 +167,108 @@ The next portion of the analysis involved cleaning the data.  For this particula
 
 At end of this section, the new `atp` data frame is pretty similar to the `atp` data frame above, just with some aforementioned alterations.  I should point out here, that at this point the data frame does not quite meet the specifications commonly known as tidy data.  
 
-The main concepts of tidy data, for anyone unfamiliar with it, basically boils down to organizing a data frame such that each column contains a variable, and each row contain a different observation.  For example, instead of having `winner_hand` and `loser_hand` columns, there would be just one column named `hand` and a different column, possibily named `match_result`, indicating whether a player won or lost a particular match.  The `spread` and `gather` functions from the `tidyr` package are commonly utilized to preform this data frame manipulation.  With my data frame organized in this manner, it would be possibly to see who won or lost any particular match, and whether that player played left-handed or right-handed.  In the early stages of my data analysis, I elected not to organize my data in this format (FINISH)
+The main concepts of tidy data, for anyone unfamiliar with it, basically boil down to organizing a data frame such that each column contains a variable, and each row contain a different observation.  For example, instead of having `winner_hand` and `loser_hand` columns, there would be just one column named `hand` and a different column, possibily named `match_result`, indicating whether a player won or lost a particular match.  The `spread` and `gather` functions from the `tidyr` package are commonly utilized to preform this data frame manipulation.  With my data frame organized in this manner, it would be possibly to see who won or lost any particular match, and whether that player played left-handed or right-handed.  I elected to go about my analysis in a slightly different manner (as you'll notice in subsequent posts), but I wanted to include a brief description of tidy data for anyone learning from my analysis unfamiliar the idea.
 
-Clearly, there was quite a bit of exploratory data analysis involved throughout this process (as well as the rest of the the project).  The below code and explanation is the result of refining my code to make it presentable. 
+For the remainder of this post, I will be describing the various steps I took to organize and clean the `atp` data frame.
 
-
+As a first step, I changed the `tourney_date` variable, which was read into R as an integer type into a date type.  I did this using the fantastic `lubridate` package, which make class conversions of this kind a breeze.  For example, the `tourney_date` for the the 2015 US Open was originally read in as `20150831`.  The `ymd` function from the `lubridate` package quickly converts this to `2015-08-31`, and changes variable type to date as well.
 
 ```r
+ 
 # tourney_date read in as an integer type
 atp$tourney_date <- ymd(atp$tourney_date)
+
 ```
+Next, I deleted various subsets of tournaments from the data set.  In particular, I deleted:
+
+* Davis Cup matches
+* Challenger level matches
+* Olmpypic matches
+
+I elected to delete Davis Cup matches simply because they do not match the rest of the data, and I did not want their influence to effect my analysis.  For anyone unfamiliar, the Davis Cup is a yearly "knock-out" style tournament held each year between teams from countries all over the world.  Play takes place between two teams in round robin fashion.  Although it is an cool tennis event, it is not of my interest in this analysis.
+
+The Challenger level matches were deleted as they are not ATP World level, and are the second highest tier of play in Men's Professional Tennis.  Since these matches were only spartically included in a couple years, they were likely included by mistake.
+
+Lastly, I debated with myself for a good while about whether to include the Olmypic matches in my analysis or not.  In the end I decided not to, partially because the data was a bit incomplete and partially because the Olympic matches are not ATP sanctioned events. 
+
+```r
+
+# Removing Davis Cup - almost incomplete, and Davis Cup play doesn't match the rest of the data
+index_davis_cup <- which(str_detect(atp$tourney_name, "Davis Cup"))
+atp <- atp[-index_davis_cup, ]
+
+# Removing Challenger level matches - shouldn't be in this data set, possibly a mistake (only in some years)
+index_challenger_level <- which(str_detect(atp$tourney_level, "C"))
+atp <- atp[-index_challenger_level, ]
+
+# Removing London Olmpyics
+index_london_olmpyics <- which(str_detect(atp$tourney_name, "London"))
+atp <- atp[-index_london_olmpyics, ]
+
+# Removing Beijing Olmpyics
+index_beijing_olmpyics <- which(str_detect(atp$tourney_name, "Beijing"))
+atp <- atp[-index_beijing_olmpyics, ]
+
+```
+
+atp$tourney_name <- recode(atp$tourney_name, 
+                           "'s-Hertogenbosch" = "s-Hertogenbosch")
+
+# Removing rows with entirely incomplete data
+index_empty_rows <- which(is.na(atp$w_ace) & is.na(atp$l_ace))
+atp <- atp[-index_empty_rows, ]
+                            
+
+# Deleting unnecessary columns
+atp <- subset(atp, select = -c(match_num, winner_entry, loser_entry, winner_rank_points, loser_rank_points))
+
+# Deleting winner_seed/loser_seed in leiu of world winner_rank/loser_rank
+atp <- subset(atp, select = -c(winner_seed, loser_seed))
+
+
+# Filtering out rows where a player retired
+atp <- atp %>% filter(!str_detect(score, "RET"))
+
+
+# Filtering out Walkover's - i.e. a foreit, where the losing player doesn't make it on court
+atp <- atp %>% filter(score != "W/O")
+
+
+
+
+
+
+# Recoding tourney_levels, hand, and renaming height columns
+atp$tourney_level <- recode(atp$tourney_level, 
+                                   A = "ATP Tour 250/500 Series", 
+                                   M = "Masters", 
+                                   G = "Grand Slam", 
+                                   F = "Tour Final")
+
+atp$winner_hand <- recode(atp$winner_hand, 
+                               L = "Left",
+                               R = "Right",
+                               U = "Unknown")
+
+atp$loser_hand <- recode(atp$loser_hand, 
+                               L = "Left",
+                               R = "Right",
+                               U = "Unknown")
+
+setnames(atp, old = "winner_ht", new = "winner_height")
+setnames(atp, old = "loser_ht", new = "loser_height")
+
+
+
+
+
+# Defining best_of, draw_size, tourney_level to be factors 
+# Ordering levels of "round"
+atp$round <- factor(atp$round, levels = c("R128", "R64", "R32", "R16", "QF", "SF", "F", "RR"))
+
+atp$best_of <- as.factor(atp$best_of)
+
+atp$draw_size <- as.factor(atp$draw_size)
+
+atp$tourney_level <- as.factor(atp$tourney_level)
+
