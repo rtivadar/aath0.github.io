@@ -167,13 +167,11 @@ atp_pct_rounds_won_overall_by_player <- atp_pct_rounds_won_by_tournament_by_year
 
 So far, I have determined a player's overall average percent of rounds won in a tournament.
 
-To determine a player's average percent of rounds won in a tournament across an entire year is simply a small modification of the above.
+To determine a player's average percent of rounds won in a tournament for an entire year is simply a small modification of the above.
 
-To group per year, I first need a year variable.  Using `separate` from the `tidyr` package, I separated the `tourney_date` variable into three new variables: `year`, `month`, and `date`.  I assigned this modified data frame to `atp_pct_rounds_won_by_tournament_by_year_ymd_separated`.
+To determine an average for a entire year, I need to be able to group my data by year, and to group by year, I first need a year variable.  Using `separate` from the `tidyr` package, I separated the `tourney_date` variable into three new variables: `year`, `month`, and `date`.  I assigned this modified data frame to `atp_pct_rounds_won_by_tournament_by_year_ymd_separated`.
 
 Now with `year` as a separate variable, I was able to group by `year` and `name`, and them summarize to find the average percentage of rounds a player won in all tournaments for each year that player is in my data set.
-
-(INSERT SUMMARY HERE OF TWO DATA FRAMES)
 
 ```r
 
@@ -186,6 +184,16 @@ atp_pct_rounds_won_by_year_by_player <- atp_pct_rounds_won_by_tournament_by_year
   summarize(avg_pct_of_rounds_won_in_all_tournaments = mean(pct_of_rounds_won_in_tournament))
 
 ```
+
+So far in this post, I have created two data frames.  These data frames are `atp_pct_rounds_won_overall_by_player` and `atp_pct_rounds_won_by_year_by_player`.  
+
+These data frames are very similar to each other.  They each show how far a player advances through a tournament on average, as a percent.  The first data frame shows this as an average across all years a player is in the original data set.  
+
+(INSERT TABLE OF DATA)
+
+The second data frame shows this as an average for each year a player is in my data frame.  As such, `atp_pct_rounds_won_by_year_by_player` contains a row for each year a player is in the data set.
+
+(INSERT TABLE OF DATA)
   
   ## Calculating Player Stats per Year
   
