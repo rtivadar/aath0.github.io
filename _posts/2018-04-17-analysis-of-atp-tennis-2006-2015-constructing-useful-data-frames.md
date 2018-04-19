@@ -194,9 +194,251 @@ These data frames are very similar to each other.  They each show how far a play
 The second data frame shows this as an average for each year a player is in my data frame.  As such, `atp_pct_rounds_won_by_year_by_player` contains a row for each year a player is in the data set.
 
 (INSERT TABLE OF DATA)
+
+These above data frames will be joined with the data frames I'll construct in the second and third sections of this post.
   
   ## Calculating Player Stats per Year
   
+In this section, I'll be describing how I constructed `atp_stats_by_player_by_year`.  This data frame, as the name describes, contains match statistics by year for each player in the original `atp` data frame.
+
+Since I'll be grouping the data by year to determine a players stats for each year, I first need a year variable.  I used the `separate` function to split `tourney_date` into three new variables: `year`, `month`, and `day`.
+
+```r  
+  
+atp_ymd_separated <- atp %>% separate(tourney_date, c("year", "month", "day"), sep = "-")
+
+```
+
+Similar to method in the previous section, I'm going to first create two separate data frames - one with statistics of match winners, and another with statistics of match losers.  I'm then going to join them together to find player statistics.
+
+To get started, I created the data frame for the match winners first.  After grouping by both the `year` and `winner_id` variables, I used `summarize` to create a variety of new variables.  You can see all the variables below, but some examples are `double_faults_as_winner` and `games_served_as_winner`.
+
+To be clear here, this creates a data frame containing information on total match statistics for all matches where a player won across the entire year.  For example, `ace_as_winner` is the total number of aces served for an entire year.
+
+```r
+
+atp_by_year_grouped_by_winner_id <- atp_ymd_separated %>% 
+  group_by(year, winner_id) %>% 
+  summarize(height_as_winner = median(winner_height, na.rm = TRUE),
+            avg_rank_as_winner = mean(winner_rank, na.rm = TRUE),
+            number_matches_won = n(),
+            age_as_winner = mean(winner_age, na.rm = TRUE),
+            ace_as_winner = sum(w_ace, na.rm = TRUE),
+            double_fault_as_winner = sum(w_df, na.rm = TRUE),
+            service_pts_played_as_winner = sum(w_svpt, na.rm = TRUE),
+            first_serves_in_as_winner = sum(w_1stIn, na.rm = TRUE),
+            points_won_off_first_serve_as_winner = sum(w_1stWon, na.rm = TRUE),
+            points_won_off_second_serve_as_winner = sum(w_2ndWon, na.rm = TRUE),
+            games_served_as_winner = sum(w_SvGms, na.rm = TRUE),
+            break_points_saved_as_winner = sum(w_bpSaved, na.rm = TRUE),
+            break_points_faced_as_winner = sum(w_bpFaced, na.rm = TRUE),
+            break_points_lost_as_winner = break_points_faced_as_winner - break_points_saved_as_winner,
+            break_points_converted_on_defense_as_winner = sum(l_bpFaced - l_bpSaved, na.rm = TRUE),
+            break_points_forced_on_defense_as_winner = sum(l_bpFaced, na.rm = TRUE),
+            return_games_on_defense_as_winner = sum(l_SvGms, na.rm = TRUE),
+            minutes_as_winner = sum(minutes, na.rm = TRUE))
+
+```
+
+Next, I created the same data frame, but for match losers.  After grouping by `year` and `loser_id`, I utilized `summarize` again to create analogous variables as above.
+
+```r
+
+atp_by_year_grouped_by_loser_id <- atp_ymd_separated %>% 
+  group_by(year, loser_id) %>% 
+  summarize(height_as_loser = median(loser_height, na.rm = TRUE),
+            avg_rank_as_loser = mean(loser_rank, na.rm = TRUE),
+            number_matches_lost = n(),
+            age_as_loser = mean(loser_age, na.rm = TRUE),
+            ace_as_loser = sum(l_ace, na.rm = TRUE),
+            double_fault_as_loser = sum(l_df, na.rm = TRUE),
+            service_pts_played_as_loser = sum(l_svpt, na.rm = TRUE),
+            first_serves_in_as_loser = sum(l_1stIn, na.rm = TRUE),
+            points_won_off_first_serve_as_loser = sum(l_1stWon, na.rm = TRUE),
+            points_won_off_second_serve_as_loser = sum(l_2ndWon, na.rm = TRUE),
+            games_served_as_loser = sum(l_SvGms, na.rm = TRUE),
+            break_points_saved_as_loser = sum(l_bpSaved, na.rm = TRUE),
+            break_points_faced_as_loser = sum(l_bpFaced, na.rm = TRUE),
+            break_points_lost_as_loser = break_points_faced_as_loser - break_points_saved_as_loser,
+            break_points_converted_on_defense_as_loser = sum(w_bpFaced - w_bpSaved, na.rm = TRUE),
+            break_points_forced_on_defense_as_loser = sum(w_bpFaced, na.rm = TRUE),
+            return_games_on_defense_as_loser = sum(w_SvGms, na.rm = TRUE),
+            minutes_as_loser = sum(minutes, na.rm = TRUE))
+
+```
+
+So far I have created two data frames: `atp_by_year_grouped_by_winner_id` and `atp_by_year_grouped_by_loser_id`.  These data frames only contain the `winner_id` or `loser_id` (which is just an integer string), `year`, and the various stats I defined above.  Although a player's ID number is useful for grouping, it isn't really useful for gleening information from the data.  For that, we of course want player information, such as name and country.
+
+To get that information, I created a new data frame `atp_player_info`.  To construct this data frame, I defined `player_info_columns` as a character string of the column names I was interested in.  Since no player went undefeated, I could use the loser information to get all the player information I wanted.  After defining what columns I wanted, I subsetted the `atp_ymd_separated` data frame and assigned this new data frame to `atp_player_info`.  Since this gave me multiple rows of the same information, I used `unique` to only get one row per player.
+
+```r
+
+# No player went undefeated, so using loser information as player information
+player_info_columns <- c("loser_id", "loser_name", "loser_hand", "loser_ioc")
+atp_player_info <- atp_ymd_separated[ , player_info_columns]
+atp_player_info <- unique(atp_player_info)
+
+```
+
+
+atp_by_year_grouped_by_loser_id <- full_join(atp_by_year_grouped_by_loser_id, 
+                                            atp_player_info, by = "loser_id")
+
+
+
+setnames(atp_by_year_grouped_by_winner_id, old = "winner_id", new = "player_id")
+setnames(atp_by_year_grouped_by_loser_id, 
+         old = c("loser_id", "loser_name", "loser_hand", "loser_ioc"), 
+         new = c("player_id", "name", "hand", "ioc"))
+
+
+
+
+atp_by_year_grouped_by_player_id <- full_join(atp_by_year_grouped_by_winner_id, 
+                                              atp_by_year_grouped_by_loser_id, by = c("year", "player_id"))
+
+
+
+# Deleting winner_as_height column, since loser_as_height is more expansive
+atp_by_year_grouped_by_player_id <- subset(atp_by_year_grouped_by_player_id, select = -height_as_winner)
+
+setnames(atp_by_year_grouped_by_player_id, old = "height_as_loser", new = "height")
+
+
+
+# When joining atp_by_year_grouped_by_winner_id and atp_by_year_grouped_by_loser_id tibbles
+# lots of NA's where introduced (from players that did not win any matches at all)
+# Since they didn't having any winning stats, this is akin to having a 0
+# Changing all NA's to 0's in the below columns
+
+winners_columns_replace_na_with_0 <- list(avg_rank_as_winner = 0,
+                                          number_matches_won = 0,
+                                          ace_as_winner = 0,
+                                          double_fault_as_winner = 0,
+                                          service_pts_played_as_winner = 0,
+                                          first_serves_in_as_winner = 0,
+                                          points_won_off_first_serve_as_winner = 0,
+                                          points_won_off_second_serve_as_winner = 0,
+                                          games_served_as_winner = 0,
+                                          break_points_saved_as_winner = 0,
+                                          break_points_faced_as_winner = 0,
+                                          break_points_lost_as_winner = 0,
+                                          break_points_converted_on_defense_as_winner = 0,
+                                          break_points_forced_on_defense_as_winner = 0,
+                                          return_games_on_defense_as_winner = 0,
+                                          minutes_as_winner = 0)
+
+atp_by_year_grouped_by_player_id <-  atp_by_year_grouped_by_player_id %>% 
+  replace_na(winners_columns_replace_na_with_0)
+
+
+
+# Creating a new column for average rank a player had throughout the year,
+# Dropping unneeded columns
+atp_by_year_grouped_by_player_id <- atp_by_year_grouped_by_player_id %>% 
+  mutate(avg_rank = round((avg_rank_as_winner + avg_rank_as_loser)/2, digits = 2)) %>% 
+  subset(select = -c(avg_rank_as_winner, avg_rank_as_loser))
+
+
+
+# Creating new column for a player's age at tournament time 
+# Taking the average of age_as_winner and age_as_loser, and then rounding to nearest whole number for 
+# presentation purposes
+# Using an ifelse inside a mutate to test for whether a players age_as_winner is present, if not 
+# ignore and round age_as_loser
+atp_by_year_grouped_by_player_id <- atp_by_year_grouped_by_player_id %>% 
+  mutate(age = ifelse(!is.na(age_as_winner), round((age_as_winner + age_as_loser)/2), round(age_as_loser))) %>% 
+  subset(select = -c(age_as_winner, age_as_loser))
+
+
+
+# Reorder columns into more appropriate order
+atp_by_year_grouped_by_player_id <- atp_by_year_grouped_by_player_id %>% 
+  select(year,
+         player_id, 
+         name,
+         ioc, 
+         age, 
+         hand, 
+         avg_rank,
+         height,
+         number_matches_won,
+         ace_as_winner:return_games_on_defense_as_winner,
+         number_matches_lost,
+         ace_as_loser:return_games_on_defense_as_loser,
+         minutes_as_winner,
+         minutes_as_loser)
+
+atp_by_year_grouped_by_player_id$hand <- as.factor(atp_by_year_grouped_by_player_id$hand)
+
+
+
+# Mutating to create various player totals per year
+atp_by_year_grouped_by_player_id <- atp_by_year_grouped_by_player_id %>% 
+  mutate(total_matches_won = number_matches_won,
+         total_matches_lost = number_matches_lost,
+         total_matches_played = total_matches_won + total_matches_lost,
+         total_games_served = games_served_as_winner + games_served_as_loser,
+         total_aces = ace_as_winner + ace_as_loser,
+         total_double_fault = double_fault_as_winner + double_fault_as_loser,
+         total_service_points = service_pts_played_as_winner + service_pts_played_as_loser,
+         total_first_serves_in = first_serves_in_as_winner + first_serves_in_as_loser,
+         total_second_serves_in = total_service_points -total_first_serves_in - total_double_fault,
+         total_serves = total_first_serves_in + 2*(total_second_serves_in + total_double_fault),
+         total_points_won_off_first_serve = points_won_off_first_serve_as_winner + points_won_off_first_serve_as_loser,
+         total_points_won_off_second_serve = points_won_off_second_serve_as_winner + points_won_off_second_serve_as_loser,
+         total_break_points_faced = break_points_faced_as_winner + break_points_faced_as_loser,
+         total_break_points_saved = break_points_saved_as_winner + break_points_saved_as_loser,
+         total_break_points_lost = break_points_lost_as_winner + break_points_lost_as_loser,
+         total_break_points_converted_on_defense = break_points_converted_on_defense_as_winner + 
+           break_points_converted_on_defense_as_loser,
+         total_break_points_forced_on_defense = break_points_forced_on_defense_as_winner +
+           break_points_forced_on_defense_as_loser,
+         total_return_games_on_defense = return_games_on_defense_as_winner + return_games_on_defense_as_loser,
+         total_games_played = total_games_served + total_return_games_on_defense,
+         total_minutes = minutes_as_winner + minutes_as_loser)
+
+
+# Subsetting to get data frame of just year totals
+atp_stats_by_player_by_year <- atp_by_year_grouped_by_player_id %>% 
+  select(year:height, starts_with("total"))
+
+
+
+
+# Mutating to add columns for various player statistics, by year
+atp_stats_by_player_by_year <- atp_stats_by_player_by_year %>% 
+  mutate(pct_matches_won = total_matches_won/total_matches_played,
+         pct_service_games_won = (total_games_served - total_break_points_lost)/
+           total_games_served,
+         pct_ace_per_service_point = total_aces/total_service_points,
+         pct_ace_per_serve = total_aces/total_serves,                  
+         pct_first_serves_in = total_first_serves_in/total_service_points,
+         pct_second_serves_in = total_second_serves_in/
+           (total_service_points - total_first_serves_in),
+         pct_double_fault = total_double_fault/total_service_points,
+         pct_points_won_off_first_serve = total_points_won_off_first_serve/
+           total_first_serves_in,
+         pct_points_won_off_second_serve = total_points_won_off_second_serve/
+           (total_service_points - total_first_serves_in),
+         pct_break_points_saved = total_break_points_saved/total_break_points_faced,
+         pct_break_points_lost = total_break_points_lost/total_break_points_faced,
+         pct_break_points_converted_on_defense = total_break_points_converted_on_defense/
+           total_break_points_forced_on_defense,
+         pct_return_games_won_on_defense = total_break_points_converted_on_defense/
+           total_return_games_on_defense,
+         avg_minutes_per_game = total_minutes/total_games_played)
+
+
+
+# joining atp_stats_overall_by_player with atp_player_pct_rounds_won
+
+atp_stats_by_player_by_year <- atp_stats_by_player_by_year %>% 
+                                  full_join(atp_pct_rounds_won_by_year_by_player, 
+                                            by = c("year", "name"))
+
+
+
   
   
   ## Calculating Player Stats Overall
