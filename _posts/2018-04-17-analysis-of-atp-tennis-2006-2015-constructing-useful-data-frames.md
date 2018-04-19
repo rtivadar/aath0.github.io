@@ -141,9 +141,11 @@ atp_pct_rounds_won_by_tournament_by_year <- full_join(atp_pct_rounds_won_by_tour
 
 After joining the above data frames to create `atp_pct_rounds_won_by_tournament_by_year`, I just need a few more steps to finish off constructing one of the data frames needed for my analysis.  
 
-First, I used `mutate` to create a new column, `pct_of_rounds_won_in_tournament`.  
+First, I used `mutate` to create a new column, `pct_of_rounds_won_in_tournament`.  At this point, `pct_of_rounds_won_in_tournament` contains the percentage of rounds a player advanced through for each tournament.
 
 Next, I used `filter` to filter out all of the matches played at the ATP World Tour Finals Tournament.  Play at these tournaments occurs in a round-robin format, and thus doesn't match typical tournament style play.
+
+Finally, I created `atp_pct_rounds_won_overall_by_player` by grouping `atp_pct_rounds_won_by_tournament_by_year` by the player's name, and using `summarize` and `mean` to determine the average percentage of rounds won in all tournaments, per player.
 
 ```r
 
@@ -162,6 +164,18 @@ atp_pct_rounds_won_overall_by_player <- atp_pct_rounds_won_by_tournament_by_year
   summarize(avg_pct_of_rounds_won_in_all_tournaments = mean(pct_of_rounds_won_in_tournament))
   
 ```
+
+So far, I have determined a player's overall average percent of rounds won in a tournament.
+
+To determine a player's average percent of rounds won in a tournament across an entire year is simply a small modification of the above.
+
+To group per year, I first need a year variable.  Using `separate` from the `tidyr` package, I separated the `tourney_date` variable into three new variables: `year`, `month`, and `date`.  I assigned this modified data frame to `atp_pct_rounds_won_by_tournament_by_year_ymd_separated`.
+
+Now with `year` as a separate variable, I was able to group by `year` and `name`, and them summarize to find the average percentage of rounds a player won in all tournaments for each year that player is in my data set.
+
+(INSERT SUMMARY HERE OF TWO DATA FRAMES)
+
+```r
 
 atp_pct_rounds_won_by_tournament_by_year_ymd_separated <- atp_pct_rounds_won_by_tournament_by_year %>% 
   separate(tourney_date, into = c("year", "month", "date"), sep = "-")
