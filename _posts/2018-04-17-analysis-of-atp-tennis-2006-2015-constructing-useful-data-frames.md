@@ -216,7 +216,6 @@ To get started, I created the data frame for the match winners first.  After gro
 To be clear here, this creates a data frame containing information on total match statistics for all matches where a player won across the entire year.  For example, `ace_as_winner` is the total number of aces served for an entire year.
 
 ```r
-
 atp_by_year_grouped_by_winner_id <- atp_ymd_separated %>% 
   group_by(year, winner_id) %>% 
   summarize(height_as_winner = median(winner_height, na.rm = TRUE),
@@ -237,13 +236,11 @@ atp_by_year_grouped_by_winner_id <- atp_ymd_separated %>%
             break_points_forced_on_defense_as_winner = sum(l_bpFaced, na.rm = TRUE),
             return_games_on_defense_as_winner = sum(l_SvGms, na.rm = TRUE),
             minutes_as_winner = sum(minutes, na.rm = TRUE))
-
 ```
 
 Next, I created the same data frame, but for match losers.  After grouping by `year` and `loser_id`, I utilized `summarize` again to create analogous variables as above.
 
 ```r
-
 atp_by_year_grouped_by_loser_id <- atp_ymd_separated %>% 
   group_by(year, loser_id) %>% 
   summarize(height_as_loser = median(loser_height, na.rm = TRUE),
@@ -264,7 +261,6 @@ atp_by_year_grouped_by_loser_id <- atp_ymd_separated %>%
             break_points_forced_on_defense_as_loser = sum(w_bpFaced, na.rm = TRUE),
             return_games_on_defense_as_loser = sum(w_SvGms, na.rm = TRUE),
             minutes_as_loser = sum(minutes, na.rm = TRUE))
-
 ```
 
 So far I have created two data frames: `atp_by_year_grouped_by_winner_id` and `atp_by_year_grouped_by_loser_id`.  These data frames only contain the `winner_id` or `loser_id` (which is just an integer string), `year`, and the various stats I defined above.  Although a player's ID number is useful for grouping, it isn't really useful for gleening information from the data.  For that, we of course want player information, such as name and country.
