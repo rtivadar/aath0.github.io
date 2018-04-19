@@ -383,7 +383,7 @@ atp_by_year_grouped_by_player_id <- atp_by_year_grouped_by_player_id %>%
 atp_by_year_grouped_by_player_id$hand <- as.factor(atp_by_year_grouped_by_player_id$hand)
 ```
 
-
+```
 # Mutating to create various player totals per year
 atp_by_year_grouped_by_player_id <- atp_by_year_grouped_by_player_id %>% 
   mutate(total_matches_won = number_matches_won,
@@ -447,7 +447,7 @@ atp_stats_by_player_by_year <- atp_stats_by_player_by_year %>%
 atp_stats_by_player_by_year <- atp_stats_by_player_by_year %>% 
                                   full_join(atp_pct_rounds_won_by_year_by_player, 
                                             by = c("year", "name"))
-
+```
 
 
   
