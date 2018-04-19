@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Analysis of ATP Tennis, 2006 - 2015: An Introduction and Data Cleaning"
+title: "ATP Tennis Analysis, 2006 - 2015: An Introduction and Data Cleaning"
 author: "Ethan Wicker"
 categories: journal
 tags: [tennis, data analysis, data cleaning]
