@@ -272,12 +272,10 @@ So far I have created two data frames: `atp_by_year_grouped_by_winner_id` and `a
 To get that information, I created a new data frame `atp_player_info`.  To construct this data frame, I defined `player_info_columns` as a character string of the column names I was interested in.  Since no player went undefeated, I could use the loser information to get all the player information I wanted.  After defining what columns I wanted, I subsetted the `atp_ymd_separated` data frame and assigned this new data frame to `atp_player_info`.  Since this gave me multiple rows of the same information, I used `unique` to only get one row per player.
 
 ```r
-
 # No player went undefeated, so using loser information as player information
 player_info_columns <- c("loser_id", "loser_name", "loser_hand", "loser_ioc")
 atp_player_info <- atp_ymd_separated[ , player_info_columns]
 atp_player_info <- unique(atp_player_info)
-
 ```
 
 
