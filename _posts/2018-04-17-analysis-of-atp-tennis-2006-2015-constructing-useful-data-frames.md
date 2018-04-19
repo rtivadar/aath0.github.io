@@ -213,7 +213,7 @@ Similar to method in the previous section, I'm going to first create two separat
 
 To get started, I created the data frame for the match winners first.  After grouping by both the `year` and `winner_id` variables, I used `summarize` to create a variety of new variables.  You can see all the variables below, but some examples are `double_faults_as_winner` and `games_served_as_winner`.
 
-To be clear here, this creates a data frame containing information on total match statistics for all matches where a player won across the entire year.  For example, `ace_as_winner` is the total number of aces served for an entire year.
+To be clear here, this creates a data frame containing information on total match statistics for all matches where a player won across the entire year.  For example, `ace_as_winner` is the total number of aces served for an entire year.  These statistics are not yet percentages.
 
 ```r
 atp_by_year_grouped_by_winner_id <- atp_ymd_separated %>% 
@@ -274,12 +274,20 @@ atp_player_info <- atp_ymd_separated[ , player_info_columns]
 atp_player_info <- unique(atp_player_info)
 ```
 
+The next few lines of code show how I used joined these three data frames into one, much more useful, data frame.
 
+First I used `full_join` to join together the `atp_by_year_grouped_by_loser_id` and `atp_player_info`.  Since no player went undefeated, this creates a data frame containing information on every player in the orignal data set, as well as their total match statistics for all matches they lost.
+
+```r
 atp_by_year_grouped_by_loser_id <- full_join(atp_by_year_grouped_by_loser_id, 
                                             atp_player_info, by = "loser_id")
+```
 
+To prepare the match winner and match loser data frames to be joined together, I did a little cleaning and renamed some variables.  Of importance, I renamed both `winner_id` and `loser_id` to `player_id`.  
 
+I then used `full_join` once more to join together `atp_by_year_grouped_by_winner_id` and `atp_by_year_grouped_by_loser_id` on the columns `year` and `player_id`.  I assigned the resulting data frame created to `atp_by_year_grouped_by_player_id`.
 
+```r
 setnames(atp_by_year_grouped_by_winner_id, old = "winner_id", new = "player_id")
 setnames(atp_by_year_grouped_by_loser_id, 
          old = c("loser_id", "loser_name", "loser_hand", "loser_ioc"), 
@@ -287,24 +295,28 @@ setnames(atp_by_year_grouped_by_loser_id,
 
 
 
-
 atp_by_year_grouped_by_player_id <- full_join(atp_by_year_grouped_by_winner_id, 
                                               atp_by_year_grouped_by_loser_id, by = c("year", "player_id"))
+```
 
+`atp_by_year_grouped_by_player_id` contains information for all players in the original data set, including their total match statistics per year.  After creating this data frame, I cleaned it up just a bit more by deleting the `height_as_winner` column and renaming the `height_as_loser` column to just `height`.  
 
+Many players in the data had not won a single match, and since no player went undefeated, the `height_as_loser` variable contains more information. 
 
+```r
 # Deleting winner_as_height column, since loser_as_height is more expansive
 atp_by_year_grouped_by_player_id <- subset(atp_by_year_grouped_by_player_id, select = -height_as_winner)
 
 setnames(atp_by_year_grouped_by_player_id, old = "height_as_loser", new = "height")
+```
 
+As just mentioned, there where many players who had not won a single match in the entire data frame.  So when joining the match winners and match losers data frames, all of those players who only lost matches had no statistics for columns in the match winners data frame.  So in short, lots of `NA`'s where introduced.
 
+To perform my later calculations, I needed to handle this situation.  Since these players did not win any matches, they really should have 0's for all the match winner statistics.  For example, a player with only losts, should have 0 aces as the match winner (since that player was never a match winner).
 
-# When joining atp_by_year_grouped_by_winner_id and atp_by_year_grouped_by_loser_id tibbles
-# lots of NA's where introduced (from players that did not win any matches at all)
-# Since they didn't having any winning stats, this is akin to having a 0
-# Changing all NA's to 0's in the below columns
+To fix this issue, I created a list, and assigned each match winner statistic to be 0.  I then used the very convenient `replace_na` function from the `tidyr` package to replace all the `NA` values in the winner columns with 0.  For each of the variables I defined to be 0, this function replaced any NA's in those columns with 0.  
 
+```
 winners_columns_replace_na_with_0 <- list(avg_rank_as_winner = 0,
                                           number_matches_won = 0,
                                           ace_as_winner = 0,
@@ -324,28 +336,33 @@ winners_columns_replace_na_with_0 <- list(avg_rank_as_winner = 0,
 
 atp_by_year_grouped_by_player_id <-  atp_by_year_grouped_by_player_id %>% 
   replace_na(winners_columns_replace_na_with_0)
+```
 
+The next steps in my construction involved some more data organization and cleaning.
 
+The first thing I did was `mutate` to create a new variable `avg_rank`.  This variable, as it named, is the average world ranking of a player through the course of the year.  I previously defined `avg_rank_as_winner` and `avg_rank_as_loser` to be the average world ranking of a player for the matches that player won or lost.  So `avg_rank` is the average of these two averages.
 
+```r
 # Creating a new column for average rank a player had throughout the year,
 # Dropping unneeded columns
 atp_by_year_grouped_by_player_id <- atp_by_year_grouped_by_player_id %>% 
   mutate(avg_rank = round((avg_rank_as_winner + avg_rank_as_loser)/2, digits = 2)) %>% 
   subset(select = -c(avg_rank_as_winner, avg_rank_as_loser))
+```
 
+Next I mutated the data frame again to create another new variable, `age`.  I used the `ifelse` function inside `mutate` to create this new variable.  If a player has an age as both a winner and loser, then I defined age to be the average of these values.  Otherwise, if the player has `NA` for `age_as_winner`, I defined age to just be `age_as_loser`.  In both instances, I used `round` to round the players age to the nearest integer.
 
+Of note here, I was able to defined `age` partially using the `is.na` function because just above, I did not defined age_as_winner in the `winners_columns_replace_na_with_0` list.
 
-# Creating new column for a player's age at tournament time 
-# Taking the average of age_as_winner and age_as_loser, and then rounding to nearest whole number for 
-# presentation purposes
-# Using an ifelse inside a mutate to test for whether a players age_as_winner is present, if not 
-# ignore and round age_as_loser
+```r
 atp_by_year_grouped_by_player_id <- atp_by_year_grouped_by_player_id %>% 
   mutate(age = ifelse(!is.na(age_as_winner), round((age_as_winner + age_as_loser)/2), round(age_as_loser))) %>% 
   subset(select = -c(age_as_winner, age_as_loser))
+```
 
+To finish organizing `atp_by_year_grouped_by_player_id`, I used `select` to to reorder the columns into a more appropriate order.  I also defined the `hand` variable to be a factor.
 
-
+```r
 # Reorder columns into more appropriate order
 atp_by_year_grouped_by_player_id <- atp_by_year_grouped_by_player_id %>% 
   select(year,
@@ -364,7 +381,7 @@ atp_by_year_grouped_by_player_id <- atp_by_year_grouped_by_player_id %>%
          minutes_as_loser)
 
 atp_by_year_grouped_by_player_id$hand <- as.factor(atp_by_year_grouped_by_player_id$hand)
-
+```
 
 
 # Mutating to create various player totals per year
