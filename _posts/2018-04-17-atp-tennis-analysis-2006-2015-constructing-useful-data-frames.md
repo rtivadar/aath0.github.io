@@ -4,7 +4,7 @@ title: "ATP Tennis Analysis, 2006 - 2015: Constructing Useful Data Frames"
 author: "Ethan Wicker"
 categories: journal
 tags: [tennis, data analysis, data frames]
-image: forest.jpg
+image: tennis-djokovic.jpg
 ---
 
 ## Introduction
