@@ -259,6 +259,8 @@ year | name | avg_pct_of_rounds_won_in_all_tournaments
 These above data frames will be joined with the data frames I'll construct in the second and third sections of this post.
   
   
+---  
+  
   
 ## Calculating Player Stats per Year
   
@@ -617,6 +619,10 @@ $ pct_return_games_won_on_defense          <dbl> 0.20312500, 0.16111111, 0.08482
 $ avg_minutes_per_game                     <dbl> 4.029354, 3.994460, 3.751663, 4.250000, 4.235145, 4.109729, 4.406130, ...
 $ avg_pct_of_rounds_won_in_all_tournaments <dbl> 0.26530612, 0.05396825, 0.11666667, 0.20000000, 0.12941176, 0.10297619...
 ```
+
+---
+
+
 ## Calculating Player Stats Overall
   
 In the final main section of this post, I'll be detailing how I constructed the Creating `atp_stats_overall_by_player` data frame.  This data frame is extremely similar to the `atp_stats_by_player_by_year` data frame created in the previous section, except that this new data frame will contain ovearll player statistics.  In other words, each row will contain a player's averaged match stats for all years that player was in the original data frame.
