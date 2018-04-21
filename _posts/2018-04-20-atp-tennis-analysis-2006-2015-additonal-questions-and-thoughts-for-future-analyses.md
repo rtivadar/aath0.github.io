@@ -4,5 +4,5 @@ title: "ATP Tennis Analysis, 2006 - 2015: Additional Questions and Thoughts for 
 author: "Ethan Wicker"
 categories: journal
 tags: [tennis, data analysis, data frames]
-image: forest.jpg
+image: tennis-tsonga.jpg
 ---
