@@ -73,6 +73,9 @@ The below R code relies heavily on the `dplyr` package, inparticular the `filer`
 
 This post will be divided into three main sections.  By the end of the three sections, I will have described how I created two very useful data frames: `atp_stats_by_player_by_year` and `atp_stats_overall_by_player`.
 
+
+
+
 ## Contents and Section Summaries
 
 1. Calculating Percent of Rounds Won in Tournaments
@@ -89,6 +92,8 @@ This post will be divided into three main sections.  By the end of the three sec
 
     * In this section, I will construct `atp_stats_overall_by_player`, a data frame that contains information on match statistics       for each player.  This will be overall statistics for each player across all years of my dataset.
     * These statistics will be nearly identical to the statistics in the data frame constructed in the second section.
+  
+  
   
 ## Calculating Percent of Rounds Won in Tournaments
   
@@ -125,14 +130,14 @@ setnames(atp_last_round_player_won_by_tournament, old = "winner_name", new = "na
 
 To give you a feel for this data frame, below is the first six rows of the data frame provided by calling   `head(atp_last_round_player_won_by_tournament)`.
 
-  tourney_name | tourney_date | name | number_round_of_tournament_advanced_through
-  ------------ |------------- | ---- | -------------------------------------------
-1 Acapulco   |  2006-02-27 |  Agustin Calleri                      |                   4.00
-2 Acapulco   |  2006-02-27 |  Albert Montanes                      |                   4.00
-3 Acapulco   |  2006-02-27 |  Alberto Martin                       |                   3.00
-4 Acapulco   |  2006-02-27 |  Alessio Di Mauro                     |                   4.00
-5 Acapulco   |  2006-02-27 |  Boris Pashanski                      |                   3.00
-6 Acapulco   |  2006-02-27 |  Carlos Moya                          |                   3.00
+tourney_name | tourney_date | name | number_round_of_tournament_advanced_through
+------------ |------------- | ---- | -------------------------------------------
+Acapulco   |  2006-02-27 |  Agustin Calleri                      |                   4.00
+Acapulco   |  2006-02-27 |  Albert Montanes                      |                   4.00
+Acapulco   |  2006-02-27 |  Alberto Martin                       |                   3.00
+Acapulco   |  2006-02-27 |  Alessio Di Mauro                     |                   4.00
+Acapulco   |  2006-02-27 |  Boris Pashanski                      |                   3.00
+Acapulco   |  2006-02-27 |  Carlos Moya                          |                   3.00
 
 In the `atp_last_round_player_won_by_tournament` data frame created above, I only have information on players who won at least one match per tournament.  To get the remaining players who lost in the first round of any given tournament, I used a similar method to the above, with some slight alterations.
 
@@ -229,27 +234,29 @@ So far in this post, I have created two data frames.  These data frames are `atp
 
 These data frames are very similar to each other.  They each show how far a player advances through a tournament on average, as a percent.  The first data frame shows this as an average across all years a player is in the original data set.  Below is the first six rows of the `atp_pct_rounds_won_overall_by_player data frame`.  For example, across all years he was in my data frame and all the tournaments he played in, Adrian Mannarino won an average of 13.8% of rounds
 
-  name | avg_pct_of_rounds_won_in_all_tournaments
-  ---- | ----------------------------------------
-1 Abdulla Hajji | 0     
-2 Adrian Cruciat | 0     
-3 Adrian Garcia | 0     
-4 Adrian Mannarino | 0.138 
-5 Adrian Menendez Maceiras | 0.0286
-6 Adrian Ungur | 0.0410
+name | avg_pct_of_rounds_won_in_all_tournaments
+---- | ----------------------------------------
+Abdulla Hajji | 0     
+Adrian Cruciat | 0     
+Adrian Garcia | 0     
+Adrian Mannarino | 0.138 
+Adrian Menendez Maceiras | 0.0286
+Adrian Ungur | 0.0410
 
 The second data frame shows this as an average for each year a player is in my data frame.  As such, `atp_pct_rounds_won_by_year_by_player` contains a row for each year a player is in the data set.  For example, in 2006, Agustin Calleri advanced through 27.6% of all tournament rounds.
 
-  year | name | avg_pct_of_rounds_won_in_all_tournaments
-  ---- | ---- | ----------------------------------------
-1 2006 | Adrian Garcia | 0    
-2 2006 | Agustin Calleri | 0.276
-3 2006 | Aisam Ul Haq Qureshi | 0    
-4 2006 | Akash Wagh | 0    
-5 2006 | Alan Mackin | 0    
-6 2006 | Albert Costa |0.167
+year | name | avg_pct_of_rounds_won_in_all_tournaments
+---- | ---- | ----------------------------------------
+2006 | Adrian Garcia | 0    
+2006 | Agustin Calleri | 0.276
+2006 | Aisam Ul Haq Qureshi | 0    
+2006 | Akash Wagh | 0    
+2006 | Alan Mackin | 0    
+2006 | Albert Costa |0.167
 
 These above data frames will be joined with the data frames I'll construct in the second and third sections of this post.
+  
+  
   
 ## Calculating Player Stats per Year
   
