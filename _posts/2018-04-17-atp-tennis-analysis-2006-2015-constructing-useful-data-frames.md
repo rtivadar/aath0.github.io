@@ -77,18 +77,18 @@ This post will be divided into three main sections.  By the end of the three sec
 
 1. Calculating Percent of Rounds Won in Tournaments
 
-    * In this section, I will describe a metric I created, namely determining how far a player advances in a tournament on average, as a         percent.  
-    * I will create two data frames in this section.  The first data frame, `atp_pct_rounds_won_overall_by_player`, contains a percentage       for each player of how far that player advanced through tournaments on average, aggregated over all years in my dataset.  The second       data frame, `atp_pct_rounds_won_by_year_by_player`, contains a percentage for each player of how far that player advanced through         tournaments on average, per year.
+  * In this section, I will describe a metric I created, namely determining how far a player advances in a tournament on average, as a         percent.  
+  * I will create two data frames in this section.  The first data frame, `atp_pct_rounds_won_overall_by_player`, contains a percentage       for each player of how far that player advanced through tournaments on average, aggregated over all years in my dataset.  The second       data frame, `atp_pct_rounds_won_by_year_by_player`, contains a percentage for each player of how far that player advanced through         tournaments on average, per year.
   
 2. Calculating Player Stats per Year
 
-    * In this section, I will construct `atp_pct_rounds_won_overall_by_player`, a data frame that contains information on match statistics       for each player, per year.  
-    * Examples of statistics that will be included are percentage of service games won, and percentage break points forced, among many           more.
+  * In this section, I will construct `atp_pct_rounds_won_overall_by_player`, a data frame that contains information on match statistics       for each player, per year.  
+  * Examples of statistics that will be included are percentage of service games won, and percentage break points forced, among many           more.
 
 3. Calculating Player Stats Overall
 
-    * In this section, I will construct `atp_pct_rounds_won_by_year_by_player`, a data frame that contains information on match statistics       for each player.  This will be overall statistics for each player across all years of my dataset.
-    * These statistics will be nearly identical to the statistics in the data frame constructed in the second section.
+  * In this section, I will construct `atp_pct_rounds_won_by_year_by_player`, a data frame that contains information on match statistics       for each player.  This will be overall statistics for each player across all years of my dataset.
+  * These statistics will be nearly identical to the statistics in the data frame constructed in the second section.
   
 ## Calculating Percent of Rounds Won in Tournaments
   
