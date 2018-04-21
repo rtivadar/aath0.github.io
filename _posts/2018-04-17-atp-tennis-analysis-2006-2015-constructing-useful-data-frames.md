@@ -93,14 +93,7 @@ This post will be divided into three main sections.  By the end of the three sec
     * In this section, I will construct `atp_stats_overall_by_player`, a data frame that contains information on match statistics       for each player.  This will be overall statistics for each player across all years of my dataset.
     * These statistics will be nearly identical to the statistics in the data frame constructed in the second section.
   
- 
- 
- 
- 
- 
- 
- 
- 
+
 ---  
   
   
@@ -123,7 +116,7 @@ To create my metric, I relied on how R defines the levels in a factor variable. 
 
 For example, R assigns the `R128` level, representing the round of 128 players, the number 1.  Similar, R assigns the `R64` level the number 2, and so on.
 
-To begin determining how far a player advances through a tournament, I first determined the last round that player won, for each tournament.  To do this, I first grouped `atp` by `tourney_name`, `tourney_date`, and `winner_name`.  This grouped the data for each combination of a tournament, the year of that tournament, and all the players who won a match in that tournament.  Since I only need the last round a player won, I used the `summarize` function and the `max` function to create a data frame that holds information on each tournament, tournamenament date, winner name, and the last round of a tournament that player won.  
+To begin determining how far a player advances through a tournament, I first determined the last round that player won, for each tournament.  To do this, I first grouped `atp` by `tourney_name`, `tourney_date`, and `winner_name`.  This grouped the data for each combination of a tournament, the year of that tournament, and all the players who won a match in that tournament.  Since I only need the last round a player won, I used the `summarize` function and the `max` function to create a data frame that holds information on each tournament, tournament date, winner name, and the last round of a tournament that player won.  
 
 Remember, I'm utilizing the under the hood numerical assignment of levels in a factor variable to do this.  Thus the `number_round_of_tournament_advanced_through` variable in the below data frame is simply a vector of integers, all between 1 and 8.
 
