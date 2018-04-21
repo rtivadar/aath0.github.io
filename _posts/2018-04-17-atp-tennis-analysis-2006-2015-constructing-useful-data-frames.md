@@ -94,11 +94,11 @@ This post will be divided into three main sections.  By the end of the three sec
   
 As briefly mentioned in the short preview above, in this section, I will be constructing two similiar data frames.  These data frames are `atp_pct_rounds_won_overall_by_player` and `atp_pct_rounds_won_by_year_by_player`.
   
-Before I begin my discussion of how I constructed these data frames, I first need to explain the metric I am creating.  In short, I wanted  a way to quantify how far a player typically advances through a tournament, to see which players usually win more rounds than over players.  The clear problem here is that not all tournaments have the same number of rounds.  So winning a quarterfinal match in a grandslam where the draw size is 128 players isn't the same as winning a quarterfinal match in a much smaller tournament with a draw size of 32.
+Before I begin my discussion of how I constructed these data frames, I first need to explain the metric I am creating.  In short, I wanted  a way to quantify how far a player typically advances through a tournament, in order to see which players usually win more rounds than other players.  The clear problem here is that not all tournaments have the same number of rounds.  So winning a quarterfinal match in a grand slam (where the draw size is 128 players) isn't the same as winning a quarterfinal match in a much smaller tournament (with a draw size of say 32).
 
 To quantify how far a player advanced in a tournament, I determined how many rounds of that tournament the player won, and then averaged these percentages out to get the yearly and overall percentages per player.
 
-The metric works like this:  If a player wins no rounds in the tournament, that player advanced through 0% of the tournament.  If a player wins the entire tournament, that player advanced through 100% of the tournament.  If a player wins three rounds of a seven round tournament, but loses in the fourth round, then that player advanced through 3/7 = 42.86% of the tournament.
+The metric works like this:  If a player wins no rounds in the tournament, that player advanced through 0% of the tournament.  If a player wins the entire tournament, that player advanced through 100% of the tournament.  If a player wins three rounds of a seven round tournament, but loses in the fourth round, then that player advanced through \\( 3/7 \\) = 42.86% of the tournament.
 
 To create my metric, I relied on how R defines the levels in a factor variable.  Under the hood, R assigns each level in a factor a number, determined by the ordering of the levels.  In my previous post, I defined the ordering of the `round` variable.  The ordering is below, provided via the `levels` function:
 
