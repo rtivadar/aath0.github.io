@@ -9,7 +9,7 @@ I graduated from North Carolina State University in 2017 with a BS in Mathematic
 
 In addition to my math background, so far I've completed both of DataCamp's R Programmer and Data Analyst career tracks, approximately 76 or so hours of material.  I've also completed an 8.5 hour SQL bootcamp course on Udemy, and have read numerous blogs and articles, and have listened to various podcasts.
 
-This blog has there main purposes.
+This blog has three main purposes.
 
 * To provide myself with a creative space and platform to post my personal data analytics projects
 * To provide a future employer proof of my analytic, problem solving, and communication skills.
