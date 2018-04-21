@@ -3,25 +3,27 @@ layout: page
 title: Hi, I'm Ethan!
 ---
 
-I'm going to come back and update this later.
+I'm Ethan Wicker.  I'm a future Data Analyst and a current AP Statistics Teacher at East Chapel Hill High School in Chapel Hill, NC.
 
-For now, I'm an future Data Analyst and a current AP Statistics Teacher at East Chapel Hill High School.
+I graduated from North Carolina State University in 2017 with a BS in Mathematics and a BS in Mathematics Education.  After teaching for a year, I decided to supplement my own education and get in the field of data analytics.  This is my personal blog and portfolio.
 
-This blog has three purposes.  I'll come back and add detail to this later.
+In addition to my math background, so far I've completed both of DataCamp's R Programmer and Data Analyst career tracks, approximately 76 or so hours of material.  I've also completed an 8.5 hour SQL bootcamp course on Udemy, and have read numerous blogs and articles, and have listened to various podcasts.
 
-For now though, the purposes of this blog are
+This blog has ____ main purposes.
 
-* to give myself a creative space and platform to post my personal data analytics projects
-* to give potentional employers proof of my analytical abilities
-* to provide an education resource to anyone new to data analytics or the statistical analytics languaage R.  I hope my posts will be engaging and useful, but also clear and concise, and easy to understand.
-
-
+* To provide myself with a creative space and platform to post my personal data analytics projects
+* To provide a future employer proof of my analytic, problem solving, and communication skills.
+* To serve as a clear and easy to understand education resource for anyone new to data analytics who happens to stumble by.  Currently the majority of my posts will be using the analytics language R, but that may evolve some in the future.
 
 
-# Want to know how I built this blog?
 
-Update this information - give credit to LeNPaul - link his github and Lagrange theme - say thanks.
+---
 
-include some difficulties I had & how fixed
 
-This theme is completely free and open source software. You may use it however you want, as it is distributed under the [MIT License](http://choosealicense.com/licenses/mit/). If you are having any problems, any questions or suggestions, feel free to [tweet at me](https://twitter.com/intent/tweet?text=My%question%about%Lagrange%is:%&amp;via=paululele), or [file a GitHub issue](https://github.com/lenpaul/lagrange/issues/new).
+## Want to know how I built this blog?
+
+Under construction!
+
+- give credit to Paul Le - link his github and Lagrange theme - say thanks.
+- include picking theme from Jekyll Themese, creating repository on github called username.github.io (master branch or gh-pages branch
+- how I changed the page width to better fit my needs
