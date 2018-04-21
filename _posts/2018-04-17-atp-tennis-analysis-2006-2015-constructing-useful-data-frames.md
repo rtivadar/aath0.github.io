@@ -122,7 +122,7 @@ atp_last_round_player_won_by_tournament <- atp %>%
 # Renaming "winner_name" to "name"
 setnames(atp_last_round_player_won_by_tournament, old = "winner_name", new = "name")
 ```
-
+```r
 > head(atp_last_round_player_won_by_tournament)
 
   tourney_name | tourney_date | name | number_round_of_tournament_advanced_through
@@ -133,7 +133,7 @@ setnames(atp_last_round_player_won_by_tournament, old = "winner_name", new = "na
 4 Acapulco   |  2006-02-27 |  Alessio Di Mauro                     |                   4.00
 5 Acapulco   |  2006-02-27 |  Boris Pashanski                      |                   3.00
 6 Acapulco   |  2006-02-27 |  Carlos Moya                          |                   3.00
-
+```
 
 
 
