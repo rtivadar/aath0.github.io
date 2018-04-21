@@ -632,11 +632,11 @@ $ avg_pct_of_rounds_won_in_all_tournaments <dbl> 0.26530612, 0.05396825, 0.11666
 
 ## 3. Calculating Player Stats Overall
   
-In the final main section of this post, I'll be detailing how I constructed the Creating `atp_stats_overall_by_player` data frame.  This data frame is extremely similar to the `atp_stats_by_player_by_year` data frame created in the previous section, except that this new data frame will contain ovearll player statistics.  In other words, each row will contain a player's averaged match stats for all years that player was in the original data frame.
+In the final section of this post, I'll be detailing how I constructed the `atp_stats_overall_by_player` data frame.  This data frame is extremely similar to the `atp_stats_by_player_by_year` data frame created in the previous section, except that this new data frame will contain ovearll player statistics.  In other words, each row will contain a player's averaged match stats for all years that player was in the original data frame.
   
-My methods used to create the below data frame are almost identical to the methods used above.  In short, I created a data frame for all the match winners, followed by all the match losers, and then joined these data frames together.  After creating this intermediary data frame and performing a little data cleaning, I used `mutate` to determine total counts of match statistics for each player, such as `total_matches_won`.  
+My methods used to create the below data frame are almost identical to the methods used above.  In short, I created a data frame for all the match winners, followed by all the match losers, and then joined these data frames together.  After creating this intermediary data frame and performing a little data cleaning, I used `mutate` to determine total counts of match statistics for each player, such as `total_matches_won` and `total_minutes`.  
 
-Finally, from these total counts, I used `mutute` once more to construct overall match percentages for each individual player.  The statistics calculated are identical to those calculated in the second section.
+Finally, from these total counts, I used `mutute` once more to construct overall match percentages for each individual player.  The statistics calculated are identical to those calculated in the second section above.
 
 The main difference in constructing `atp_stats_overall_by_player` from `atp_stats_by_player_by_year` was grouping only by the player ID variable, and not both the player ID variable and `year`.
 
@@ -699,7 +699,7 @@ atp_player_info <- atp[ , player_info_columns]
 atp_player_info <- unique(atp_player_info)
 ```
 
-The below code is joinig the match loser and player information data frames together, on the `loser_id` variable.  Then I used the `setnames` function to change some volumn names, and lastly joined the match winner and match loser data frames together to create `atp_grouped_by_player_id`.
+The below code is joining the match loser and player information data frames together, on the `loser_id` variable.  Then I used the `setnames` function to change some column names, and lastly joined the match winner and match loser data frames together to create `atp_grouped_by_player_id`.
 
 ```
 atp_grouped_by_loser_id <- full_join(atp_grouped_by_loser_id, atp_player_info, by = "loser_id")
@@ -815,7 +815,7 @@ Subsetting the `atp_grouped_by_player_id` data frame to get just the player info
 atp_stats_overall_by_player <- atp_grouped_by_player_id %>% select(player_id:height, starts_with("total"))
 ````
 
-Finally, I am using `mutate` once more to calculate a players overall statistics in terms of percentages.  You can see below how each percentage was calculated.
+Finally, I am using `mutate` once more to calculate a player's overall statistics in terms of percentages.  You can see below how each percentage was calculated.
 
 ```r
 # Mutating to add columns for various overall player stats
