@@ -122,8 +122,8 @@ atp_last_round_player_won_by_tournament <- atp %>%
 # Renaming "winner_name" to "name"
 setnames(atp_last_round_player_won_by_tournament, old = "winner_name", new = "name")
 ```
-```r
-> head(atp_last_round_player_won_by_tournament)
+
+To give you a feel for this data frame, below is the first six rows of the data frame provided by calling   `head(atp_last_round_player_won_by_tournament)`.
 
   tourney_name | tourney_date | name | number_round_of_tournament_advanced_through
   ------------ |------------- | ---- | -------------------------------------------
@@ -133,10 +133,6 @@ setnames(atp_last_round_player_won_by_tournament, old = "winner_name", new = "na
 4 Acapulco   |  2006-02-27 |  Alessio Di Mauro                     |                   4.00
 5 Acapulco   |  2006-02-27 |  Boris Pashanski                      |                   3.00
 6 Acapulco   |  2006-02-27 |  Carlos Moya                          |                   3.00
-```
-
-
-
 
 In the `atp_last_round_player_won_by_tournament` data frame created above, I only have information on players who won at least one match per tournament.  To get the remaining players who lost in the first round of any given tournament, I used a similar method to the above, with some slight alterations.
 
@@ -144,12 +140,11 @@ To determine which players lost in the first round, I grouped `atp` by `tourney_
 
 However, here I only want those players that lost in the first round, and not those that lost in any other round.  To determine those players, I first need to know the the number of the first round in the tournament.  Notice here that this will change depending on the tournament.  For example, the first round of the US Open is the round of 128, and R assigned the `R128` level of the round variable the number 1.  For a different sized tournament, say Acapulco with a draw size of only 32 players, the first round for this tournament is the round of 32, but R assigned the `R32` level of the round variable the number 3.
 
-To determine the number of the first round of each tournament, I grouped the data by `tourney_name` and `tourney_date` and then filtered the data such that the resulting data frame had only those players who lost in the first round using the `min` function.
+To determine the number of the first round of each tournament, I grouped the data by `tourney_name` and `tourney_date` and then filtered the data with the `min` function such that the resulting data frame had only those players who lost in the first round of a tournment.
 
-Lastly here, I used `mutate` to subtract 1 from each value in the `number_round_of_tournament_advanced_through` variable.  This needed to be done, because even though a losing player may have played in the first round of a tournament, that player did not actually win that round.  Subtracting 1 from each of these values allows me to later determine which players advances through 0 rounds of a tournament.
+Lastly here, I used `mutate` to subtract 1 from each value in the `number_round_of_tournament_advanced_through` variable.  This needed to be done, because even though a losing player may have played in the first round of a tournament, that player did not actually win that round.  Subtracting 1 from each of these values allows me to later determine which players advances through 0 rounds of a tournament, and thus 0%.
 
 ```r
-
 # Creating data frame where players lost in the first round of a tournament
 atp_first_round_losers_by_tournament <- atp %>% 
   group_by(tourney_name, tourney_date, loser_name) %>% 
@@ -161,38 +156,31 @@ atp_first_round_losers_by_tournament <- atp %>%
 
 # Renaming "loser_name" to "name"
 setnames(atp_first_round_losers_by_tournament, old = "loser_name", new = "name")
-
 ```
 
 After creating these two separate data frames, one containing the last round of a tournament a player won, and the other containing any player who lost in the first round of a tournament, I used `bind_rows` from `dplyr` to combine them into one one data frame.  At this point, this data frame contains information on the number of the round a player last advanced through, for each combination of player and tournament in the original `atp` data frame.
 
 ```r
-
 atp_pct_rounds_won_by_tournament_by_year <- bind_rows(atp_last_round_player_won_by_tournament, 
                                                       atp_first_round_losers_by_tournament)
-
 ```
 
 Next, I determined the number of rounds that are in each tournament.  To create `atp_number_of_rounds_by_tournament`, I first grouped by the `tourney_name` and `tourney_date` variables.  I grouped by both of these variables, as opposed to just `tourney_name`, as some tournaments may change their size between years.  I then used summarize to create an index variable for the number of the first round of each tournament, as well as to determine the number of rounds in each tournament.
 
 ```r
-
 # Determining how many rounds are in a tournament, per year
 atp_number_of_rounds_by_tournament <- atp %>% 
   group_by(tourney_name, tourney_date) %>% 
   summarize(index_of_first_round_in_tournament = min(as.numeric(round)),
-            number_rounds_in_tournament = max(as.numeric(round)) - min(as.numeric(round)) + 1)
-            
+            number_rounds_in_tournament = max(as.numeric(round)) - min(as.numeric(round)) + 1)          
 ```
 
 After creating the above data frame which contains information on the number of rounds in each tournament, I created `atp_pct_rounds_won_by_tournament_by_year` by joining the previous two data frames together.  To do this, I used the `full_join` command available in the `dplyr` package.  
 
 ```r
-
 atp_pct_rounds_won_by_tournament_by_year <- full_join(atp_pct_rounds_won_by_tournament_by_year, 
                                                       atp_number_of_rounds_by_tournament,  
                                                       by = c("tourney_name", "tourney_date"))
-
 ```
 
 After joining the above data frames to create `atp_pct_rounds_won_by_tournament_by_year`, I just need a few more steps to finish off constructing one of the data frames needed for my analysis.  
@@ -204,7 +192,6 @@ Next, I used `filter` to filter out all of the matches played at the ATP World T
 Finally, I created `atp_pct_rounds_won_overall_by_player` by grouping `atp_pct_rounds_won_by_tournament_by_year` by the player's name, and using `summarize` and `mean` to determine the average percentage of rounds won in all tournaments, per player.
 
 ```r
-
 # Calculating percent of rounds a player won in tournament, for each tournament
 atp_pct_rounds_won_by_tournament_by_year <- atp_pct_rounds_won_by_tournament_by_year %>%
   mutate(pct_of_rounds_won_in_tournament = (number_round_of_tournament_advanced_through - index_of_first_round_in_tournament + 1)/
@@ -218,7 +205,6 @@ atp_pct_rounds_won_by_tournament_by_year <- atp_pct_rounds_won_by_tournament_by_
 atp_pct_rounds_won_overall_by_player <- atp_pct_rounds_won_by_tournament_by_year %>% 
   group_by(name) %>% 
   summarize(avg_pct_of_rounds_won_in_all_tournaments = mean(pct_of_rounds_won_in_tournament))
-  
 ```
 
 So far, I have determined a player's overall average percent of rounds won in a tournament.
@@ -230,7 +216,6 @@ To determine an average for a entire year, I need to be able to group my data by
 Now with `year` as a separate variable, I was able to group by `year` and `name`, and them summarize to find the average percentage of rounds a player won in all tournaments for each year that player is in my data set.
 
 ```r
-
 atp_pct_rounds_won_by_tournament_by_year_ymd_separated <- atp_pct_rounds_won_by_tournament_by_year %>% 
   separate(tourney_date, into = c("year", "month", "date"), sep = "-")
 
@@ -238,18 +223,31 @@ atp_pct_rounds_won_by_tournament_by_year_ymd_separated <- atp_pct_rounds_won_by_
 atp_pct_rounds_won_by_year_by_player <- atp_pct_rounds_won_by_tournament_by_year_ymd_separated %>% 
   group_by(year, name) %>% 
   summarize(avg_pct_of_rounds_won_in_all_tournaments = mean(pct_of_rounds_won_in_tournament))
-
 ```
 
 So far in this post, I have created two data frames.  These data frames are `atp_pct_rounds_won_overall_by_player` and `atp_pct_rounds_won_by_year_by_player`.  
 
-These data frames are very similar to each other.  They each show how far a player advances through a tournament on average, as a percent.  The first data frame shows this as an average across all years a player is in the original data set.  
+These data frames are very similar to each other.  They each show how far a player advances through a tournament on average, as a percent.  The first data frame shows this as an average across all years a player is in the original data set.  Below is the first six rows of the `atp_pct_rounds_won_overall_by_player data frame`.  For example, across all years he was in my data frame and all the tournaments he played in, Adrian Mannarino won an average of 13.8% of rounds
 
-(INSERT TABLE OF DATA)
+  name | avg_pct_of_rounds_won_in_all_tournaments
+  ----   ----------------------------------------
+1 Abdulla Hajji | 0     
+2 Adrian Cruciat | 0     
+3 Adrian Garcia | 0     
+4 Adrian Mannarino | 0.138 
+5 Adrian Menendez Maceiras | 0.0286
+6 Adrian Ungur | 0.0410
 
-The second data frame shows this as an average for each year a player is in my data frame.  As such, `atp_pct_rounds_won_by_year_by_player` contains a row for each year a player is in the data set.
+The second data frame shows this as an average for each year a player is in my data frame.  As such, `atp_pct_rounds_won_by_year_by_player` contains a row for each year a player is in the data set.  For example, in 2006, Agustin Calleri advanced through 27.6% of all tournament rounds.
 
-(INSERT TABLE OF DATA)
+  year | name | avg_pct_of_rounds_won_in_all_tournaments
+  ----   ----   ----------------------------------------
+1 2006 | Adrian Garcia | 0    
+2 2006 | Agustin Calleri | 0.276
+3 2006 | Aisam Ul Haq Qureshi | 0    
+4 2006 | Akash Wagh | 0    
+5 2006 | Alan Mackin | 0    
+6 2006 | Albert Costa |0.167
 
 These above data frames will be joined with the data frames I'll construct in the second and third sections of this post.
   
