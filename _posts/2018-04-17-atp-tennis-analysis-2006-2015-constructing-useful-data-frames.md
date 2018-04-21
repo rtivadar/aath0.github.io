@@ -103,22 +103,17 @@ The metric works like this:  If a player wins no rounds in the tournament, that 
 To create my metric, I relied on how R defines the levels in a factor variable.  Under the hood, R assigns each level in a factor a number, determined by the ordering of the levels.  In my previous post, I defined the ordering of the `round` variable.  The ordering is below, provided via the `levels` function:
 
 ```
-
 > levels(atp$round)
 [1] "R128" "R64"  "R32"  "R16"  "QF"   "SF"   "F"    "RR"  
-
 ```
 
 For example, R assigns the `R128` level, representing the round of 128 players, the number 1.  Similar, R assigns the `R64` level the number 2, and so on.
 
-To begin determining how far a player advances through a tournament, I first determined the last round that player won, for each tournament.  To do this, I first grouped `atp` by `tourney_name`, `tourney_date`, and `winner_name`.  This grouped the data for each combination of a tournament, the year of that tournament, and all the players who won a match in that tournament.  Since I only need the last round a player won, I used the `summarize` function and the `max` function to create a data frame of each tournament, tournamenament date, winner name, and the last round of a tournament that player won.  
+To begin determining how far a player advances through a tournament, I first determined the last round that player won, for each tournament.  To do this, I first grouped `atp` by `tourney_name`, `tourney_date`, and `winner_name`.  This grouped the data for each combination of a tournament, the year of that tournament, and all the players who won a match in that tournament.  Since I only need the last round a player won, I used the `summarize` function and the `max` function to create a data frame that holds information on each tournament, tournamenament date, winner name, and the last round of a tournament that player won.  
 
-Remember, I'm utilizing the under the hood numerical assignment of levels in a factor variable to do this.  Thus `number_round_of_tournament_advanced_through` variable in the below data frame is a simply a vector of integers, all between 1 and 8.
-
-(INSERT PREVIEW OF DATA FRAME)
+Remember, I'm utilizing the under the hood numerical assignment of levels in a factor variable to do this.  Thus the `number_round_of_tournament_advanced_through` variable in the below data frame is simply a vector of integers, all between 1 and 8.
 
 ```r
-  
   # Determining the last round a player won
 atp_last_round_player_won_by_tournament <- atp %>% 
   group_by(tourney_name, tourney_date, winner_name) %>% 
@@ -126,8 +121,23 @@ atp_last_round_player_won_by_tournament <- atp %>%
 
 # Renaming "winner_name" to "name"
 setnames(atp_last_round_player_won_by_tournament, old = "winner_name", new = "name")
-
 ```
+
+> head(atp_last_round_player_won_by_tournament)
+
+  tourney_name | tourney_date | name | number_round_of_tournament_advanced_through
+  ------------ |------------- | ---- | -------------------------------------------
+1 Acapulco   |  2006-02-27 |  Agustin Calleri                      |                   4.00
+2 Acapulco   |  2006-02-27 |  Albert Montanes                      |                   4.00
+3 Acapulco   |  2006-02-27 |  Alberto Martin                       |                   3.00
+4 Acapulco   |  2006-02-27 |  Alessio Di Mauro                     |                   4.00
+5 Acapulco   |  2006-02-27 |  Boris Pashanski                      |                   3.00
+6 Acapulco   |  2006-02-27 |  Carlos Moya                          |                   3.00
+
+
+
+
+
 In the `atp_last_round_player_won_by_tournament` data frame created above, I only have information on players who won at least one match per tournament.  To get the remaining players who lost in the first round of any given tournament, I used a similar method to the above, with some slight alterations.
 
 To determine which players lost in the first round, I grouped `atp` by `tourney_name`, `tourney_date`, `loser_name`, and once again summarized using `max` to determine the last round a player played in at any given tournament.  
