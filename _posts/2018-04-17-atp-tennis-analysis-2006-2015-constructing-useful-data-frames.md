@@ -506,8 +506,322 @@ atp_stats_by_player_by_year <- atp_stats_by_player_by_year %>%
                                             by = c("year", "name"))
 ```
 
-For clarity, below is the struture of the `atp_stats_by_player_by_year`.  It contains various player statistics, by year.  In subsequent posts, I'll use this data frame, as well as the data frame I'll create in the next 
+For clarity, below is the struture of the `atp_stats_by_player_by_year`.  It contains various player statistics, by year.  In subsequent posts, I'll use this data frame to answer some interesting questions, such as do left handed players have an advantage, and what separates the great players from everyone else.
 
-  
-  
+```r
+> glimpse(atp_stats_by_player_by_year)
+Observations: 3,127
+Variables: 43
+$ year                                     <chr> "2006", "2006", "2006", "2006", "2006", "2006", "2006", "2006", "2006"...
+$ player_id                                <int> 101736, 101868, 101885, 101962, 102035, 102106, 102148, 102179, 102202...
+$ name                                     <chr> "Andre Agassi", "Dick Norman", "Wayne Arthurs", "Younes El Aynaoui", "...
+$ ioc                                      <chr> "USA", "BEL", "AUS", "MAR", "SWE", "ITA", "FRA", "FRA", "DEN", "ESP", ...
+$ age                                      <dbl> 36, 35, 35, 34, 34, 34, 33, 33, 33, 33, 33, 32, 32, 33, 32, 32, 32, 31...
+$ hand                                     <fct> Right, Left, Left, Right, Right, Right, Right, Right, Left, Right, Lef...
+$ avg_rank                                 <dbl> 18.69, 106.61, 151.95, 223.75, 60.63, 59.11, 49.84, 160.00, 102.89, 19...
+$ height                                   <dbl> 180, 203, 190, 193, 183, 188, 178, 185, 190, 190, 193, 185, 188, 173, ...
+$ total_matches_won                        <dbl> 10, 3, 6, 2, 13, 11, 18, 1, 14, 2, 6, 1, 8, 1, 12, 16, 31, 4, 4, 11, 9...
+$ total_matches_lost                       <int> 8, 9, 10, 1, 17, 24, 23, 2, 17, 3, 14, 2, 12, 2, 20, 26, 20, 11, 12, 1...
+$ total_matches_played                     <dbl> 18, 12, 16, 3, 30, 35, 41, 3, 31, 5, 20, 3, 20, 3, 32, 42, 51, 15, 16,...
+$ total_games_served                       <dbl> 255, 181, 227, 30, 398, 438, 528, 36, 373, 68, 225, 35, 230, 36, 389, ...
+$ total_aces                               <dbl> 162, 132, 308, 17, 129, 168, 175, 23, 226, 38, 117, 29, 99, 4, 115, 14...
+$ total_double_fault                       <dbl> 55, 81, 76, 6, 105, 80, 106, 5, 65, 7, 89, 19, 66, 3, 58, 125, 119, 64...
+$ total_service_points                     <dbl> 1655, 1260, 1384, 174, 2468, 2903, 3514, 241, 2327, 454, 1511, 232, 15...
+$ total_first_serves_in                    <dbl> 978, 783, 785, 97, 1493, 1654, 2030, 147, 1430, 275, 920, 140, 796, 15...
+$ total_second_serves_in                   <dbl> 622, 396, 523, 71, 870, 1169, 1378, 89, 832, 172, 502, 73, 643, 92, 87...
+$ total_serves                             <dbl> 2332, 1737, 1983, 251, 3443, 4152, 4998, 335, 3224, 633, 2102, 324, 22...
+$ total_points_won_off_first_serve         <dbl> 702, 540, 639, 76, 1045, 1147, 1380, 107, 1057, 197, 618, 109, 564, 10...
+$ total_points_won_off_second_serve        <dbl> 362, 210, 322, 39, 458, 614, 716, 50, 451, 100, 276, 43, 315, 50, 470,...
+$ total_break_points_faced                 <dbl> 128, 140, 82, 10, 212, 276, 353, 18, 185, 38, 138, 17, 173, 20, 231, 3...
+$ total_break_points_saved                 <dbl> 81, 95, 52, 5, 100, 158, 213, 11, 116, 27, 76, 10, 101, 12, 129, 243, ...
+$ total_break_points_lost                  <dbl> 47, 45, 30, 5, 112, 118, 140, 7, 69, 11, 62, 7, 72, 8, 102, 133, 122, ...
+$ total_break_points_converted_on_defense  <dbl> 52, 29, 19, 7, 91, 82, 129, 5, 64, 12, 34, 2, 51, 4, 77, 131, 151, 38,...
+$ total_break_points_forced_on_defense     <dbl> 142, 77, 65, 25, 216, 221, 297, 15, 178, 41, 89, 23, 122, 7, 225, 351,...
+$ total_return_games_on_defense            <dbl> 256, 180, 224, 30, 393, 446, 516, 36, 374, 66, 223, 36, 235, 38, 394, ...
+$ total_games_played                       <dbl> 511, 361, 451, 60, 791, 884, 1044, 72, 747, 134, 448, 71, 465, 74, 783...
+$ total_minutes                            <dbl> 2059, 1442, 1692, 255, 3350, 3633, 4600, 289, 3116, 651, 1817, 253, 20...
+$ pct_matches_won                          <dbl> 0.5555556, 0.2500000, 0.3750000, 0.6666667, 0.4333333, 0.3142857, 0.43...
+$ pct_service_games_won                    <dbl> 0.8156863, 0.7513812, 0.8678414, 0.8333333, 0.7185930, 0.7305936, 0.73...
+$ pct_ace_per_service_point                <dbl> 0.09788520, 0.10476190, 0.22254335, 0.09770115, 0.05226904, 0.05787117...
+$ pct_ace_per_serve                        <dbl> 0.06946827, 0.07599309, 0.15532022, 0.06772908, 0.03746733, 0.04046243...
+$ pct_first_serves_in                      <dbl> 0.5909366, 0.6214286, 0.5671965, 0.5574713, 0.6049433, 0.5697554, 0.57...
+$ pct_second_serves_in                     <dbl> 0.9187592, 0.8301887, 0.8731219, 0.9220779, 0.8923077, 0.9359488, 0.92...
+$ pct_double_fault                         <dbl> 0.03323263, 0.06428571, 0.05491329, 0.03448276, 0.04254457, 0.02755770...
+$ pct_points_won_off_first_serve           <dbl> 0.7177914, 0.6896552, 0.8140127, 0.7835052, 0.6999330, 0.6934704, 0.67...
+$ pct_points_won_off_second_serve          <dbl> 0.5347120, 0.4402516, 0.5375626, 0.5064935, 0.4697436, 0.4915933, 0.48...
+$ pct_break_points_saved                   <dbl> 0.6328125, 0.6785714, 0.6341463, 0.5000000, 0.4716981, 0.5724638, 0.60...
+$ pct_break_points_lost                    <dbl> 0.3671875, 0.3214286, 0.3658537, 0.5000000, 0.5283019, 0.4275362, 0.39...
+$ pct_break_points_converted_on_defense    <dbl> 0.36619718, 0.37662338, 0.29230769, 0.28000000, 0.42129630, 0.37104072...
+$ pct_return_games_won_on_defense          <dbl> 0.20312500, 0.16111111, 0.08482143, 0.23333333, 0.23155216, 0.18385650...
+$ avg_minutes_per_game                     <dbl> 4.029354, 3.994460, 3.751663, 4.250000, 4.235145, 4.109729, 4.406130, ...
+$ avg_pct_of_rounds_won_in_all_tournaments <dbl> 0.26530612, 0.05396825, 0.11666667, 0.20000000, 0.12941176, 0.10297619...
+```
   ## Calculating Player Stats Overall
+  
+In the final main section of this post, I'll be detailing how I constructed the Creating `atp_stats_overall_by_player` data frame.  This data frame is extremely similar to the `atp_stats_by_player_by_year` data frame created in the previous section, except that this new data frame will contain ovearll player statistics.  In other words, each row will contain a player's averaged match stats for all years that player was in the original data frame.
+  
+My methods used to create the below data frame are almost identical to the methods used above.  In short, I created a data frame for all the match winners, followed by all the match losers, and then joined these data frames together.  After creating this intermediary data frame and performing a little data cleaning, I used `mutate` to determine total counts of match statistics for each player, such as `total_matches_won`.  
+
+Finally, from these total counts, I used `mutute` once more to construct overall match percentages for each individual player.  The statistics calculated are identical to those calculated in the second section.
+
+The main difference in constructing `atp_stats_overall_by_player` from `atp_stats_by_player_by_year` was grouping only by the player ID variable, and not both the player ID variable and `year`.
+
+For this reasoning and to eliminate redundencies, my explanations for this section will be sparse.  For more indepth explanations of my thinking and reasoning, refer to the analogous section of the code from the second section. 
+
+The first chunk of code below is constructing the match winner and match loser data frames.
+
+```r
+atp_grouped_by_winner_id <- atp %>% 
+  group_by(winner_id) %>% 
+  summarize(height_as_winner = median(winner_height, na.rm = TRUE),
+            avg_rank_as_winner = mean(winner_rank, na.rm = TRUE),
+            number_matches_won = n(),
+            age_as_winner = mean(winner_age, na.rm = TRUE),
+            ace_as_winner = sum(w_ace, na.rm = TRUE),
+            double_fault_as_winner = sum(w_df, na.rm = TRUE),
+            service_pts_played_as_winner = sum(w_svpt, na.rm = TRUE),
+            first_serves_in_as_winner = sum(w_1stIn, na.rm = TRUE),
+            points_won_off_first_serve_as_winner = sum(w_1stWon, na.rm = TRUE),
+            points_won_off_second_serve_as_winner = sum(w_2ndWon, na.rm = TRUE),
+            games_served_as_winner = sum(w_SvGms, na.rm = TRUE),
+            break_points_saved_as_winner = sum(w_bpSaved, na.rm = TRUE),
+            break_points_faced_as_winner = sum(w_bpFaced, na.rm = TRUE),
+            break_points_lost_as_winner = break_points_faced_as_winner - break_points_saved_as_winner,
+            break_points_converted_on_defense_as_winner = sum(l_bpFaced - l_bpSaved, na.rm = TRUE),
+            break_points_forced_on_defense_as_winner = sum(l_bpFaced, na.rm = TRUE),
+            return_games_on_defense_as_winner = sum(l_SvGms, na.rm = TRUE),
+            minutes_as_winner = sum(minutes, na.rm = TRUE))
+
+
+
+atp_grouped_by_loser_id <- atp %>% 
+  group_by(loser_id) %>% 
+  summarize(height_as_loser = median(loser_height, na.rm = TRUE),
+            avg_rank_as_loser = mean(loser_rank, na.rm = TRUE),
+            number_matches_lost = n(),
+            age_as_loser = mean(loser_age, na.rm = TRUE),
+            ace_as_loser = sum(l_ace, na.rm = TRUE),
+            double_fault_as_loser = sum(l_df, na.rm = TRUE),
+            service_pts_played_as_loser = sum(l_svpt, na.rm = TRUE),
+            first_serves_in_as_loser = sum(l_1stIn, na.rm = TRUE),
+            points_won_off_first_serve_as_loser = sum(l_1stWon, na.rm = TRUE),
+            points_won_off_second_serve_as_loser = sum(l_2ndWon, na.rm = TRUE),
+            games_served_as_loser = sum(l_SvGms, na.rm = TRUE),
+            break_points_saved_as_loser = sum(l_bpSaved, na.rm = TRUE),
+            break_points_faced_as_loser = sum(l_bpFaced, na.rm = TRUE),
+            break_points_lost_as_loser = break_points_faced_as_loser - break_points_saved_as_loser,
+            break_points_converted_on_defense_as_loser = sum(w_bpFaced - w_bpSaved, na.rm = TRUE),
+            break_points_forced_on_defense_as_loser = sum(w_bpFaced, na.rm = TRUE),
+            return_games_on_defense_as_loser = sum(w_SvGms, na.rm = TRUE),
+            minutes_as_loser = sum(minutes, na.rm = TRUE))
+```
+
+The next bit of code below is constructing a data frame that holds player information.
+
+```r
+# No player went undefeated, so using loser information as player information
+player_info_columns <- c("loser_id", "loser_name", "loser_hand", "loser_ioc")
+atp_player_info <- atp[ , player_info_columns]
+atp_player_info <- unique(atp_player_info)
+```
+
+The below code is joinig the match loser and player information data frames together, on the `loser_id` variable.  Then I used the `setnames` function to change some volumn names, and lastly joined the match winner and match loser data frames together to create `atp_grouped_by_player_id`.
+
+```
+atp_grouped_by_loser_id <- full_join(atp_grouped_by_loser_id, atp_player_info, by = "loser_id")
+
+setnames(atp_grouped_by_winner_id, old = "winner_id", new = "player_id")
+setnames(atp_grouped_by_loser_id, 
+         old = c("loser_id", "loser_name", "loser_hand", "loser_ioc"), 
+         new = c("player_id", "name", "hand", "ioc"))
+
+
+
+atp_grouped_by_player_id <- full_join(atp_grouped_by_winner_id, atp_grouped_by_loser_id, by = "player_id")
+```
+
+Below is a little data cleaning to organize player height's more clearly.
+
+```r
+# Deleting winner_as_height column, since loser_as_height is more expansive
+atp_grouped_by_player_id <- subset(atp_grouped_by_player_id, select = -height_as_winner)
+
+setnames(atp_grouped_by_player_id, old = "height_as_loser", new = "height")
+```
+
+When joining the match winner and match loser data frames, lots of `NA`'s where introduced for players who only lost matches.  This problem is being handled below.
+
+```r
+winners_columns_replace_na_with_0 <- list(avg_rank_as_winner = 0,
+                                          number_matches_won = 0,
+                                          ace_as_winner = 0,
+                                          double_fault_as_winner = 0,
+                                          service_pts_played_as_winner = 0,
+                                          first_serves_in_as_winner = 0,
+                                          points_won_off_first_serve_as_winner = 0,
+                                          points_won_off_second_serve_as_winner = 0,
+                                          games_served_as_winner = 0,
+                                          break_points_saved_as_winner = 0,
+                                          break_points_faced_as_winner = 0,
+                                          break_points_lost_as_winner = 0,
+                                          break_points_converted_on_defense_as_winner = 0,
+                                          break_points_forced_on_defense_as_winner = 0,
+                                          return_games_on_defense_as_winner = 0,
+                                          minutes_as_winner = 0)
+
+atp_grouped_by_player_id <-  atp_grouped_by_player_id %>% replace_na(winners_columns_replace_na_with_0)
+```
+
+Constructing the `avg_rank` and `age` variables.
+
+```r
+atp_grouped_by_player_id <- atp_grouped_by_player_id %>% 
+  mutate(avg_rank = round((avg_rank_as_winner + avg_rank_as_loser)/2, digits = 2)) %>% 
+  subset(select = -c(avg_rank_as_winner, avg_rank_as_loser))
+
+
+
+atp_grouped_by_player_id <- atp_grouped_by_player_id %>% 
+  mutate(age = ifelse(!is.na(age_as_winner), round((age_as_winner + age_as_loser)/2), round(age_as_loser))) %>% 
+  subset(select = -c(age_as_winner, age_as_loser))
+```
+
+Here I am reordering columns into a more appropriate order, and also defining the `hand` variable to be a factor.
+
+```r
+atp_grouped_by_player_id <- atp_grouped_by_player_id %>% select(player_id, 
+                                                                name,
+                                                                ioc, 
+                                                                age, 
+                                                                hand, 
+                                                                avg_rank,
+                                                                height,
+                                                                number_matches_won,
+                                                                ace_as_winner:return_games_on_defense_as_winner,
+                                                                number_matches_lost,
+                                                                ace_as_loser:return_games_on_defense_as_loser,
+                                                                minutes_as_winner,
+                                                                minutes_as_loser)
+
+atp_grouped_by_player_id$hand <- as.factor(atp_grouped_by_player_id$hand)
+```
+
+Below I am using `mutate` to find the total counts of various statistics for each player.
+
+```r
+atp_grouped_by_player_id <- atp_grouped_by_player_id %>% 
+  mutate(total_matches_won = number_matches_won,
+         total_matches_lost = number_matches_lost,
+         total_matches_played = total_matches_won + total_matches_lost,
+         total_games_served = games_served_as_winner + games_served_as_loser,
+         total_aces = ace_as_winner + ace_as_loser,
+         total_double_fault = double_fault_as_winner + double_fault_as_loser,
+         total_service_points = service_pts_played_as_winner + service_pts_played_as_loser,
+         total_first_serves_in = first_serves_in_as_winner + first_serves_in_as_loser,
+         total_second_serves_in = total_service_points -total_first_serves_in - total_double_fault,
+         total_serves = total_first_serves_in + 2*(total_second_serves_in + total_double_fault),
+         total_points_won_off_first_serve = points_won_off_first_serve_as_winner + points_won_off_first_serve_as_loser,
+         total_points_won_off_second_serve = points_won_off_second_serve_as_winner + points_won_off_second_serve_as_loser,
+         total_break_points_faced = break_points_faced_as_winner + break_points_faced_as_loser,
+         total_break_points_saved = break_points_saved_as_winner + break_points_saved_as_loser,
+         total_break_points_lost = break_points_lost_as_winner + break_points_lost_as_loser,
+         total_break_points_converted_on_defense = break_points_converted_on_defense_as_winner + 
+           break_points_converted_on_defense_as_loser,
+         total_break_points_forced_on_defense = break_points_forced_on_defense_as_winner +
+           break_points_forced_on_defense_as_loser,
+         total_return_games_on_defense = return_games_on_defense_as_winner + return_games_on_defense_as_loser,
+         total_games_played = total_games_served + total_return_games_on_defense,
+         total_minutes = minutes_as_winner + minutes_as_loser)
+```
+
+Subsetting the `atp_grouped_by_player_id` data frame to get just the player information columns and the overall total statistics columns.  I assigned the resulting data frame to `atp_stats_overall_by_player`.
+
+```r
+# Subsetting to get data frame of just overall totals
+atp_stats_overall_by_player <- atp_grouped_by_player_id %>% select(player_id:height, starts_with("total"))
+````
+
+Finally, I am using `mutate` once more to calculate a players overall statistics in terms of percentages.  You can see below how each percentage was calculated.
+
+```r
+# Mutating to add columns for various overall player stats
+atp_stats_overall_by_player <- atp_stats_overall_by_player %>% 
+                     mutate(pct_matches_won = total_matches_won/total_matches_played,
+                            pct_service_games_won = (total_games_served - total_break_points_lost)/
+                              total_games_served,
+                            pct_ace_per_service_point = total_aces/total_service_points,
+                            pct_ace_per_serve = total_aces/total_serves,                  
+                            pct_first_serves_in = total_first_serves_in/total_service_points,
+                            pct_second_serves_in = total_second_serves_in/
+                              (total_service_points - total_first_serves_in),
+                            pct_double_fault = total_double_fault/total_service_points,
+                            pct_points_won_off_first_serve = total_points_won_off_first_serve/
+                              total_first_serves_in,
+                            pct_points_won_off_second_serve = total_points_won_off_second_serve/
+                              (total_service_points - total_first_serves_in),
+                            pct_break_points_saved = total_break_points_saved/total_break_points_faced,
+                            pct_break_points_lost = total_break_points_lost/total_break_points_faced,
+                            pct_break_points_converted_on_defense = total_break_points_converted_on_defense/
+                              total_break_points_forced_on_defense,
+                            pct_return_games_won_on_defense = total_break_points_converted_on_defense/
+                              total_return_games_on_defense,
+                            avg_minutes_per_game = total_minutes/total_games_played)
+```
+
+And lastly, I am joining the `atp_stats_overall_by_player` data frame with the `atp_pct_rounds_won_overall_by_player` data frame created in the first section of this post.  At this point, the `atp_stats_overall_by_player` data frame is complete.  It contains information on overall player statistics for all years that player was in the original data set.
+
+```r
+atp_stats_overall_by_player <- atp_stats_overall_by_player %>% 
+                                  full_join(atp_pct_rounds_won_overall_by_player, 
+                                            by = "name")                  
+```
+
+For clarity and completeness, I've provided the structure of the `atp_stats_overall_by_player` data frame below.
+
+```r
+> glimpse(atp_stats_overall_by_player)
+Observations: 832
+Variables: 42
+$ player_id                                <int> 100644, 101736, 101868, 101885, 101962, 102035, 102106, 102148, 102179...
+$ name                                     <chr> "Alexander Zverev", "Andre Agassi", "Dick Norman", "Wayne Arthurs", "Y...
+$ ioc                                      <chr> "GER", "USA", "BEL", "AUS", "MAR", "SWE", "ITA", "FRA", "FRA", "DEN", ...
+$ age                                      <dbl> 18, 36, 36, 35, 36, 35, 34, 35, 34, 33, 33, 33, 32, 33, 33, 33, 33, 33...
+$ hand                                     <fct> Right, Right, Left, Left, Right, Right, Right, Right, Right, Left, Rig...
+$ avg_rank                                 <dbl> 159.26, 18.69, 134.59, 160.78, 222.29, 64.12, 71.16, 50.10, 252.50, 10...
+$ height                                   <dbl> NA, 180, 203, 190, 193, 183, 188, 178, 185, 190, 190, 193, 185, 188, 1...
+$ total_matches_won                        <dbl> 18, 10, 7, 10, 9, 37, 16, 72, 5, 14, 2, 6, 1, 9, 1, 24, 7, 54, 35, 1, ...
+$ total_matches_lost                       <int> 24, 8, 11, 11, 6, 49, 29, 78, 4, 18, 3, 14, 2, 14, 2, 40, 23, 82, 32, ...
+$ total_matches_played                     <dbl> 42, 18, 18, 21, 15, 86, 45, 150, 9, 32, 5, 20, 3, 23, 3, 64, 30, 136, ...
+$ total_games_served                       <dbl> 518, 255, 260, 327, 173, 1126, 553, 1847, 104, 383, 68, 225, 35, 258, ...
+$ total_aces                               <dbl> 243, 162, 203, 418, 110, 365, 228, 666, 72, 239, 38, 117, 29, 111, 4, ...
+$ total_double_fault                       <dbl> 180, 55, 123, 109, 35, 271, 99, 283, 11, 66, 7, 89, 19, 72, 3, 129, 10...
+$ total_service_points                     <dbl> 3355, 1655, 1726, 1985, 1091, 7324, 3658, 11955, 689, 2386, 454, 1511,...
+$ total_first_serves_in                    <dbl> 1997, 978, 1067, 1153, 692, 4432, 2109, 6857, 455, 1475, 275, 920, 140...
+$ total_second_serves_in                   <dbl> 1178, 622, 536, 723, 364, 2621, 1450, 4815, 223, 845, 172, 502, 73, 71...
+$ total_serves                             <dbl> 4713, 2332, 2385, 2817, 1490, 10216, 5207, 17053, 923, 3297, 633, 2102...
+$ total_points_won_off_first_serve         <dbl> 1398, 702, 771, 934, 523, 3064, 1463, 4763, 334, 1093, 197, 618, 109, ...
+$ total_points_won_off_second_serve        <dbl> 645, 362, 316, 445, 192, 1365, 759, 2568, 131, 458, 100, 276, 43, 352,...
+$ total_break_points_faced                 <dbl> 286, 128, 163, 115, 76, 707, 342, 1139, 39, 186, 38, 138, 17, 188, 20,...
+$ total_break_points_saved                 <dbl> 158, 81, 111, 71, 45, 400, 197, 676, 25, 116, 27, 76, 10, 107, 12, 255...
+$ total_break_points_lost                  <dbl> 128, 47, 52, 44, 31, 307, 145, 463, 14, 70, 11, 62, 7, 81, 8, 205, 99,...
+$ total_break_points_converted_on_defense  <dbl> 103, 52, 38, 37, 31, 254, 106, 428, 15, 64, 12, 34, 2, 59, 4, 159, 61,...
+$ total_break_points_forced_on_defense     <dbl> 256, 142, 101, 110, 79, 616, 286, 1001, 48, 180, 41, 89, 23, 136, 7, 4...
+$ total_return_games_on_defense            <dbl> 521, 256, 258, 322, 173, 1102, 564, 1828, 106, 385, 66, 223, 36, 263, ...
+$ total_games_played                       <dbl> 1039, 511, 518, 649, 346, 2228, 1117, 3675, 210, 768, 134, 448, 71, 52...
+$ total_minutes                            <dbl> 1539, 2059, 2068, 2406, 1448, 9655, 4572, 16031, 831, 3194, 651, 1817,...
+$ pct_matches_won                          <dbl> 0.4285714, 0.5555556, 0.3888889, 0.4761905, 0.6000000, 0.4302326, 0.35...
+$ pct_service_games_won                    <dbl> 0.7528958, 0.8156863, 0.8000000, 0.8654434, 0.8208092, 0.7273535, 0.73...
+$ pct_ace_per_service_point                <dbl> 0.072429210, 0.097885196, 0.117612978, 0.210579345, 0.100824931, 0.049...
+$ pct_ace_per_serve                        <dbl> 0.05155952, 0.06946827, 0.08511530, 0.14838481, 0.07382550, 0.03572827...
+$ pct_first_serves_in                      <dbl> 0.5952310, 0.5909366, 0.6181924, 0.5808564, 0.6342805, 0.6051338, 0.57...
+$ pct_second_serves_in                     <dbl> 0.8674521, 0.9187592, 0.8133536, 0.8689904, 0.9122807, 0.9062932, 0.93...
+$ pct_double_fault                         <dbl> 0.053651267, 0.033232628, 0.071263036, 0.054911839, 0.032080660, 0.037...
+$ pct_points_won_off_first_serve           <dbl> 0.7000501, 0.7177914, 0.7225867, 0.8100607, 0.7557803, 0.6913357, 0.69...
+$ pct_points_won_off_second_serve          <dbl> 0.4749632, 0.5347120, 0.4795144, 0.5348558, 0.4812030, 0.4719917, 0.48...
+$ pct_break_points_saved                   <dbl> 0.5524476, 0.6328125, 0.6809816, 0.6173913, 0.5921053, 0.5657709, 0.57...
+$ pct_break_points_lost                    <dbl> 0.4475524, 0.3671875, 0.3190184, 0.3826087, 0.4078947, 0.4342291, 0.42...
+$ pct_break_points_converted_on_defense    <dbl> 0.40234375, 0.36619718, 0.37623762, 0.33636364, 0.39240506, 0.41233766...
+$ pct_return_games_won_on_defense          <dbl> 0.19769674, 0.20312500, 0.14728682, 0.11490683, 0.17919075, 0.23049002...
+$ avg_minutes_per_game                     <dbl> 1.481232, 4.029354, 3.992278, 3.707242, 4.184971, 4.333483, 4.093107, ...
+$ avg_pct_of_rounds_won_in_all_tournaments <dbl> 0.13273810, 0.26530612, 0.11688312, 0.14484127, 0.22500000, 0.13184524...
+```
