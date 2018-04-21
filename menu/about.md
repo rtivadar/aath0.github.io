@@ -7,7 +7,9 @@ I'm Ethan Wicker.  I'm a future Data Analyst and a current AP Statistics Teacher
 
 I graduated from North Carolina State University in 2017 with a BS in Mathematics and a BS in Mathematics Education.  After teaching for a year, I decided to supplement my own education and get in the field of data analytics.  This is my personal blog and portfolio.
 
-In addition to my math background, so far I've completed both of DataCamp's R Programmer and Data Analyst career tracks, approximately 76 or so hours of material.  I've also completed an 8.5 hour SQL bootcamp course on Udemy, and have read numerous blogs and articles, and have listened to various podcasts.
+In addition to my math background, so far I've completed both of DataCamp's R Programmer and Data Analyst career tracks, approximately 76 or so hours of material.  I've also completed an 8.5 hour SQL bootcamp course on Udemy, have read numerous blogs and articles, and have listened to various podcasts.
+
+Check out the resources tab for some of my favorite data science resources.
 
 This blog has three main purposes.
 
@@ -25,5 +27,7 @@ This blog has three main purposes.
 Under construction - check back soon!
 
 - give credit to Paul Le - link his github and Lagrange theme - say thanks.
-- include picking theme from Jekyll Themese, creating repository on github called username.github.io (master branch or gh-pages branch
+- github pages
+- include picking theme from Jekyll Themese, creating repository on github called username.github.io (master branch or gh-pages branch)
+- fork the repo on github
 - how I changed the page width to better fit my needs
