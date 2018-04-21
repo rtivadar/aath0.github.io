@@ -31,8 +31,8 @@ To preview this post, the three sections and their purposes are below:
 
 1. Calculating Percent of Rounds Won in Tournaments
 
-  * In this section, I will describe a metric I created, namely determining how far a player advances in a tournament on average, as a percent.  
-  * I will create two data frames in this section.  The first data frame, `atp_pct_rounds_won_overall_by_player`, contains a percentage for each player of how far that player advanced through tournaments on average, aggregated over all years in my dataset.  The second data frame, `atp_pct_rounds_won_by_year_by_player`, contains a percentage for each player of how far that player advanced through tournaments on average, per year.
+  * In this section, I will describe a metric I created, namely determining how far a player advances in a tournament on average, as a       percent.  
+  * I will create two data frames in this section.  The first data frame, `atp_pct_rounds_won_overall_by_player`, contains a percentage     for each player of how far that player advanced through tournaments on average, aggregated over all years in my dataset.  The second       data frame, `atp_pct_rounds_won_by_year_by_player`, contains a percentage for each player of how far that player advanced through         tournaments on average, per year.
   
 2. Calculating Player Stats per Year
 
