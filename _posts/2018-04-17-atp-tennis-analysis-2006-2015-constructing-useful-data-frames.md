@@ -262,17 +262,17 @@ These above data frames will be joined with the data frames I'll construct in th
   
 In this section, I'll be describing how I constructed `atp_stats_by_player_by_year`.  This data frame, as the name describes, contains match statistics by year for each player in the original `atp` data frame.
 
-Since I'll be grouping the data by year to determine a players stats for each year, I first need a year variable.  I used the `separate` function to split `tourney_date` into three new variables: `year`, `month`, and `day`.
+Since I'll be grouping the data by year to determine a player's stats for each year, I first need a year variable.  I used the `separate` function to split `tourney_date` into three new variables: `year`, `month`, and `day`.
 
 ```r  
 atp_ymd_separated <- atp %>% separate(tourney_date, c("year", "month", "day"), sep = "-")
 ```
 
-Similar to method in the previous section, I'm going to first create two separate data frames - one with statistics of match winners, and another with statistics of match losers.  I'm then going to join them together to find player statistics.
+Similar to my method in the previous section, I'm going to first create two separate data frames - one with statistics of match winners, and another with statistics of match losers.  I'm then going to join them together to calculate statistics for each player.
 
 To get started, I created the data frame for the match winners first.  After grouping by both the `year` and `winner_id` variables, I used `summarize` to create a variety of new variables.  You can see all the variables below, but some examples are `double_faults_as_winner` and `games_served_as_winner`.
 
-To be clear here, this creates a data frame containing information on total match statistics for all matches where a player won across the entire year.  For example, `ace_as_winner` is the total number of aces served for an entire year.  These statistics are not yet percentages.
+To be clear here, this creates a data frame containing information on total match statistics for all matches where a player won across the entire year.  For example, `ace_as_winner` is the total number of aces served for an entire year.  These statistics are integer values and are not yet percentages.
 
 ```r
 atp_by_year_grouped_by_winner_id <- atp_ymd_separated %>% 
@@ -333,7 +333,7 @@ atp_player_info <- atp_ymd_separated[ , player_info_columns]
 atp_player_info <- unique(atp_player_info)
 ```
 
-The next few lines of code show how I used joined these three data frames into one, much more useful, data frame.
+The next few lines of code show how I joined these three data frames into one, much more useful, data frame.
 
 First I used `full_join` to join together the `atp_by_year_grouped_by_loser_id` and `atp_player_info`.  Since no player went undefeated, this creates a data frame containing information on every player in the orignal data set, as well as their total match statistics for all matches they lost.
 
@@ -360,7 +360,7 @@ atp_by_year_grouped_by_player_id <- full_join(atp_by_year_grouped_by_winner_id,
 
 `atp_by_year_grouped_by_player_id` contains information for all players in the original data set, including their total match statistics per year.  After creating this data frame, I cleaned it up just a bit more by deleting the `height_as_winner` column and renaming the `height_as_loser` column to just `height`.  
 
-Many players in the data had not won a single match, and since no player went undefeated, the `height_as_loser` variable contains more information. 
+Many players in the data had not won a single match, and since no player went undefeated, the `height_as_loser` variable contains information on more players.
 
 ```r
 # Deleting winner_as_height column, since loser_as_height is more expansive
@@ -411,7 +411,7 @@ atp_by_year_grouped_by_player_id <- atp_by_year_grouped_by_player_id %>%
 
 Next I mutated the data frame again to create another new variable, `age`.  I used the `ifelse` function inside `mutate` to create this new variable.  If a player has an age as both a winner and loser, then I defined age to be the average of these values.  Otherwise, if the player has `NA` for `age_as_winner`, I defined age to just be `age_as_loser`.  In both instances, I used `round` to round the players age to the nearest integer.
 
-Of note here, I was able to defined `age` partially using the `is.na` function because just above, I did not defined age_as_winner in the `winners_columns_replace_na_with_0` list.
+Of note here, I was able to defined `age` partially using the `is.na` function because just above, I did not defined `age_as_winner` in the `winners_columns_replace_na_with_0` list.
 
 ```r
 atp_by_year_grouped_by_player_id <- atp_by_year_grouped_by_player_id %>% 
@@ -490,9 +490,9 @@ $ minutes_as_winner                           <dbl> 1253, 393, 575, 158, 1649, 1
 $ minutes_as_loser                            <int> 806, 1049, 1117, 97, 1701, 2322, 2630, 182, 1648, 430, 1219, 185, 1...
 ```
 
-As you can see, the above data frame contains integer values spread across `_as_winner` variables and `_as_loser` variables.  Clearly, just having counts isn't particular useful, so in the remaining part of this section I'll be describing how I created the `atp_stats_by_player_by_year` data frame, which contains match statistics as percentages.
+As you can see, the above data frame contains integer values spread across `_as_winner` variables and `_as_loser` variables.  Clearly, just having counts isn't particular useful, so in the remaining portion of this section I'll be describing how I constructed the `atp_stats_by_player_by_year` data frame, which contains match statistics as percentages.
 
-As a first step, I needed to combine all of those amounts spread across winner and loser variables into a single value.  Below, I mutated the data frame to create a variety of new variables.  In most cases, I just summed across the winner and loser columns.  Examples of columns created are `total_service_points` and `total_return_games_on_defense`.
+As a first step, I needed to combine all of those statistics spread across winner and loser variables into a single value.  Below, I mutated the data frame to create a variety of new variables.  In most cases, I just summed across the winner and loser columns.  Examples of columns created are `total_service_points` and `total_return_games_on_defense`.
 
 ```
 # Mutating to create various player totals per year
@@ -529,7 +529,7 @@ atp_stats_by_player_by_year <- atp_by_year_grouped_by_player_id %>%
   select(year:height, starts_with("total"))
 ```
 
-And finally, at this point, I was able to calculate player statistics as percentages for entire years.  To do this, I used `mutate` once more to create all of these new statistics from previously defined columns.  Most of these statistics are pretty standard in tennis, such as `pct_service_games_won` and `pct_break_points_converted_on_defense`.  But I defined a couple that I hadn't see to much before, such as `pct_ace_per_service_point` and `avg_minutes_per_game`.
+And finally, at this point, I was able to calculate player statistics as percentages for entire years.  To do this, I used `mutate` once more to create all of these new statistics from previously defined columns.  Most of these statistics are pretty standard in tennis, such as `pct_service_games_won` and `pct_break_points_converted_on_defense`.  But I defined a couple that I hadn't see too much before, such as `pct_ace_per_service_point` and `avg_minutes_per_game`.
 
 ```r
 # Mutating to add columns for various player statistics, by year
@@ -615,7 +615,7 @@ $ pct_return_games_won_on_defense          <dbl> 0.20312500, 0.16111111, 0.08482
 $ avg_minutes_per_game                     <dbl> 4.029354, 3.994460, 3.751663, 4.250000, 4.235145, 4.109729, 4.406130, ...
 $ avg_pct_of_rounds_won_in_all_tournaments <dbl> 0.26530612, 0.05396825, 0.11666667, 0.20000000, 0.12941176, 0.10297619...
 ```
-  ## Calculating Player Stats Overall
+## Calculating Player Stats Overall
   
 In the final main section of this post, I'll be detailing how I constructed the Creating `atp_stats_overall_by_player` data frame.  This data frame is extremely similar to the `atp_stats_by_player_by_year` data frame created in the previous section, except that this new data frame will contain ovearll player statistics.  In other words, each row will contain a player's averaged match stats for all years that player was in the original data frame.
   
