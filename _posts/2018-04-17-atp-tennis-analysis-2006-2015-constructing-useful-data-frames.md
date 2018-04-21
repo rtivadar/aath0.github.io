@@ -73,11 +73,7 @@ The below R code relies heavily on the `dplyr` package, inparticular the `filer`
 
 This post will be divided into three main sections.  By the end of the three sections, I will have described how I created two very useful data frames: `atp_stats_by_player_by_year` and `atp_stats_overall_by_player`.
 
-
-
-(INCLUDE TABLE OF CONTENTS?)
-
-To preview this post, the three sections and their purposes are below:
+## Contents and Section Summaries
 
 1. Calculating Percent of Rounds Won in Tournaments
 
