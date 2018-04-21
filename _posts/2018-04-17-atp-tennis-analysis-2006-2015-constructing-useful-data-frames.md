@@ -230,7 +230,7 @@ So far in this post, I have created two data frames.  These data frames are `atp
 These data frames are very similar to each other.  They each show how far a player advances through a tournament on average, as a percent.  The first data frame shows this as an average across all years a player is in the original data set.  Below is the first six rows of the `atp_pct_rounds_won_overall_by_player data frame`.  For example, across all years he was in my data frame and all the tournaments he played in, Adrian Mannarino won an average of 13.8% of rounds
 
   name | avg_pct_of_rounds_won_in_all_tournaments
-  ----   ----------------------------------------
+  ---- | ----------------------------------------
 1 Abdulla Hajji | 0     
 2 Adrian Cruciat | 0     
 3 Adrian Garcia | 0     
@@ -241,7 +241,7 @@ These data frames are very similar to each other.  They each show how far a play
 The second data frame shows this as an average for each year a player is in my data frame.  As such, `atp_pct_rounds_won_by_year_by_player` contains a row for each year a player is in the data set.  For example, in 2006, Agustin Calleri advanced through 27.6% of all tournament rounds.
 
   year | name | avg_pct_of_rounds_won_in_all_tournaments
-  ----   ----   ----------------------------------------
+  ---- | ---- | ----------------------------------------
 1 2006 | Adrian Garcia | 0    
 2 2006 | Agustin Calleri | 0.276
 3 2006 | Aisam Ul Haq Qureshi | 0    
@@ -251,16 +251,14 @@ The second data frame shows this as an average for each year a player is in my d
 
 These above data frames will be joined with the data frames I'll construct in the second and third sections of this post.
   
-  ## Calculating Player Stats per Year
+## Calculating Player Stats per Year
   
 In this section, I'll be describing how I constructed `atp_stats_by_player_by_year`.  This data frame, as the name describes, contains match statistics by year for each player in the original `atp` data frame.
 
 Since I'll be grouping the data by year to determine a players stats for each year, I first need a year variable.  I used the `separate` function to split `tourney_date` into three new variables: `year`, `month`, and `day`.
 
 ```r  
-  
 atp_ymd_separated <- atp %>% separate(tourney_date, c("year", "month", "day"), sep = "-")
-
 ```
 
 Similar to method in the previous section, I'm going to first create two separate data frames - one with statistics of match winners, and another with statistics of match losers.  I'm then going to join them together to find player statistics.
