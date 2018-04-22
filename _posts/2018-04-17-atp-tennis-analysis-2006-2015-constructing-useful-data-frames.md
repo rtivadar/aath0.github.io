@@ -202,7 +202,7 @@ Finally, I created `atp_pct_rounds_won_overall_by_player` by grouping `atp_pct_r
 # Calculating percent of rounds a player won in tournament, for each tournament
 atp_pct_rounds_won_by_tournament_by_year <- atp_pct_rounds_won_by_tournament_by_year %>%
   mutate(pct_of_rounds_won_in_tournament = (number_round_of_tournament_advanced_through - index_of_first_round_in_tournament + 1)/
-           number_rounds_in_tournament)
+         number_rounds_in_tournament)
 
 # Filtering out Tour Finals matches - since round robin play doesn't fit
 atp_pct_rounds_won_by_tournament_by_year <- atp_pct_rounds_won_by_tournament_by_year %>% 
