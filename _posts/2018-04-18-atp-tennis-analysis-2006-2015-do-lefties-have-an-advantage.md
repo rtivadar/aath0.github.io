@@ -16,7 +16,7 @@ This post is the third in a series covering an analysis of ATP (Association of T
 
 In this post I will be discussing whether or not left-handed players have an advantage over their right-handed counterparts.  To provide some context, it has long been believed that lefties have an advantage over righties in various sports, and tennis especially, is no exception.  
 
-In tennis, there are various reasons why left-handed players are thought to have an advantage over right-handed players.  A crucial reason, if not the largest advantage lefties might possess, is that service games in tennis always start in the deuce court (right side) and then serves alternate from there, switching between the ad court (left side) and back to the deuce court until the service game is over.  What this means, is that more often than not, and everytime the score of a service game is 40-40 (simply called deuce), the last service of the service game will come from the ad court. And, due to the manner in which the net in tennis is pulled down from the middle, coupled with how players mechanical serve to produce spin, should provide an advantage to lefties.
+In tennis, there are various reasons why left-handed players are thought to have an advantage over right-handed players.  A crucial reason, if not the largest advantage lefties might possess, is that service games in tennis always start in the deuce court (right side) and then serves alternate from there, switching between the ad court (left side) and back to the deuce court until the service game is over.  What this means, is that more often than not, and everytime the score of a service game is 40-40 (simply called deuce), the last serve of the service game will come from the ad court. And, due to the manner in which the net in tennis is pulled down from the middle, coupled with how players mechanical serve to produce spin, should provide an advantage to lefties.
 
 Another typical reason lefties are thought to have an advantage - this one less tennis specific - is just that there are less of them.  They're just a rarer breed.  And since players typically play right-handed players, when they face the occasional unicorn of the left-handed player, they're thrown off their game.  For a more tennis exact rational of this, this often has to do with both tennis strategy, and the spin of the ball coming off different shots.  In short, when playing a leftie, a player has to flip their strategy upside down.  All of a sudden, hitting a backhand approach has to be hit to the opposite side.  And as for the spin, tennis players rarely hit perfect 6-o'clock-to-12-o'clock spin on the ball.  Often times that spin has a little or a lot side spin mixed in as well - think 5-o'clock-to-11-o'clock for a right-handed forehand.  This spin completely changes how the ball flies through the air, how the ball bounces, and how potentionally, how a player has to redirect a ball to counter the spin.
 
@@ -52,16 +52,64 @@ atp_stats_overall_by_player_left_right_known <- atp_stats_overall_by_player %>% 
 Furthermore, it's worth checking a couple of conditions before diving into the bulk of my analysis.  The first condition worth checking is to ensure that there is a relatively even distribution of left-handed players and right-handed players in the data set.  If for instance, lefties really did have an enormous advantage, and there were a disporptionionate amount of them in the among the very top players, that could throw off some of my later analyses.  
 
 ```r
-# Making sure lefties are uniformly dispersed across players
+# Creates boxplot - making sure lefties are uniformly dispersed across players
 atp_stats_overall_by_player_left_right_known %>% ggplot(aes(x = hand, y = avg_rank, color = hand)) + 
   geom_boxplot() +
   coord_flip()
   ```
-  
+  (FIX PLOT)
 ![alt text](https://github.com/ethanwicker/ethanwicker.github.io/blob/master/assets/img/tennis-left-right-distribution.jpeg "Tennis-left-right-distribution")
   
-We can see in the above boxplot that the distribution of left-handed players and right-handed players seems to be pretty even across the rankings.  Ofcourse, since there are more righties, we would expect their overall spread to be larger, and it is.  To quantify this a little more, the median world ranking is 153 and 147 for all right-handed and left-handed players, respectfully.  The mean world ranking for each is 201 and 187.
+We can see in the above boxplots that the distribution of left-handed players and right-handed players seems to be pretty even across the rankings.  Ofcourse, since there are more righties, we would expect their overall spread to be larger, and it is.  To quantify this a little more, the median world ranking is 147 and 153 for all left-handed and right-handed players, respectfully.  The mean world ranking for each is 187 and 201.
   
-Looking at world rankings alone, it appears that lefties do tend to be higher in the rankings, but there is more to the story.
+Looking at world rankings alone, it appears that lefties do tend to be ranked higher, but there is more to the story.
+
+The other condition worth checking is the percentage of lefties in the data set.  According to a quick google search, somewhere between 10% and 13% of the world's population is left-handed.  In my data set of 718 unique players, 13.93% are left-handed.  This is a bit higher than we'd expect, assuming that left-handedness would be equally common among ATP Tennis Players as the rest of the world.  Although it seems to be a bit higher than the world average, it's not all that far off. (MAYBE ADD PROP TEST IN HERE - or CHI SQ GOF)
+
+### Specific Match Statistics
+
+In the above, I've shown that left-handedness isn't any more rare or more common in ATP Tennis Players than in the general population, and that left-handed players are pretty well distributed among all the players, regardless of rank.
+
+In this portion of the post, I'll be comparing overall match statistics for left-handed players versus right-handed players.  
+
+To begin, I'll be looking at whether or not lefties **serve more aces**.  To determine this in my analysis, I calculated the average number of aces served per service point for both left-handed and right-handed players.  
+
+```r
+atp_stats_overall_by_player_left_right_known %>% 
+  group_by(hand) %>% 
+  summarize(avg_ace_per_service_point_by_hand = mean(pct_ace_per_service_point, 
+                                                     na.rm = TRUE))                                                     
+```
+Per service point, lefties on average serve 6.29% aces.  For righties, that number increases slightly to 6.38%.  This is a fairly small increase, and doesn't really warrent hypothesizing a reason why.
+
+To continue with the offense side of things, next I'll look at whether lefties or righties win a higher percentage of **points off the first serve**.
+
+```r
+atp_stats_overall_by_player_left_right_known %>% 
+  group_by(hand) %>% 
+  summarize(avg_pct_points_won_off_first_serve_by_hand = mean(pct_points_won_off_first_serve, 
+                                                              na.rm = TRUE))
+```
+
+And there are similar results here.  Left-handed players win 66.8% of their points when they get their first service in, while right-handed players win 67.6%.  Once again, although the righties are just a nudge higher, the differences are quiet small.
+
+Below I'll repeat the same procedure, but these time to determine which type of player wins a higher percentage of **points off the second serve**.
+
+```r
+atp_stats_overall_by_player_left_right_known %>% 
+  group_by(hand) %>% 
+  summarize(avg_pct_points_won_off_second_serve_by_hand = mean(pct_points_won_off_second_serve, 
+                                                               na.rm = TRUE))
+```
+
+On the average, lef-handed players win 46.9% of points after missing their first serve and getting their second serve in.  For right-handed players, that percentage increases slightly once again to 47.3%.  
+
+On a side note here:  It's interesting that both left-handed and right-handed players win less than 50% of service points off their second serve.  This would be an interesting place for further explaration.  Perhaps players on the whole would be better off increasing their speed or placement on the second service, and with data on serve speeds, perhaps their is a breakeven point in terms of serve speed and percentage of points won off the second serve. (MAYBE TAKE OUT).
+
+return better
+win more matches
+win more tournaments
+head to head match ups
+proportion tests
 
 
