@@ -57,3 +57,5 @@ atp_stats_overall_by_player_left_right_known %>% ggplot(aes(x = hand, y = avg_ra
   geom_boxplot() +
   coord_flip()
   ```
+  
+  ![alt text](<https://github.com/ethanwicker/ethanwicker.github.io/blob/master/assets/img/tennis-left-right-distribution.jpeg> "Tennis-left-right-distribution")
