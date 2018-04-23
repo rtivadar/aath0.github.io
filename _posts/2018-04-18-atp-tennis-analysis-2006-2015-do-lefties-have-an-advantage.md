@@ -49,7 +49,7 @@ Note:  For the majority of this analysis, I'll be referencing the `atp_stats_ove
 atp_stats_overall_by_player_left_right_known <- atp_stats_overall_by_player %>% filter(hand != "Unknown")
 ```
 
-Furthermore, it's worth checking a couple of conditions before diving into the bulk of my analysis.  The first condition worth checking is to ensure that there is a relatively even distribution of left-handed players and right-handed players in the data set.  If for instance, lefties really did have an enormous advantage, and there were a disporptionionate amount of them in the lower ranks, that could throw off some of my later analyses.  
+Furthermore, it's worth checking a couple of conditions before diving into the bulk of my analysis.  The first condition worth checking is to ensure that there is a relatively even distribution of left-handed players and right-handed players in the data set.  If for instance, lefties really did have an enormous advantage, and there were a disporptionionate amount of them in the among the very top players, that could throw off some of my later analyses.  
 
 ```r
 # Making sure lefties are uniformly dispersed across players
@@ -58,4 +58,10 @@ atp_stats_overall_by_player_left_right_known %>% ggplot(aes(x = hand, y = avg_ra
   coord_flip()
   ```
   
-  ![alt text](https://github.com/ethanwicker/ethanwicker.github.io/blob/master/assets/img/tennis-left-right-distribution.jpeg "Tennis-left-right-distribution")
+![alt text](https://github.com/ethanwicker/ethanwicker.github.io/blob/master/assets/img/tennis-left-right-distribution.jpeg "Tennis-left-right-distribution")
+  
+We can see in the above boxplot that the distribution of left-handed players and right-handed players seems to be pretty even across the rankings.  Ofcourse, since there are more righties, we would expect their overall spread to be larger, and it is.  To quantify this a little more, the median world ranking is 153 and 147 for all right-handed and left-handed players, respectfully.  The mean world ranking for each is 201 and 187.
+  
+Looking at world rankings alone, it appears that lefties do tend to be higher in the rankings, but there is more to the story.
+
+
