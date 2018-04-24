@@ -102,14 +102,20 @@ atp_stats_overall_by_player_left_right_known %>%
                                                                na.rm = TRUE))
 ```
 
-On the average, lef-handed players win 46.9% of points after missing their first serve and getting their second serve in.  For right-handed players, that percentage increases slightly once again to 47.3%.  
+On the average, left-handed players win 46.9% of points after missing their first serve and getting their second serve in.  For right-handed players, that percentage increases slightly once again to 47.3%.  
 
-On a side note here:  It's interesting that both left-handed and right-handed players win less than 50% of service points off their second serve.  This would be an interesting place for further explaration.  Perhaps players on the whole would be better off increasing their speed or placement on the second service, and with data on serve speeds, perhaps their is a breakeven point in terms of serve speed and percentage of points won off the second serve. (MAYBE TAKE OUT).
+On a side note here:  It's interesting that both left-handed and right-handed players win less than 50% of service points off their second serve.  This would be an interesting place for further explaration.  Perhaps players on the whole would be better off increasing their speed or placement on the second service (i.e. taking more risk), and with data on serve speeds, perhaps their is a breakeven point in terms of serve speed and percentage of points won off the second serve. (MAYBE TAKE OUT).
 
-return better
+
+win more service games
+break more often
+win more return games
 win more matches
 win more tournaments
+- add in a table here to summarize the above percentages - 
 head to head match ups
+prop test for all
+prop test for top 100 vs top 100
 proportion tests
 
 
