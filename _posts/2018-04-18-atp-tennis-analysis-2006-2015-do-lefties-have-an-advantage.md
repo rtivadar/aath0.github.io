@@ -231,7 +231,7 @@ table_of_right_left_won_lost <- table(atp_hand_analysis$hand,
 
   (FIX TABLE)
 |  | Lost | Won
-|  | ---- | ---
+| - | ---- | ---
 | Left | 3329 | 3148
 | Right | 22143 | 22503
 
