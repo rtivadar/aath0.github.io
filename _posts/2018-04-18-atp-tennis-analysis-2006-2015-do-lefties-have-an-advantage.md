@@ -137,13 +137,33 @@ atp_stats_overall_by_player_left_right_known %>%
 
 On the average, lefties win 16.1% of their return games, while righties win 16.8%.
 
+And lastly, the last simple statistic I looked at is on the average, which type of player wins a higher **percentage of their matches**.
+
+```r
+atp_stats_overall_by_player_left_right_known %>% 
+  group_by(hand) %>% 
+  summarize(avg_pct_matches_won_by_hand = mean(pct_matches_won, 
+                                               na.rm = TRUE))
+```
+
+Across the board, left-handed players win an average of 25.7% of their matches, while right-handed players win an average of 27.6%.
+
+
 Below is a summary table for the above information.
 
-Statistic | Left-Handed Players | Right-Handed Players | Type of Player with Higher Stat | Result Significant at the \\( \alpha = 0.05 \\) 
---------- | ------------------- | -------------------- | ------------------------------- | -----------------------------------------------
+Statistic | Left-Handed Players | Right-Handed Players | Type of Player with Higher Stat | Result Significant at the \\( \alpha = 0.05 \\) Level 
+--------- | ------------------- | -------------------- | ------------------------------- | ----------------------------------------------------
 
 
 
+
+
+avg_ace_per_service_point_by_hand
+avg_pct_points_won_off_first_serve_by_hand
+avg_pct_points_won_off_second_serve_by_hand
+avg_pct_service_games_won_by_hand
+avg_pct_break_points_converted_on_defense_by_hand
+avg_pct_return_games_won_on_defense
 
 
 
