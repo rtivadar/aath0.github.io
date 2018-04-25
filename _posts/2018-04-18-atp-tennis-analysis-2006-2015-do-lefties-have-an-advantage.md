@@ -206,16 +206,21 @@ So across 10 years of modern man's tennis, right-handed players have actually wo
 
 ### Proportion of Match Wins and Losts
 
-In the last portion of this analysis below, I explored the proportion of all matches won and lost by left-handed and right-handed players between 2006 and 2015.  Using a Two-Sample proportion test, I then show that right-handed players win a statistically significant higher proportion of their matches.
+In the last portion of my analysis below, I explored the proportion of all matches won and lost by left-handed and right-handed players between 2006 and 2015.  Using a Two-Sample proportion test, I then show that right-handed players win a statistically significant higher proportion of their matches.
 
+To perform the significance test, I first need to organize my data in a more useful manner.  In particular, I need my data such that each row contains information on a single match for a single player.  I also need to create two new variables `result` and `hand` that state whether that player won the match or lost the match, and which hand that player plays with.
+
+The begin to organize my data, I first subsetted the data to get the relevant columns of interest.  You can see which columns I selected in the below chuck of code.
 
 ```r
 atp_hand_analysis <- atp[, c("tourney_id", "tourney_date", "tourney_name", "surface", 
                          "winner_name", "loser_name", "winner_hand", "loser_hand", 
                          "winner_rank", "loser_rank")]
+```                         
+                         
 
 
-
+```r
 # Renaming columns to more relevant names, and using gather to organize data
 atp_hand_analysis <- atp_hand_analysis %>% 
   rename(Won = winner_hand, Lost = loser_hand ) %>%      
@@ -230,7 +235,7 @@ table_of_right_left_won_lost <- table(atp_hand_analysis$hand,
 
 
   (FIX TABLE)
-|  | Lost | Won
+|   | Lost | Won
 | - | ---- | ---
 | Left | 3329 | 3148
 | Right | 22143 | 22503
