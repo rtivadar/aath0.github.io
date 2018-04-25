@@ -151,8 +151,8 @@ Across the board, left-handed players win an average of 25.7% of their matches, 
 (MOVE THIS TABLE TO THE VERY TOP)(CHECK THE SIGNIFICANCE AGAIN)
 Below is a summary table for the above information.  Note: "Avg Pct" stands for "Average Percent"
 
-Statistic | Left-Handed Players | Right-Handed Players | Type of Player with Higher Stat | Significant at the \\( \alpha = 0.05 \\) Level 
---------- | ------------------- | -------------------- | ------------------------------- | ----------------------------------------------
+Statistic | Left-Handed Players | Right-Handed Players | Type of Player with Higher Stat | Significant at the \\( \alpha = 0.05 \\)
+--------- | ------------------- | -------------------- | ------------------------------- | ---------------------------
 
 Avg Pct Ace Per Service Point | 6.29% | 6.38% | Right | No
 Avg Pct Points Won Off 1st Serve | 66.8% | 67.6% | Right | **Yes**
@@ -177,8 +177,68 @@ However, just slightly higher percentages across seven stats isn't exactly clear
 
 ### Head-to-head Matchups
 
+In this portion of this post, I'll be looking at head-to-head matchups between left-handed players and right-handed players.  The objective here is to see if, on the average, lefties or righties win more in matches between each other.
+
+If left-handed players have an advantage, we would expect them to win more matches against right-handed players.  That is, we would expect them to win more than 50% of these matches, due to this supposed advantage.
+
+In the below chunk of code I created the data frame `matches_right_vs_left` which contains the percentage of these matche won by left-handed players, as well as the percentage won by right-handed players.  These are of course complements.
+```r
+number_matches_right_vs_left_won_by_right <- atp %>% 
+  filter((winner_hand == "Right" & loser_hand == "Left")) %>% 
+  summarize(number_right_vs_left_won_by_right = n())
+
+number_matches_right_vs_left_won_by_left <- atp %>% 
+  filter((winner_hand == "Left" & loser_hand == "Right")) %>% 
+  summarize(number_right_vs_left_won_by_left = n())
+
+matches_right_vs_left <- number_matches_right_vs_left_won_by_right %>% 
+  bind_cols(number_matches_right_vs_left_won_by_left) %>% 
+  mutate(total_matches_right_vs_left = number_matches_right_vs_left_won_by_right + 
+           number_matches_right_vs_left_won_by_left,
+         pct_matches_right_vs_left_won_by_right = number_matches_right_vs_left_won_by_right/
+           total_matches_right_vs_left,
+         pct_matches_right_vs_left_won_by_left = number_matches_right_vs_left_won_by_left/
+           total_matches_right_vs_left)
+```
+
+From the above data frame, we can see that 48.1% of head-to-head matchups are won by the left-handed player, while 51.9% are won by the right-handed player.
+
+So across 10 years of modern man's tennis, right-handed players have actually won a higher percentage of these match ups than left-handed players.  
+
+### Proportion of Match Wins and Losts
 
 
+In the last portion of this analysis below, I explored the proportion of all matches won and lost by left-handed and right-handed players between 2006 and 2015.  Using a Two-Sample proportion test, I then show that right-handed players win a statistically significant higher proportion of their matches.
+
+
+```r
+atp_hand_analysis <- atp[, c("tourney_id", "tourney_date", "tourney_name", "surface", 
+                         "winner_name", "loser_name", "winner_hand", "loser_hand", 
+                         "winner_rank", "loser_rank")]
+
+
+
+# Renaming columns to more relevant names, and using gather to organize data
+atp_hand_analysis <- atp_hand_analysis %>% 
+  rename(Won = winner_hand, Lost = loser_hand ) %>%      
+  gather(key = result, value = hand, Won, Lost) 
+
+# Filtering out players with unknown hand
+atp_hand_analysis <- atp_hand_analysis %>% filter(hand != "Unknown")
+
+table_of_right_left_won_lost <- table(atp_hand_analysis$hand, 
+                                      atp_hand_analysis$result)
+```
+
+
+
+# Two Proportion z-Test
+# Result: p-value of 0.007041, there is a statistically significant difference in proportion of
+# matches lefties and righties win.
+#
+# Since lefties actually lost more of their matches overall, there is strong evidence to show that
+# right handers actually win more matches.
+prop.test(table_of_right_left_won_lost)
 
 
 
