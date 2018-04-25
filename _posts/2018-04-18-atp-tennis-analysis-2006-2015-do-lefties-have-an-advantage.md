@@ -173,7 +173,9 @@ t.test(atp_stats_overall_by_player_left_right_known$pct_first_serves_in ~
 
 Although the mean difference was only statistically significant for one variable I examined, right-handed players had, on average, higher stats across the board.  This provides evidence to support my argument that left-handed players do not have an advantage amongst the highest level of professional male tennis players.
 
-However, just slightly higher percentages across seven stats isn't exactly clear evidence for any verdict.  In the rest of this post I'll be comparing head-to-head match ups between left-handed and right-handed players.  I'll also be examining the overall proportion of matches won and lost by left-handed and right-handed players to see if there is in discernible difference.
+However, just slightly higher percentages across seven stats isn't exactly clear evidence for any verdict.  In the rest of this post I'll be comparing head-to-head matchups between left-handed and right-handed players.  I'll also be examining the overall proportion of matches won and lost by left-handed and right-handed players to see if there is in discernible difference.
+
+### Head-to-head Matchups
 
 
 
