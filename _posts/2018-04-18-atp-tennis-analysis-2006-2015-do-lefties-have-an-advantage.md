@@ -210,7 +210,7 @@ In the last portion of my analysis below, I explored the proportion of all match
 
 To perform the significance test, I first need to organize my data in a more useful manner.  In particular, I need my data such that each row contains information on a single match for a single player.  I also need to create two new variables `result` and `hand` that state whether that player won the match or lost the match, and which hand that player plays with.
 
-The begin to organize my data, I first subsetted the data to get the relevant columns of interest.  You can see which columns I selected in the below chuck of code.
+The begin to organize my data, I first subsetted the `atp` data frame to get the relevant columns of interest.  I assigned this new subsetted data frame to `atp_hand_analysis`.
 
 ```r
 atp_hand_analysis <- atp[, c("tourney_id", "tourney_date", "tourney_name", "surface", 
@@ -218,27 +218,44 @@ atp_hand_analysis <- atp[, c("tourney_id", "tourney_date", "tourney_name", "surf
                          "winner_rank", "loser_rank")]
 ```                         
                          
+Next I need to create two new variables: `result` and `hand`, which I'll later use to sum up the total number of wins and losts per each type of player.  To create these two new variables, which changes the structure of the data, I used the `gather` function from the `tidyr` package. 
 
+`gather` is a function commonly used to gather a data frame over two columns that should really be one.  That is, in an instance where one variable is spread out over two columns, gather can be used to restructure the data such that these two columns are fully represented in one variable.  This often times makes the data easier to manipulate.
+
+In the context of this situation, I am using `gather` to reorganize the `winner_hand` and `loser_hand` columns into one column: `hand`. 
+Before using this function, I renamed the `winner_hand` and `loser_hand` columns to `Won` and `Lost`.  I then gathered the data over those two columns.  As you can see, I set the `key` argument equal to `result`, and the `value` argument equal to `hand`.  `gather` then restructures the data by putting the column names `Won` and `Lost` in the new `result` column, and puts the information from these columns in the `hand` column.  Since these columns contain information on the match winner and match loser playing hand, this makes sense.
+
+Gather also necessary doubles the length of the data frame, since a row is created for each match winner and match loser, unlike in the original data frame where each row contained information on an entire match.
 
 ```r
 # Renaming columns to more relevant names, and using gather to organize data
 atp_hand_analysis <- atp_hand_analysis %>% 
   rename(Won = winner_hand, Lost = loser_hand ) %>%      
   gather(key = result, value = hand, Won, Lost) 
+```
 
+Now that I've used `gather` to better organize my data, I can sum how many matches were won and lost for left-handed players and right-handed players across all years of the original data set.
+
+Before doing this, I need to filter out all the rows where a player's playing hand is not known.
+
+```
 # Filtering out players with unknown hand
 atp_hand_analysis <- atp_hand_analysis %>% filter(hand != "Unknown")
+```
 
+To count how many matches were won and lost for each type of player, I used the convenient `table` function provided in base R. 
+
+```
 table_of_right_left_won_lost <- table(atp_hand_analysis$hand, 
                                       atp_hand_analysis$result)
 ```
-
+The resulting table is below.
 
   (FIX TABLE)
-|   | Lost | Won
-| - | ---- | ---
-| Left | 3329 | 3148
-| Right | 22143 | 22503
+|       | Lost    | Won |
+|-----------------------|
+| Left  | 3329  | 3148  |
+| Right | 22143 | 22503 |
 
 
 ```r
