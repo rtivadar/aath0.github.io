@@ -155,15 +155,25 @@ Statistic | Left-Handed Players | Right-Handed Players | Type of Player with Hig
 --------- | ------------------- | -------------------- | ------------------------------- | -----------------------------------------------
 
 Avg Pct Ace Per Service Point | 6.29% | 6.38% | Right | No
-Avg Pct Points Won Off 1st Serve | 66.8% | 67.6% | Right | Yes
+Avg Pct Points Won Off 1st Serve | 66.8% | 67.6% | Right | **Yes**
 Avg Pct Points Won Off 2nd Serve | 46.9% | 47.3% | Right | No
 Avg Pct Service Games Won | 69.6% | 70.4% | Right | No
 Avg Pct of Break Points Converted |36.4% | 37.3% | Right | No
 Avg Pct Return Games Won | 16.1% | 16.8 | Right | No
 Avg Pct Matches Won |25.7% | 27.6% | Right | No
 
-I also performed a Two-Sample t-Test on each of the above statistics to see if the differences in any were significant at the \\( \alpha = 0.05 \\) significance level.  The only statistic that was significant was the average percentage of points won off the first serve, with a p-value of 0.02948.  This p-value was not terribly low, 
+I also performed a Two-Sample t-Test on each of the above statistics to see if the differences in any were significant at the \\( \alpha = 0.05 \\) significance level.  The only statistic that was significant was the average percentage of points won off the first serve, with a p-value of 0.02948.  This p-value, although below the common threshold of 0.05, isn't terribly low, so I wouldn't feel comfortable stating that right-handed players win significantly more points off their first serve than left-handed players.
 
+For completeness, and for anyone interested in the syntax, I've provided my R code for the significant result below.  To perform a t-Test on a different variable, just change out the appropriate portion of code.
+
+```r
+t.test(atp_stats_overall_by_player_left_right_known$pct_first_serves_in ~ 
+         atp_stats_overall_by_player_left_right_known$hand)
+```
+
+Although the mean difference was only statistically significant for one variable I examined, right-handed players had, on average, higher stats across the board.  This provides evidence to support my argument that left-handed players do not have an advantage amongst the highest level of professional male tennis players.
+
+However, just slightly higher percentages across seven stats isn't exactly clear evidence for any verdict.  In the rest of this post I'll be comparing head-to-head match ups between left-handed and right-handed players.  I'll also be examining the overall proportion of matches won and lost by left-handed and right-handed players to see if there is in discernible difference.
 
 
 
