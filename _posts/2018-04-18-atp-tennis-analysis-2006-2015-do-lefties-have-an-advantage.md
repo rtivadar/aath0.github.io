@@ -229,11 +229,11 @@ table_of_right_left_won_lost <- table(atp_hand_analysis$hand,
 ```
 
 
-  (FIX TABLE_
+  (FIX TABLE)
 |  | Lost | Won
-- | ---- | ---
-Left | 3329 | 3148
-Right | 22143 | 22503
+|  | ---- | ---
+| Left | 3329 | 3148
+| Right | 22143 | 22503
 
 
 ```r
@@ -254,7 +254,7 @@ break more often
 win more return games
 win more matches
 win more tournaments
-- add in a table here to summarize the above percentages - 
+add in a table here to summarize the above percentages
 head to head match ups
 prop test for all
 prop test for top 100 vs top 100
