@@ -26,7 +26,7 @@ For the remainder of this post, I'll be describing my methods and my results, as
 
 So, do lefties really have an advantage?
 
-The answer: No.  Not a bit.  A big resounding no.  If anything, they lose more matches than they should.  Which is curious.  
+The answer: No.  Not a bit.  If anything, they lose more matches than they should.  Which is curious.  
 
 Keep reading (or skimming) below to see my rationale and supporting arguments.
 
@@ -105,6 +105,46 @@ atp_stats_overall_by_player_left_right_known %>%
 On the average, left-handed players win 46.9% of points after missing their first serve and getting their second serve in.  For right-handed players, that percentage increases slightly once again to 47.3%.  
 
 On a side note here:  It's interesting that both left-handed and right-handed players win less than 50% of service points off their second serve.  This would be an interesting place for further explaration.  Perhaps players on the whole would be better off increasing their speed or placement on the second service (i.e. taking more risk), and with data on serve speeds, perhaps their is a breakeven point in terms of serve speed and percentage of points won off the second serve. (MAYBE TAKE OUT).
+
+To finish looking at the offensive side, I compared whether left-handed or right-handed players won a higher **percentage of service games**.
+```r
+atp_stats_overall_by_player_left_right_known %>% 
+  group_by(hand) %>% 
+  summarize(avg_pct_service_games_won_by_hand = mean(pct_service_games_won, 
+                                                     na.rm = TRUE))
+```
+On the average, left-handed players win 69.6% of their service games.  Once again, right-handed players win a slightly higher percentage of their service games at 70.4%.
+
+Moving to the defensive side of the ball, I looked at whether lefties or righties win a higher percentage of the break points they force, as well as which handed players win a higher percent of return games.
+
+```r
+atp_stats_overall_by_player_left_right_known %>% 
+  group_by(hand) %>% 
+  summarize(avg_pct_break_points_converted_on_defense_by_hand = 
+              mean(pct_break_points_converted_on_defense, na.rm = TRUE))
+```
+
+As for the **average percentage of break points converted** on defense, lefties convert 36.4% and righties convert 37.3%.
+
+The last defense statistic I looked at was the **percentage of return games won**.
+
+```r
+atp_stats_overall_by_player_left_right_known %>% 
+  group_by(hand) %>% 
+  summarize(avg_pct_return_games_won_on_defense = 
+              mean(pct_return_games_won_on_defense, na.rm = TRUE))
+```
+
+On the average, lefties win 16.1% of their return games, while righties win 16.8%.
+
+Below is a summary table for the above information.
+
+Statistic | Left-Handed Players | Right-Handed Players | Type of Player with Higher Stat | Result Significant at the 
+
+
+
+
+
 
 
 win more service games
