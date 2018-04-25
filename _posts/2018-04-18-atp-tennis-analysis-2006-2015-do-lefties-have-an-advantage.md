@@ -139,7 +139,8 @@ On the average, lefties win 16.1% of their return games, while righties win 16.8
 
 Below is a summary table for the above information.
 
-Statistic | Left-Handed Players | Right-Handed Players | Type of Player with Higher Stat | Result Significant at the 
+Statistic | Left-Handed Players | Right-Handed Players | Type of Player with Higher Stat | Result Significant at the \\( \alpha = 0.05 \\) Level
+--------- | ------------------- | -------------------- | ------------------------------- | ----------------------------------------------------
 
 
 
