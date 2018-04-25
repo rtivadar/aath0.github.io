@@ -227,10 +227,17 @@ atp_hand_analysis <- atp_hand_analysis %>% filter(hand != "Unknown")
 
 table_of_right_left_won_lost <- table(atp_hand_analysis$hand, 
                                       atp_hand_analysis$result)
+```
 
 
+  
+  | Lost | Won
+- | ---- | ---
+Left | 3329 | 3148
+Right | 22143 | 22503
 
 
+```r
 # Two Proportion z-Test
 # Result: p-value of 0.007041, there is a statistically significant difference in proportion of
 # matches lefties and righties win.
