@@ -77,7 +77,7 @@ To begin, I'll be looking at whether or not lefties **serve more aces**.  To det
 ```r
 atp_stats_overall_by_player_left_right_known %>% 
   group_by(hand) %>% 
-  summarize(avg_ace_per_service_point_by_hand = mean(pct_ace_per_service_point, 
+  summarize(avg_pct_ace_per_service_point_by_hand = mean(pct_ace_per_service_point, 
                                                      na.rm = TRUE))                                                     
 ```
 Per service point, lefties on average serve 6.29% aces.  For righties, that number increases slightly to 6.38%.  This is a fairly small increase, and doesn't really warrent hypothesizing a reason why.
@@ -148,22 +148,24 @@ atp_stats_overall_by_player_left_right_known %>%
 
 Across the board, left-handed players win an average of 25.7% of their matches, while right-handed players win an average of 27.6%.
 
-
-Below is a summary table for the above information.
+(MOVE THIS TABLE TO THE VERY TOP)(CHECK THE SIGNIFICANCE AGAIN)
+Below is a summary table for the above information.  Note: "Avg Pct" stands for "Average Percent"
 
 Statistic | Left-Handed Players | Right-Handed Players | Type of Player with Higher Stat | Result Significant at the \\( \alpha = 0.05 \\) Level 
---------- | ------------------- | -------------------- | ------------------------------- | ----------------------------------------------------
+--------- | ------------------- | -------------------- | ------------------------------- | -----------------------------------------------------
+
+Avg Pct Ace Per Service Point | 6.29% | 6.38% | Right | No
+Avg Pct Points Won Off 1st Serve | 66.8% | 67.6% | Right | Yes
+Avg Pct Points Won Off 2nd Serve | 46.9% | 47.3% | Right | No
+Avg Pct Service Games Won | 69.6% | 70.4% | Right | No
+Avg Pct of Break Points Converted |36.4% | 37.3% | Right | No
+Avg Pct Return Games Won | 16.1% | 16.8 | Right | No
+Avg Pct Matches Won |25.7% | 27.6% | Right | No
 
 
 
 
 
-avg_ace_per_service_point_by_hand
-avg_pct_points_won_off_first_serve_by_hand
-avg_pct_points_won_off_second_serve_by_hand
-avg_pct_service_games_won_by_hand
-avg_pct_break_points_converted_on_defense_by_hand
-avg_pct_return_games_won_on_defense
 
 
 
