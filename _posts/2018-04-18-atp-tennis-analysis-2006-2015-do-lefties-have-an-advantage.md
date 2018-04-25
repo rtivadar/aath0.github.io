@@ -151,8 +151,8 @@ Across the board, left-handed players win an average of 25.7% of their matches, 
 (MOVE THIS TABLE TO THE VERY TOP)(CHECK THE SIGNIFICANCE AGAIN)
 Below is a summary table for the above information.  Note: "Avg Pct" stands for "Average Percent"
 
-Statistic | Left-Handed Players | Right-Handed Players | Type of Player with Higher Stat | Significant at the \\( \alpha = 0.05 \\)
---------- | ------------------- | -------------------- | ------------------------------- | ---------------------------
+Statistic | Left-Handed Players | Right-Handed Players | Type of Player with Higher Stat | Result Significant at 0.05 Level?
+--------- | ------------------- | -------------------- | ------------------------------- | ---------------------------------
 
 Avg Pct Ace Per Service Point | 6.29% | 6.38% | Right | No
 Avg Pct Points Won Off 1st Serve | 66.8% | 67.6% | Right | **Yes**
@@ -207,7 +207,6 @@ So across 10 years of modern man's tennis, right-handed players have actually wo
 
 ### Proportion of Match Wins and Losts
 
-
 In the last portion of this analysis below, I explored the proportion of all matches won and lost by left-handed and right-handed players between 2006 and 2015.  Using a Two-Sample proportion test, I then show that right-handed players win a statistically significant higher proportion of their matches.
 
 
@@ -228,7 +227,7 @@ atp_hand_analysis <- atp_hand_analysis %>% filter(hand != "Unknown")
 
 table_of_right_left_won_lost <- table(atp_hand_analysis$hand, 
                                       atp_hand_analysis$result)
-```
+
 
 
 
@@ -239,7 +238,7 @@ table_of_right_left_won_lost <- table(atp_hand_analysis$hand,
 # Since lefties actually lost more of their matches overall, there is strong evidence to show that
 # right handers actually win more matches.
 prop.test(table_of_right_left_won_lost)
-
+```
 
 
 
