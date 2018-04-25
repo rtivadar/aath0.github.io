@@ -151,8 +151,8 @@ Across the board, left-handed players win an average of 25.7% of their matches, 
 (MOVE THIS TABLE TO THE VERY TOP)(CHECK THE SIGNIFICANCE AGAIN)
 Below is a summary table for the above information.  Note: "Avg Pct" stands for "Average Percent"
 
-Statistic | Left-Handed Players | Right-Handed Players | Type of Player with Higher Stat | Result Significant at the \\( \alpha = 0.05 \\) Level 
---------- | ------------------- | -------------------- | ------------------------------- | -----------------------------------------------------
+Statistic | Left-Handed Players | Right-Handed Players | Type of Player with Higher Stat | Significant at the \\( \alpha = 0.05 \\) Level? 
+--------- | ------------------- | -------------------- | ------------------------------- | -----------------------------------------------
 
 Avg Pct Ace Per Service Point | 6.29% | 6.38% | Right | No
 Avg Pct Points Won Off 1st Serve | 66.8% | 67.6% | Right | Yes
@@ -161,6 +161,8 @@ Avg Pct Service Games Won | 69.6% | 70.4% | Right | No
 Avg Pct of Break Points Converted |36.4% | 37.3% | Right | No
 Avg Pct Return Games Won | 16.1% | 16.8 | Right | No
 Avg Pct Matches Won |25.7% | 27.6% | Right | No
+
+I also performed a Two-Sample t-Test on each of the above statistics to see if the differences in any were significant at the \\( \alpha = 0.05 \\) significance level.  The only statistic that was significant was the average percentage of points won off the first serve, with a p-value of 0.02948.  This p-value was not terribly low, 
 
 
 
