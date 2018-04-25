@@ -13,6 +13,7 @@ This post is the third in a series covering an analysis of ATP (Association of T
 
 * (INSERT LINK)
 * (INSERT LINK)
+[ATP Tennis Analysis, 2006 - 2015: An Introduction and Data Cleaning](https://ethanwicker.github.io/journal/atp-tennis-analysis-2006-2015-an-introduction-and-data-cleaning.html).
 
 In this post I will be discussing whether or not left-handed players have an advantage over their right-handed counterparts.  To provide some context, it has long been believed that lefties have an advantage over righties in various sports, and tennis especially, is no exception.  
 
@@ -253,8 +254,8 @@ The resulting table is below.
 
   (FIX TABLE)
   
-       | Lost  | Won   
- ----- | ----- | ----- 
+  []() | Lost  | Won   
+ ----- | ----- | ----
  Left  | 3329  | 3148  
  Right | 22143 | 22503 
 
