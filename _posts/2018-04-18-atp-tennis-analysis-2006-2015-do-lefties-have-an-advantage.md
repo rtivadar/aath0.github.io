@@ -151,8 +151,8 @@ Across the board, left-handed players win an average of 25.7% of their matches, 
 (MOVE THIS TABLE TO THE VERY TOP)(CHECK THE SIGNIFICANCE AGAIN)
 Below is a summary table for the above information.  Note: "Avg Pct" stands for "Average Percent"
 
-Statistic | Left-Handed Players | Right-Handed Players | Type of Player with Higher Stat | Result Significant at 0.05 Level?
---------- | ------------------- | -------------------- | ------------------------------- | ---------------------------------
+Statistic | Left-Handed Players | Right-Handed Players | Type of Player with Higher Stat | Significant at \\( \alpha = 0.05 \\) Level?
+--------- | ------------------- | -------------------- | ------------------------------- | -------------------------------------------
 Avg Pct Ace Per Service Point | 6.29% | 6.38% | Right | No
 Avg Pct Points Won Off 1st Serve | 66.8% | 67.6% | Right | **Yes**
 Avg Pct Points Won Off 2nd Serve | 46.9% | 47.3% | Right | No
@@ -230,7 +230,7 @@ table_of_right_left_won_lost <- table(atp_hand_analysis$hand,
 
 
   
- _ | Lost | Won
+ Hand/Result | Lost | Won
 - | ---- | ---
 Left | 3329 | 3148
 Right | 22143 | 22503
