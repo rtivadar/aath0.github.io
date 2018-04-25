@@ -3,7 +3,7 @@ layout: post
 title: "ATP Tennis Analysis, 2006 - 2015: Do Lefties have an Advantage?"
 author: "Ethan Wicker"
 categories: journal
-tags: [tennis, data analysis, data frames]
+tags: [tennis, data analysis]
 image: tennis-nadal-serving.jpg
 ---
 
@@ -251,15 +251,13 @@ table_of_right_left_won_lost <- table(atp_hand_analysis$hand,
                                       atp_hand_analysis$result)
 ```
 The resulting table is below.
-
-  (FIX TABLE)
-  
+ 
   []() | Lost  | Won   
  ----- | ----- | ----
  Left  | 3329  | 3148  
  Right | 22143 | 22503 
 
-Now with the above table of information
+Now with the above table of counts, we can perform a significance test to see if the difference in the proportion of matches lefties won is 
 
 
 
