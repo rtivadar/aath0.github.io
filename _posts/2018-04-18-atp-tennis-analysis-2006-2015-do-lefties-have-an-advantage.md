@@ -258,6 +258,9 @@ The resulting table is below.
  Left  | 3329  | 3148  
  Right | 22143 | 22503 
 
+Now with the above table of information
+
+
 
 ```r
 # Two Proportion z-Test
