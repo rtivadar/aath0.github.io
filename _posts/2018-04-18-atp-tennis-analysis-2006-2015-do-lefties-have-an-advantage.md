@@ -23,13 +23,13 @@ Another typical reason lefties are thought to have an advantage - this one less 
 
 This only scratches the surface of the advantages and disadvantages of handediness in tennis, but if you were unfamiliar with the nuances of the sport, it provides you with enough information to see the legitimacy in the question.
 
-For the remainder of this post, I'll be describing my methods and my results, as well as including and discussing various segments of my R code.  I'll be discussing some smaller topics in each section, such as if lefties serve more aces or win more a higher percentage of service games.  Towards the end of this post, I'll perform some more indepth statistical analysis (i.e. a Two Proportion z-Test and a Chi-Squared Test of Independence) and I'll summarize my results.
+For the remainder of this post, I'll be describing my methods and my results, as well as including and discussing various segments of my R code.  I'll be discussing some smaller topics in each section, such as if lefties serve more aces or win more a higher percentage of service games.  Towards the end of this post, I'll perform some more indepth statistical analysis (i.e. a Two Sample Proportion z-Test)and I'll summarize my results.
 
 So, do lefties really have an advantage?
 
 The answer: No.  Not a bit.  If anything, they lose more matches than they should.  Which is curious.  
 
-Keep reading (or skimming) below to see my rationale and supporting arguments.
+In the rest of this post you'll find my rationale and supporting arguments.
 
 I should pause right here and make one very important point.  My analysis shows that lefties, during the 10 year span from 2006 - 2015 did not have an advantage over right handed players (in part because they lost more often to righties than won over them).  This analysis, and the resulting conclusion only holds true for ATP World Tour players (i.e. the top 250 - 500 or so players in the world), and cannot really be extrapolated beyond these dates.
 
@@ -244,7 +244,12 @@ Before doing this, I need to filter out all the rows where a player's playing ha
 atp_hand_analysis <- atp_hand_analysis %>% filter(hand != "Unknown")
 ```
 
-To count how many matches were won and lost for each type of player, I used the convenient `table` function provided in base R. 
+I also defined the levels of the `result` variable so that `Won` comes before `Lost`.  This is not necessary, but when performing the proportion test, this allows me to get the proportion of matches won instead of the proportion of matches lost, which suits my needs a little better.
+
+```r
+atp_hand_analysis$result <- factor(atp_hand_analysis$result, levels = c("Won", "Lost"))
+```
+Finally, to count how many matches were won and lost for each type of player, I used the convenient `table` function provided in base R. 
 
 ```
 table_of_right_left_won_lost <- table(atp_hand_analysis$hand, 
@@ -254,22 +259,99 @@ The resulting table is below.
  
   []() | Lost  | Won   
  ----- | ----- | ----
- Left  | 3329  | 3148  
- Right | 22143 | 22503 
+ Left  | 3148  | 3329  
+ Right | 22503 | 22143 
 
-Now with the above table of counts, we can perform a significance test to see if the difference in the proportion of matches lefties won is 
-
-
+Now with the above table of counts, we can perform a significance test to see if the difference in the proportion of matches left-handed players won is significantly different from the proportion of matches right-handed players won.  To perform this test, I used the `prop.test` function.
 
 ```r
 # Two Proportion z-Test
-# Result: p-value of 0.007041, there is a statistically significant difference in proportion of
-# matches lefties and righties win.
-#
-# Since lefties actually lost more of their matches overall, there is strong evidence to show that
-# right handers actually win more matches.
 prop.test(table_of_right_left_won_lost)
 ```
+
+I've included the R printout of the results of this test in full below.
+
+```r
+  2-sample test for equality of proportions with continuity correction
+
+data:  table_of_right_left_won_lost
+X-squared = 7.2624, df = 1, p-value = 0.007041
+alternative hypothesis: two.sided
+95 percent confidence interval:
+ -0.031118241 -0.004890228
+sample estimates:
+   prop 1    prop 2 
+0.4860275 0.5040317 
+```
+
+In the above R printout, `prop 1` is the proportion of matches left-handed players won, and `prop 2` is the proportion of matches right-handed players won.  So, during the 10 year span from 2006 to 2015, left-handed players won 48.6% of their matches, while right-handed players won 50.4% of their matches.
+
+The p-value of this test was 0.007041, which is much lower than the common significance level of \\( \alpha = 0.05 \\), or even \\( \alpha = 0.01 \\).  This test provides statistically significant evidence that right-handed players actually win a larger proportion of their matches than left-handed players.
+
+I should mention here that the independence clause of the proportion test may be a bit shakey.  If we assume that all of the matches in the data set are independent of each other, then the results of the test hold.  However, this assumption may or may not be completely true, and is certainly up for debate.  There are various ways the matches may or may not be independent.  If right-handed players, for example, have some slight advantage, then as they advance through tournaments over left-handed players we might expect them to continue advancing.  Or we could pick out the 31 matches in which the right-handed Roger Federer played the left-handed Rafael Nadal across these 10 years.  Nadal won 67.7% of these matches, so clearly the leftie here won a significantly higher proportion of matches here.
+
+However, I do think the independence assumption here is appropriate, especially with my immensely large sample size.
+
+Out of curiousity, I took a second look at matches between players ranked in the top 100, to see if the results were still signifant.  I've provided the supporting R code as well as the `prop.test` output below.
+
+```r
+atp_hand_analysis_top_100_players <- atp_hand_analysis %>% 
+  filter(winner_rank <= 100 & loser_rank <= 100)
+
+table_of_right_left_won_lost_top_100 <- table(atp_hand_analysis_top_100_players$hand, 
+                                              atp_hand_analysis_top_100_players$result)
+
+prop.test(table_of_right_left_won_lost_top_100)
+
+  2-sample test for equality of proportions with continuity correction
+
+data:  table_of_right_left_won_lost_top_100
+X-squared = 3.7478, df = 1, p-value = 0.05288
+alternative hypothesis: two.sided
+95 percent confidence interval:
+ -0.0332560735  0.0001973874
+sample estimates:
+   prop 1    prop 2 
+0.4854908 0.5020201 
+```
+
+For matches only between the top 100 ranked players in the world at any given time between 2006 and 2015, left-handed players won 48.5% of their matches while right-handed players won 50.2%.  This time, the p-value is still low at 0.05288, but it doesn't quite surpass the \\( \alpha = 0.05 \\).  So if we want to be stringent, the difference in the proportions of wins for left-handed players and right-handed players is not statistically significant if we only look at matches between the top 100 players.  However, it is just barely over the threshold, so I feel comfortable saying there is still supporting evidence to state that right-handed players win more matches than left-handed players.
+
+## Conclusion
+
+To close out this post, I'll be summarizing my supporting arguments to show that left-handed players, at the ATP World Tour Level, do not have an advantage.  And then briefly after that, I'll discuss a complete speculative hypothesis for why I believe this may be the case.
+
+### Summary
+
+In this post, I showed significant evidence against the claim that left-handed players have an advantage.  This argument, of course, only hold weight at the very top tier of professional men's tennis, and should not exprapolated to any other tier of either the men's or women's game.
+
+In looking at just averaged statistics, I showed that right-handed players outperform left-handed players in every category.  The statistics I looked at were:
+
+* average percentage of ace per service point
+* average percentage of points won off the first serve
+* average percentage of points won off the second serve
+* average percentage of service games won
+* average percentage of break points converted
+* average percentage of return games won
+* average percentage of matches won
+
+In each of these statistics, right-handed players were slightly above left-handed players.  Only one of these statistics, the average percentage of points won off the first serve was found to be statistically significant.
+
+In looking at matches played between left-handed and right-handed players, I showed that right-handed players win 51.9% of these matches.
+
+Finally, I examined the overall proportion of matches won for both left-handed and right-handed players.  Across all matches in my data set from 2006 to 2015, left-handed players won 48.6% of their matches, while right-handed players won 50.4% of their matches.  A proportion test to see if there was a difference in the proportion of matches won by left-handed and right-handed players had a statistically significant result, with a p-value of 0.007041.  That is, we would expect the difference in proportions to be this great, in either direction, less than 1 out of 100 samples.
+
+I also reexamined the proportion of matches won for the top 100 players in the world.  For just this subset of data, left-handed players won 48.5% of their matches, while right-handed players won 50.2% of their matches.  The results of this proportion test were just above the statisically significant threshold, with a p-value of 0.05288.
+
+To summarize, my analysis has show that left-handed players absolutely do not have an advantage at the ATP World Tour Level of men's professional tennis.  They systematically have lower match statistics than right-handed players, they lose over 50% of the time to right-handed players, and they also win a significantly lower proportion of their overall matches than right-handed players.
+
+### Speculation
+
+Finally, I'd like to include a few last comments in this post.  In this section, I'll be providing a completely speculative hypothesis for why left-handed players do not have an advantage at the highest level of men's professional tennis.
+
+Just about any athlete will tell you that left-handed players have an advantage in most appropriate sports, and tennis is no different.  As a tennis player myself, there is no refuting that left-handed players absolutely have an advantage at some level of the game.  In lower levels of the game, such as juniors or college, left-handed players are rarer and certainly have some advantage over right-handed players, simply due to this.  
+
+My hypothesis is this:  That at the higher tiers of the game (such as Futures and Challenger levels), left-handed players win matches over right-handed players in part due to their leftie advantage, and so they earn ranking points and their world ranking increases.  However, as they continue to advance, their skill level begins to become slightly lower than similarly ranked right-handed players.  So at the hightest levels of the game, the lefties were able to get there by mostly skill, but also a little bit of left-handed advantage.  On the contrary, the right-handed players had to get to that point entirely by their skills.  This culminates in the top 500 or so players in the world, where the righties have the skill to back up their rankings, and the lefties commonly have slightly less skill, and have advanced that far is small part to their natural advantage.  So the righties are able to win a higher proportion of their matches overall because they did not have any advantage growing up, and are entirely the best players in the world.  
 
 
 
@@ -284,5 +366,8 @@ head to head match ups
 prop test for all
 prop test for top 100 vs top 100
 proportion tests
+talk about indepedence condition
+conclusion
+hypothesus
 
 
