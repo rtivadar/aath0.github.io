@@ -352,22 +352,3 @@ Finally, I'd like to include a few last comments in this post.  In this section,
 Just about any athlete will tell you that left-handed players have an advantage in most appropriate sports, and tennis is no different.  As a tennis player myself, there is no refuting that left-handed players absolutely have an advantage at some level of the game.  In lower levels of the game, such as juniors or college, left-handed players are rarer and certainly have some advantage over right-handed players, simply due to this.  
 
 My hypothesis is this:  That at the higher tiers of the game (such as Futures and Challenger levels), left-handed players win matches over right-handed players in part due to their leftie advantage, and so they earn ranking points and their world ranking increases.  However, as they continue to advance, their skill level begins to become slightly lower than similarly ranked right-handed players.  So at the hightest levels of the game, the lefties were able to get there by mostly skill, but also a little bit of left-handed advantage.  On the contrary, the right-handed players had to get to that point entirely by their skills.  This culminates in the top 500 or so players in the world, where the righties have the skill to back up their rankings, and the lefties commonly have slightly less skill, and have advanced that far is small part to their natural advantage.  So the righties are able to win a higher proportion of their matches overall because they did not have any advantage growing up, and are entirely the best players in the world.  
-
-
-
-
-win more service games
-break more often
-win more return games
-win more matches
-win more tournaments
-add in a table here to summarize the above percentages
-head to head match ups
-prop test for all
-prop test for top 100 vs top 100
-proportion tests
-talk about indepedence condition
-conclusion
-hypothesus
-
-
