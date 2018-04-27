@@ -57,7 +57,7 @@ atp_stats_overall_by_player_left_right_known %>% ggplot(aes(x = hand, y = avg_ra
   geom_boxplot() +
   coord_flip()
   ```
-  (FIX PLOT)
+  
 ![alt text](/assets/img/tennis-left-right-distribution.jpg "Tennis-left-right-distribution")
   
 We can see in the above boxplots that the distribution of left-handed players and right-handed players seems to be pretty even across the rankings.  Of course, since there are more righties, we would expect their overall spread to be larger, and it is.  To quantify this a little more, the median world ranking is 147 and 153 for all left-handed and right-handed players, respectfully.  The mean world ranking for each is 187 and 201.
@@ -260,8 +260,8 @@ The resulting table is below.
  
   []() | Won   | Lost  
  ----- | ----- | ----
- Left  | 3148  | 3329  
- Right | 22503 | 22143 
+ **Left**  | 3148  | 3329  
+ **Right** | 22503 | 22143 
 
 Now with the above table of counts, we can perform a significance test to see if the difference in the proportion of matches left-handed players won is significantly different from the proportion of matches right-handed players won.  To perform this test, I used the `prop.test` function.
 
@@ -317,6 +317,8 @@ sample estimates:
 ```
 
 For matches only between the top 100 ranked players in the world at any given time between 2006 and 2015, left-handed players won 48.5% of their matches while right-handed players won 50.2%.  This time, the p-value is still low at 0.05288, but it doesn't quite surpass the \\( \alpha = 0.05 \\) significance threshold.  So if we want to be stringent, the difference in the proportions of wins for left-handed players and right-handed players is not statistically significant if we only look at matches between the top 100 players.  However, it is just barely over the threshold, so I feel comfortable saying there is still supporting evidence to state that right-handed players win more matches than left-handed players across all players.
+
+---
 
 ## Conclusion
 
