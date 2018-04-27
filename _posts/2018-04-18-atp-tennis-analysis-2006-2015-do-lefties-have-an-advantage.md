@@ -58,7 +58,7 @@ atp_stats_overall_by_player_left_right_known %>% ggplot(aes(x = hand, y = avg_ra
   coord_flip()
   ```
   (FIX PLOT)
-![alt text](https://github.com/ethanwicker/ethanwicker.github.io/blob/master/assets/img/tennis-left-right-distribution.jpeg "Tennis-left-right-distribution")
+![alt text](https://github.com/ethanwicker/ethanwicker.github.io/blob/master/assets/img/tennis-left-right-distribution.jpg "Tennis-left-right-distribution")
   
 We can see in the above boxplots that the distribution of left-handed players and right-handed players seems to be pretty even across the rankings.  Of course, since there are more righties, we would expect their overall spread to be larger, and it is.  To quantify this a little more, the median world ranking is 147 and 153 for all left-handed and right-handed players, respectfully.  The mean world ranking for each is 187 and 201.
   
