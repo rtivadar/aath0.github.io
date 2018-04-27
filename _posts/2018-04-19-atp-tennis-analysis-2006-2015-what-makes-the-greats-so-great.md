@@ -7,6 +7,8 @@ tags: [tennis, data analysis, data frames]
 image: tennis-federer.jpg
 ---
 
+- also need to fix image in other post and maybe add horizontal line to it
+- fix david ferrer and maybe andy murry in some graph?
 
 # introduction 
 # link to other posts
