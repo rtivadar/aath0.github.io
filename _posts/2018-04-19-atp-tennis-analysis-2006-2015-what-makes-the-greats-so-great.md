@@ -59,9 +59,13 @@ In this data analysis, I'll be discussing and displaying various data visualizat
 
 This analysis will roughly be divided into three sections.  The first section will deal with match wins and tournament advancements, the second section will deal with the offensive side of the game, and the third section will deal with the defensive side of the game.
 
-Throughout much of the below analysis, I subsetted my visualizations to include only players who for any year, were ranked in the top 5 players.  This was done to make the trends in the data easier to see, and also for direct comparison between the great players and the next tier down of really good, but not consistent players.  As you'll see in the line graph belows, for players with an average ranking at or above the top 5 in the world in consectutive years, there are lines drawn between their data points.  On the contray, for players who sparacticaly were ranked in the top 5 players in the world, their statistics are just represented as singulary data points.
+Throughout much of the below analysis, I subsetted my visualizations to include only players who for any year, were ranked in the top 5 players, by yearly avearge ranking.  This was done to make the trends in the data easier to see, and also for direct comparison between the great players and the next tier down of really good, but not consistent players.  As you'll see in the line graph belows, for players with an average ranking at or above the top 5 in the world in consectutive years, there are lines drawn between their data points.  On the contray, for players who sparacticaly were ranked in the top 5 players in the world, their statistics are just represented as singulary data points.
 
 ### Match Wins and Tournament Advancement
+
+(CHANGE WORDING A BIT SINCE REORGANIZED)
+ 
+#### Percentage of Matches Won
 
 In this section of my analysis, I'll be looking at overall trends among players, both in terms of the percentage of matches won for an entire year, and the average percentage of rounds a player advances through a tournament.
 
@@ -90,6 +94,24 @@ Looking at the trends in the graph more closely, notice the consistency of Feder
 
 Another interesting trend here is Djokovic's continuous rise in match win percentage from 2012 to 2015.
 
+To look at percentage of matches won in more detail, below is a histogram of average percentage of matches won between 2006 and 2015.  To make the histogram more meaningful as well as more readable, I filtered the data to only include players with atleast 10 match wins.
+
+```r
+atp_stats_overall_by_player %>% 
+  filter(total_matches_won >= 10) %>% 
+  ggplot(aes(x = pct_matches_won)) + 
+  geom_histogram(binwidth = .02, fill = "cyan", color = "black") +
+  labs(title = "Percent of Matches Won between 2006 and 2015",
+       subtitle = "Minimum of 10 Match Wins",
+       x = "Percent of Matches Won",
+       y = "Count")
+```
+(ADD HISTOGRAM - make sure correct one)
+
+This histogram shows just how far above all other players Federer, Nadal, and Djokovic are.  The right most bar of the histogram represents three players.  These players are Federer, Nadal, and Djokovic, with overall match win percentages of 84.7%, 84.3%, and 83.7%, respectively.  The bar second from the right representing one player is Andy Murray, with a match win percentage of 76.3%.  The player represented by the bar to the left of Murray is Andy Roddick, with a match win percentage of 73.1%.
+
+#### Average Tournament Advancement
+
 Next, below is a similar line graph.  This line graph plots the average percent of rounds a player won in across all tournaments for a year on the y-axis, and year on the x-axis.
 
 ```r
@@ -110,18 +132,27 @@ atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>%
 
 (INSERT GRAPH)
 
-As you would expect, the trends here are pretty similar to the above line graph.  Federer and Nadal both bound around 75% for much of the data.  This means, that for those years, both these players tended to advance about 75% of the way through a tournament before losing out.  Andy Murray is consistently below Federer, Nadal, and Djokovic in just about every year.
+As you would expect, the trends here are pretty similar to the first line graph showing percent of matches won.  Federer and Nadal both bounce around 75% for much of the data.  This means, that for those years, both these players tended to advance about 75% of the way through a tournament before losing out.  Andy Murray is consistently below Federer, Nadal, and Djokovic in just about every year.
 
 A couple of interesting observations with this plot are Federer's 2006 season and Djokovic's 2015 season.  These seasons are commonly held as two of the most dominate season in men's professional tennis, and for good reason.  In these years, Federer and Djokovic advanced through 90.3% and 90.8% of tournament rounds, respectively.  These were the highest such averages for the data set.
 
+From the previous two line graphs, we've seen that Federer, Nadal, Djokovic, and Murray win more matches than every other player on tour, and also do so much more consistently.  Out of the remaining eight players that make an appearance in the graphs, only Nikolay Davydenko had consecutive years with an average ranking of 5 or higher.
 
 
-overall wins to offense to defense to which players are most effecient
+
+
+
+
+
+
+
+
+overall wins to offense to defense to which players are most effecient.  
 
 overall win pct DONE
 show avg pct rounds won line graph DONE
 
-show histogram of everyone (START HERE)
+show histogram of everyone (DONE)
 scatterplot of percent vs total wins
 pct service games won
 scatterplot service games won vs height
