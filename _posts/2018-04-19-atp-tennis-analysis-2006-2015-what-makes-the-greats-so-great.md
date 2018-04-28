@@ -53,9 +53,81 @@ In the remainder of this post, I'll be analysis and discussing some specifics ab
 
 ---
 
-The Analysis
+## The Analysis
+
+In this data analysis, I'll be discussing and displaying various data visualizations.  In particular, looking at the data here helps us see trends, and helps us see just how much more consistent the top tennis players were between 2006 and 2015.  
+
+This analysis will roughly be divided into three sections.  The first section will deal with match wins and tournament advancements, the second section will deal with the offensive side of the game, and the third section will deal with the defensive side of the game.
+
+Throughout much of the below analysis, I subsetted my visualizations to include only players who for any year, were ranked in the top 5 players.  This was done to make the trends in the data easier to see, and also for direct comparison between the great players and the next tier down of really good, but not consistent players.  As you'll see in the line graph belows, for players with an average ranking at or above the top 5 in the world in consectutive years, there are lines drawn between their data points.  On the contray, for players who sparacticaly were ranked in the top 5 players in the world, their statistics are just represented as singulary data points.
+
+### Match Wins and Tournament Advancement
+
+In this section of my analysis, I'll be looking at overall trends among players, both in terms of the percentage of matches won for an entire year, and the average percentage of rounds a player advances through a tournament.
+
+To begin, below is a line graph of a player's percent of matches won versus year.
+
+```r
+atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>% 
+  ggplot(aes(x = year, y = pct_matches_won, 
+             group = name, color = name)) + 
+  geom_line(size = 1.25) +
+  geom_point() +
+  scale_colour_discrete(guide = 'none') +
+  scale_x_discrete(expand=c(0, 1)) +
+  geom_dl(aes(label = name), 
+          method = list(dl.combine("last.points"), cex = 1),
+          position = position_nudge(x = 0.1)) +
+  labs(title = "Average Percent of matches won for Top 5 Players Per Year, 2006 - 2015",
+       x = "Year", 
+       y = "Average Percent of Matches Won")
+```
+(ADD GRAPH)
+
+As you can see, various players are in and out of the top 5 world rankings throughout the years.  In total, 12 different players had an average ranking of 5 or higher for any given year.  As for the great players of Federer, Nadal, Djokovic, and Murray, only Federer is ranked in the top 5 throughout all 10 years.  Dkojokic and Murray, whose average ranking enters into the top 5 in 2008 and 2009 respectively, also do not leave for the reminder of the years.  Nadal was the only great player to drop out of the top 5, after a string of bad performances in 2015.
+
+Looking at the trends in the graph more closely, notice the consistency of Federer from 2006 to 2012, in which his match win percentage never dropped below 80%.  Perhaps the most incredible statistic in this data set as well, is that in the 2006 season, Federer won 94.7% of his matches. The next closest match win percentage is Novak Djokovic in 2011, where he won 94.0% of his matches.  
+
+Another interesting trend here is Djokovic's continuous rise in match win percentage from 2012 to 2015.
+
+Next, below is a similar line graph.  This line graph plots the average percent of rounds a player won in across all tournaments for a year on the y-axis, and year on the x-axis.
+
+```r
+atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>% 
+  ggplot(aes(x = year, y = avg_pct_of_rounds_won_in_all_tournaments, 
+             group = name, color = name)) + 
+  geom_line(size = 1.25) +
+  geom_point() +
+  scale_colour_discrete(guide = 'none') +
+  scale_x_discrete(expand=c(0, 1)) +
+  geom_dl(aes(label = name), 
+          method = list(dl.combine("last.points"), cex = 1),
+          position = position_nudge(x = 0.1)) +
+  labs(title = "Average Percent of Rounds Won In All Tournaments for Top 5 Players Per Year, 2006 - 2015",
+       x = "Year", 
+       y = "Average Percent of Rounds Won In All Tournaments")
+```
+
+(INSERT GRAPH)
+
+As you would expect, the trends here are pretty similar to the above line graph.  Federer and Nadal both bound around 75% for much of the data.  This means, that for those years, both these players tended to advance about 75% of the way through a tournament before losing out.  Andy Murray is consistently below Federer, Nadal, and Djokovic in just about every year.
+
+A couple of interesting observations with this plot are Federer's 2006 season and Djokovic's 2015 season.  These seasons are commonly held as two of the most dominate season in men's professional tennis, and for good reason.  In these years, Federer and Djokovic advanced through 90.3% and 90.8% of tournament rounds, respectively.  These were the highest such averages for the data set.
 
 
+
+overall wins to offense to defense to which players are most effecient
+
+overall win pct DONE
+show avg pct rounds won line graph DONE
+
+show histogram of everyone (START HERE)
+scatterplot of percent vs total wins
+pct service games won
+scatterplot service games won vs height
+talk about double fault pct
+line graph pct return games won
+talk about pct break points converted
 
 
 
