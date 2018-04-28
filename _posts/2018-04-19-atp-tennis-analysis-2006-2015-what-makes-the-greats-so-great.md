@@ -57,19 +57,19 @@ In the remainder of this post, I'll be analysis and discussing some specifics ab
 
 In this data analysis, I'll be discussing and displaying various data visualizations.  In particular, looking at the data here helps us see trends, and helps us see just how much more consistent the top tennis players were between 2006 and 2015.  
 
-This analysis will roughly be divided into three sections.  The first section will deal with match wins and tournament advancements, the second section will deal with the offensive side of the game, and the third section will deal with the defensive side of the game.
+This analysis will roughly be divided into various sections, divded between the specific player statistics I will be analyzing in that section.  I'll start with overall matches and the offense side of the game first, and then move to the defense side of things.  Lastly, I'll look at player efficiency via average minutes per match and game. 
 
 Throughout much of the below analysis, I subsetted my visualizations to include only players who for any year, were ranked in the top 5 players, by yearly avearge ranking.  This was done to make the trends in the data easier to see, and also for direct comparison between the great players and the next tier down of really good, but not consistent players.  As you'll see in the line graph belows, for players with an average ranking at or above the top 5 in the world in consectutive years, there are lines drawn between their data points.  On the contray, for players who sparacticaly were ranked in the top 5 players in the world, their statistics are just represented as singulary data points.
 
-### Match Wins and Tournament Advancement
+
 
 (CHANGE WORDING A BIT SINCE REORGANIZED)
  
 #### Percentage of Matches Won
 
-In this section of my analysis, I'll be looking at overall trends among players, both in terms of the percentage of matches won for an entire year, and the average percentage of rounds a player advances through a tournament.
+To begin the analysis, I'll first be looking at percentage of matches won by player.  In the below graphs, I'll discuss this statistic per year, as well as overall.
 
-To begin, below is a line graph of a player's percent of matches won versus year.
+To begin, below is a line graph of a player's percent of matches won on the y-axis versus year on the x-axis.
 
 ```r
 atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>% 
@@ -92,7 +92,7 @@ As you can see, various players are in and out of the top 5 world rankings throu
 
 Looking at the trends in the graph more closely, notice the consistency of Federer from 2006 to 2012, in which his match win percentage never dropped below 80%.  Perhaps the most incredible statistic in this data set as well, is that in the 2006 season, Federer won 94.7% of his matches. The next closest match win percentage is Novak Djokovic in 2011, where he won 94.0% of his matches.  
 
-Another interesting trend here is Djokovic's continuous rise in match win percentage from 2012 to 2015.
+Other interesting trends here are Djokovic's continuous rise in match win percentage from 2012 to 2015, and Nadal's consistent up and down performance across all years.
 
 To look at percentage of matches won in more detail, below is a histogram of average percentage of matches won between 2006 and 2015.  To make the histogram more meaningful as well as more readable, I filtered the data to only include players with atleast 10 match wins.
 
@@ -110,9 +110,54 @@ atp_stats_overall_by_player %>%
 
 This histogram shows just how far above all other players Federer, Nadal, and Djokovic are.  The right most bar of the histogram represents three players.  These players are Federer, Nadal, and Djokovic, with overall match win percentages of 84.7%, 84.3%, and 83.7%, respectively.  The bar second from the right representing one player is Andy Murray, with a match win percentage of 76.3%.  The player represented by the bar to the left of Murray is Andy Roddick, with a match win percentage of 73.1%.
 
+
+#### Percentage of Service Games Won
+
+Moving on, I turned my attention to a player's percent of service games won, by year.
+
+```r
+atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>% 
+  ggplot(aes(x = year, y = pct_service_games_won, 
+             group = name, color = name)) + 
+  geom_line(size = 1.25) +
+  geom_point() +
+  scale_colour_discrete(guide = 'none') +
+  scale_x_discrete(expand=c(0, 1)) +
+  geom_dl(aes(label = name), 
+          method = list(dl.combine("last.points"), cex = 1),
+          position = position_nudge(x = 0.1)) +
+  labs(title = "Percent of Service Games Won for Top 5 Players Per Year, 2006 - 2015",
+       x = "Year", 
+       y = "Percent of Service Games Won")
+```
+
+(INSERT GRAPH)
+
+This graph, perhaps more than any other, shows the clear ordering of Roger Federer as the greatest player from 2006 to 2015, and Andy Murray as the fourth best player during that time frame.  Rafael Nadal and Novak Djokovic continually faught for the number two world ranking during this time period, and it shows as their percentage of service games won lines cross five times between 2008 and 2014.
+
+Next is an interesting scatterplot of a player's percent of service games won versus that player's height.  For clarity, I've included only players with an average world ranking in the top 50.
+
+```r
+atp_stats_overall_by_player %>% 
+  filter(avg_rank <= 50) %>% 
+  ggplot(aes(x = height, y = pct_service_games_won, label = name)) + 
+  geom_point() +
+  geom_jitter() +
+  geom_label(cex = 4) +
+  labs(title = "Percent Service Games Won vs. Height",
+       subtitle = "Top 50 Averaged Ranked Players",
+       x = "Height (cm)",
+       y = "Percent Service Games Won")
+```  
+
+(INSERT GRAPH)
+
+Theres a pretty weak positive association between a player's height and percentage of service games won.  However, what's interesting here is that for player's of their height, Federer and Nadal win the highest percentage of service games.  For reference, Federer and Nadal both stand at 185cm, or about 6'1".  For all players that are 185cm tall, they win 72.4% of their service games.  For players with an average ranking above 50, that percentage increases to 81.3%.  Federer and Nadal both win well above 85% of their service games.
+
+
 #### Average Tournament Advancement
 
-Next, below is a similar line graph.  This line graph plots the average percent of rounds a player won in across all tournaments for a year on the y-axis, and year on the x-axis.
+Next, below is a line graph that plots the a player's average tournament advancement, as a percent, versus year.  This plot is similar to the earlier plot on percentage of matches won.
 
 ```r
 atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>% 
@@ -138,13 +183,143 @@ A couple of interesting observations with this plot are Federer's 2006 season an
 
 From the previous two line graphs, we've seen that Federer, Nadal, Djokovic, and Murray win more matches than every other player on tour, and also do so much more consistently.  Out of the remaining eight players that make an appearance in the graphs, only Nikolay Davydenko had consecutive years with an average ranking of 5 or higher.
 
+To make the dominance of Federer, Nadal, and Djokovic clear, we can look at the below scatterplot showing a average percent of tournament advancement versus total matches won.
+
+```r
+atp_stats_overall_by_player %>% filter(avg_rank <= 50) %>% 
+  ggplot(aes(x = total_matches_won, y = avg_pct_of_rounds_won_in_all_tournaments, label = name)) + 
+  geom_point() + 
+  geom_label() +
+  labs(title = "Average Percent of Rounds Won in Tournament vs. Total Matches Won")
+```
+
+(INSERT GRAPH)
+
+We of course expect the linear relationship here, but notice the large gap between Federer, Nadal, and Djokovic and everyone else.
+
+#### Double Faults
+
+So far, we've looked at various statistics to see how dominating Federer, Nadal, Djokovic, and to a slightly lesser percent, Murray was between 2006 and 2015.  The stats we've looked at were percent of matches won, percentage of service games won, and average advancement through tournaments.  
+
+As previously mentioned, what makes the greats so great is their abilitiy to play at an immensily high level for a long period of time.  To drive this home, particularly for the likes of Roger Federer, I took at look at a double fault percentages for all players with at least 10 wins.  To be clear, this is the percentage of times a player double faults per service game.
+
+```r
+atp_stats_overall_by_player %>% filter(total_matches_won > 10) %>%
+  arrange(pct_double_fault)
+```
+
+Among all 258 players with more than 10 wins in my data set, Roger Federer had the third lowest double fault percent at 1.86%.  Rafael Nadal had the eight lowest, at 2.08%.
+
+#### Percent Return Games Won
+
+Now that I've discussed overall match wins as well as the serving side of the game, I'll move my attention towards the defense side.  To begin, below is line graph showing a player's percent of return games won versus year.  Once again, I've filtered the data to only include players with an average ranking at or above 5 for a given year.
+
+```r
+atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>% 
+  ggplot(aes(x = year, y = pct_return_games_won_on_defense, 
+             group = name, color = name)) + 
+  geom_line(size = 1.25) +
+  geom_point() +
+  scale_colour_discrete(guide = 'none') +
+  scale_x_discrete(expand=c(0, 1)) +
+  geom_dl(aes(label = name), 
+          method = list(dl.combine("last.points"), cex = 1),
+          position = position_nudge(x = 0.1)) +
+  labs(title = "Percent of Return Games Won for Top 5 Players Per Year, 2006 - 2015",
+       x = "Year", 
+       y = "Percent of Return Games Won")
+```
+(INSERT GRAPH)
+
+What's interesting here is that after 2006, Federer is consistently below Nadal, Djokovic, and Murray.  Federer is almost universially thought to be the best tennis player in history, so we might expect his defense game to be a little stronger.  
+
+However, once again, what separates the great players apart is just their sheer consistency.  While other top ranked players win a higher percentage of return games in the sparitic years they are ranked, the great players are consistently ranked highly and consistently return well.
+
+#### Percent of Break Points Converted
+
+To further quantify how well the great players play defense, I took at look at the percentage of break points converted for all players with more than 10 wins in that data set.
+
+```r
+atp_stats_overall_by_player %>% filter(total_matches_won > 10) %>% 
+  arrange(desc(pct_break_points_converted_on_defense))
+```
+
+As we might expect from the above line graph of percent of return games won, Nadal and Djokovic are both among the highest in terms of their percentage of break points forced and then converted.  In particular, Nadal ranks third among 258 players, winning 45.2% of the break points he forces.  Djokovic ranks ninth at 44.2% of break points converted.
+
+
+#### Efficiency in Grand Slams
+
+As a last facet of the sport to analyze, I took at look at how efficient players were.  In particular, during the first four rounds of Grand Slams (which have seven rounds in total), I analyzed and ranked players by their average number of minutes per match.
+
+To analyze this statistic, I had to construct the `atp_grand_slams` data frame, which contains player statistics only from matches in the first four rounds of grand slams.
+
+To construct these data frames, I followed a very similar to process to what I described in my second post in this series.  You can find more information and rationale for how I constructed this data frame there.  For completeness, I've included the code below.
+
+```r
+benchmark_number_of_rounds <- 4
+
+atp_grand_slams_by_winner_id <- atp %>% 
+  group_by(winner_id) %>% 
+  filter(tourney_level == "Grand Slam") %>% 
+  filter(as.numeric(round) <= benchmark_number_of_rounds) %>% 
+  summarize(total_matches_as_winner = n(),
+            total_games_played_as_winner = sum(w_SvGms, na.rm = TRUE) + 
+                                           sum(l_SvGms, na.rm = TRUE),
+            total_minutes_as_winner = sum(minutes, na.rm = TRUE))
+
+atp_grand_slams_by_loser_id <- atp %>% 
+  group_by(loser_id) %>% 
+  filter(tourney_level == "Grand Slam") %>% 
+  filter(as.numeric(round) <= benchmark_number_of_rounds) %>% 
+  summarize(total_matches_as_loser = n(),
+            total_games_played_as_loser = sum(w_SvGms, na.rm = TRUE) + 
+                                          sum(l_SvGms, na.rm = TRUE),
+            total_minutes_as_loser = sum(minutes, na.rm = TRUE))
+
+winners_columns_replace_na_with_0_grand_slams <- list(total_games_played_as_winner = 0,
+                                                      total_minutes_as_winner = 0,
+                                                      totaL_matches_as_winner = 0)
+
+atp_grand_slams_by_loser_id <- full_join(atp_grand_slams_by_loser_id, 
+          atp_player_info, by = "loser_id")
 
 
 
+setnames(atp_grand_slams_by_winner_id, old = "winner_id", new = "player_id")
+setnames(atp_grand_slams_by_loser_id, 
+         old = c("loser_id", "loser_name", "loser_hand", "loser_ioc"), 
+         new = c("player_id", "name", "hand", "ioc"))
+
+atp_grand_slams <- full_join(atp_grand_slams_by_winner_id, 
+                             atp_grand_slams_by_loser_id,
+                             by = "player_id")
+
+atp_grand_slams <- atp_grand_slams %>% replace_na(winners_columns_replace_na_with_0_grand_slams)
+
+atp_grand_slams <- atp_grand_slams %>% select(player_id, name, hand, ioc, everything())
+
+atp_grand_slams <- atp_grand_slams %>% 
+  mutate(total_matches = total_matches_as_winner + total_matches_as_loser,
+         total_games_played = total_games_played_as_winner + total_games_played_as_loser,
+         total_minutes = total_minutes_as_winner + total_minutes_as_loser,
+         avg_minutes_per_match = total_minutes/total_matches,
+         avg_minutes_per_game = total_minutes/total_games_played)
+         
+atp_grand_slams %>% 
+  filter(total_matches_as_winner > 10) %>% 
+  arrange(avg_minutes_per_match)         
+``` 
+
+After constructing this data frame, I filtered out players who had not won more than 10 matches, and then arranged the data according to the average number of minutes per match.
+
+Among all 103 players who had won at least 10 Grand Slam matches from the first four rounds of Grand Slams, Roger Federer ranks as the number one most efficent player per match.  
+
+On the average, it takes Federer 111.8 minutes, or just shy of two hours, to play a match in the first four rounds of a Grand Slam.  The next closest player is 113 minutes, and Novak Djokovic ranks ninth at about 125 minutes.
 
 
+---
 
-
+## Conclusion
 
 
 overall wins to offense to defense to which players are most effecient.  
