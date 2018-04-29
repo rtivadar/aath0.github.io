@@ -61,6 +61,8 @@ In this data analysis, I'll be discussing and displaying various data visualizat
 This analysis will roughly be divided into various sections, divded between the specific player statistics I will be analyzing in that section.  I'll start with overall matches and the offense side of the game first, and then move to the defense side of things.  Lastly, I'll look at player efficiency via average minutes per match. 
 
 Throughout much of the below analysis, I subsetted my visualizations to include only players who for any year, were ranked in the top 5 players, by yearly avearge ranking.  This was done to make the trends in the data easier to see, and also for direct comparison between the great players and the next tier down of really good, but not consistent players.  As you'll see in the line graph belows, for players with an average ranking at or above the top 5 in the world in consectutive years, there are lines drawn between their data points.  On the contray, for players who sparacticaly were ranked in the top 5 players in the world, their statistics are just represented as singulary data points.
+
+I have one last important thing to mention as well before the analysis.  There were two instances in which a player had an average ranking of 5 or greater, but in non-consecutive years.  This happen for David Ferrer in 2008 and 2013, and Andy Murray in 2013 and 2015.  When constructing the line graphs, `ggplot2` drew in the lines between these points.  This is not what I wanted, and did not create a true visualization of the data.  There was no convenient manner I could find to fix this, so I had to hard code the inbetween years for these two players.  For example, I hard coded David Ferrers `pct_matches_won` to `NA` and his `avg_rank` to 5 for the years 2009, 2010, 2011, and 2012.  This was a workaround to create the graphs how I wanted them.  In the below R code, I have not shown how I did this, just to not confuse any readers.  However, if you're curious you can take a look at the analysis #2 portion my R script file, where you'll find commented code explaining everything.  For the remainder of this post however, you can just ignore this paragraph.
  
 ### Percentage of Matches Won
 
@@ -79,13 +81,13 @@ atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>%
   geom_dl(aes(label = name), 
           method = list(dl.combine("last.points"), cex = 1),
           position = position_nudge(x = 0.1)) +
-  labs(title = "Average Percent of matches won for Top 5 Players Per Year, 2006 - 2015",
+  labs(title = "Percent of Matches Won for Top 5 Players Per Year, 2006 - 2015",
        x = "Year", 
-       y = "Average Percent of Matches Won")
+       y = "Percent of Matches Won")
 ```
 (ADD GRAPH)
 
-As you can see, various players are in and out of the top 5 world rankings throughout the years.  In total, 12 different players had an average ranking of 5 or higher for any given year.  As for the great players of Federer, Nadal, Djokovic, and Murray, only Federer is ranked in the top 5 throughout all 10 years.  Dkojokic and Murray, whose average ranking enters into the top 5 in 2008 and 2009 respectively, also do not leave for the reminder of the years.  Nadal was the only great player to drop out of the top 5, after a string of bad performances in 2015.
+As you can see, various players are in and out of the top 5 world rankings throughout the years.  In total, 12 different players had an average ranking of 5 or higher for any given year.  As for the great players of Federer, Nadal, Djokovic, and Murray, only Federer is ranked in the top 5 throughout all 10 years.  Dkojokic, whose average ranking enters into the top 5 in 2008, also does not leave for the remainder of the years.  Nadal and Murray's average ranking both momentarily drop out of the top 5.  Nadal, after a string of bad performances in 2015 dips below 5, and Murray's average ranking goes below 5 for the year of 2014, but he bounces back the very next year.
 
 Looking at the trends in the graph more closely, notice the consistency of Federer from 2006 to 2012, in which his match win percentage never dropped below 80%.  Perhaps the most incredible statistic in this data set as well, is that in the 2006 season, Federer won 94.7% of his matches. The next closest match win percentage is Novak Djokovic in 2011, where he won 94.0% of his matches.  
 
