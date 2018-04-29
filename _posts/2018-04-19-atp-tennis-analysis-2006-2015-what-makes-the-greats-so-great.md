@@ -11,9 +11,9 @@ image: tennis-federer.jpg
 
 This the fourth post in a series covering an analysis of ATP (Association of Tennis Professionals) Tennis Matches between the 10 year span from 2006 to 2016.  You can find my previous posts in this series at the following links:
 
-* (INSERT LINK)
-* IL
-* IL
+* [ATP Tennis Analysis, 2006 - 2015: An Introduction and Data Cleaning](https://ethanwicker.github.io/journal/atp-tennis-analysis-2006-2015-an-introduction-and-data-cleaning.html).
+* [ATP Tennis Analysis, 2006 - 2015: Constructing Useful Data Frames](https://ethanwicker.github.io/journal/atp-tennis-analysis-2006-2015-constructing-useful-data-frames.html)
+* 
 
 (INSERT BIT HERE about how you may want to read those first, and that i will be referencing data frames what those posts.  i'll include R code below)
 
