@@ -85,7 +85,7 @@ atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>%
        x = "Year", 
        y = "Percent of Matches Won")
 ```
-![alt text](/assets/img/tennis-pct-matches-won.jpg "Tennis-Percent_Matches_Won")
+![alt text](/assets/img/tennis-pct-matches-won.jpeg "Tennis-Percent_Matches_Won")
 
 As you can see, various players are in and out of the top 5 world rankings throughout the years.  In total, 12 different players had an average ranking of 5 or higher for any given year.  As for the great players of Federer, Nadal, Djokovic, and Murray, only Federer is ranked in the top 5 throughout all 10 years.  Dkojokic, whose average ranking enters into the top 5 in 2008, also does not leave for the remainder of the years.  Nadal and Murray's average ranking both momentarily drop out of the top 5.  Nadal, after a string of bad performances in 2015 dips below 5, and Murray's average ranking goes below 5 for the year of 2014, but he bounces back the very next year.
 
