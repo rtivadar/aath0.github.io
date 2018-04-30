@@ -105,7 +105,8 @@ atp_stats_overall_by_player %>%
        x = "Percent of Matches Won",
        y = "Count")
 ```
-(ADD HISTOGRAM - make sure correct one)
+tennis-histogram-pct-matches-won
+![alt text](/assets/img/tennis-histogram-pct-matches-won.jpeg "Tennis Histogram Percent Matches Won")
 
 This histogram shows just how far above all other players Federer, Nadal, and Djokovic are.  The right most bar of the histogram represents three players.  These players are Federer, Nadal, and Djokovic, with overall match win percentages of 84.7%, 84.3%, and 83.7%, respectively.  The bar second from the right representing one player is Andy Murray, with a match win percentage of 76.3%.  The player represented by the bar to the left of Murray is Andy Roddick, with a match win percentage of 73.1%.
 
@@ -130,7 +131,8 @@ atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>%
        y = "Percent of Service Games Won")
 ```
 
-(INSERT GRAPH)
+![alt text](/assets/img/tennis-pct-service-games-won.jpeg "Tennis Percent Service Games Won")
+
 
 This graph, perhaps more than any other, shows the clear ordering of Roger Federer as the greatest player from 2006 to 2015, and Andy Murray as the fourth best player during that time frame.  Rafael Nadal and Novak Djokovic continually faught for the number two world ranking, and it shows as their percentage of service games won lines cross five times between 2008 and 2014.
 
