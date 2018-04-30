@@ -150,7 +150,8 @@ atp_stats_overall_by_player %>%
        y = "Percent Service Games Won")
 ```  
 
-(INSERT GRAPH)
+![alt text](/assets/img/tennis-pct-service-games-won-vs-height.jpeg "Tennis Percent Service Games Won Versus Height")
+
 
 Theres a pretty weak positive association between a player's height and percentage of service games won.  However, what's interesting here is that for player's of their height, Federer and Nadal win the highest percentage of service games.  For reference, Federer and Nadal both stand at 185cm, or about 6'1".  For all players that are 185cm tall, the average percentage of service games won is 72.4%.  For players with an average ranking above 50, that percentage increases to 81.3%.  Federer and Nadal both win well above 85% of their service games.
 
@@ -175,7 +176,9 @@ atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>%
        y = "Average Percent of Rounds Won In All Tournaments")
 ```
 
-(INSERT GRAPH)
+tennis-avg-percent-of-rounds-won-tournament
+![alt text](/assets/img/tennis-avg-percent-of-rounds-won-tournament.jpeg "Tennis Average Percent Of Rounds Won In Tournaments")
+
 
 As you would expect, the trends here are pretty similar to the first line graph showing percent of matches won.  Federer and Nadal both bounce around 75% for much of the data.  This means, that for those years, both these players tended to advance about 75% of the way through a tournament before losing out.  Andy Murray is consistently below Federer, Nadal, and Djokovic in just about every year.
 
@@ -192,12 +195,14 @@ atp_stats_overall_by_player %>% filter(avg_rank <= 50) %>%
   geom_label() +
   labs(title = "Average Percent of Rounds Won in Tournament vs. Total Matches Won",
        subtitle = "Top 50 Averaged Ranked Players",
-       x = "Total matche Won",
+       x = "Total matches Won",
        y = "Average Percent of Rounds Won in all Tournaments")
 
 ```
 
-(INSERT GRAPH)
+tennis-avg-percent-rounds-won-versus-total-matches-won
+![alt text](/assets/img/tennis-avg-percent-rounds-won-versus-total-matches-won.jpeg "Tennis Average Percent Of Rounds Won In Tournaments Versus Total Matches Won")
+
 
 We of course expect the linear relationship here, but notice the large gap between Federer, Nadal, and Djokovic and everyone else.
 
@@ -233,7 +238,8 @@ atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>%
        x = "Year", 
        y = "Percent of Return Games Won")
 ```
-(INSERT GRAPH)
+![alt text](/assets/img/tennis-pct-return-games-won.jpeg "Tennis Percent Return Games Won")
+
 
 What's interesting here is that after 2006, Federer is consistently below Nadal, Djokovic, and Murray.  Federer is almost universially thought to be the best tennis player in history, so we might expect his defense game to be a little stronger.  
 
