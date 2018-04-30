@@ -3,7 +3,7 @@ layout: page
 title: Hi, I'm Ethan!
 ---
 
-I'm Ethan Wicker.  I'm a future Data Analyst and a current AP Statistics Teacher at East Chapel Hill High School in Chapel Hill, NC.
+I'm Ethan Wicker.  I'm an aspiring Data Analyst and a current AP Statistics Teacher at East Chapel Hill High School in Chapel Hill, NC.
 
 I graduated from North Carolina State University in 2017 with a BS in Mathematics and a BS in Mathematics Education.  After teaching for a year, I decided to supplement my own education and get in the field of data analytics.  This is my personal blog and portfolio.
 
