@@ -105,7 +105,6 @@ atp_stats_overall_by_player %>%
        x = "Percent of Matches Won",
        y = "Count")
 ```
-tennis-histogram-pct-matches-won
 ![alt text](/assets/img/tennis-histogram-pct-matches-won.jpeg "Tennis Histogram Percent Matches Won")
 
 This histogram shows just how far above all other players Federer, Nadal, and Djokovic are.  The right most bar of the histogram represents three players.  These players are Federer, Nadal, and Djokovic, with overall match win percentages of 84.7%, 84.3%, and 83.7%, respectively.  The bar second from the right representing one player is Andy Murray, with a match win percentage of 76.3%.  The player represented by the bar to the left of Murray is Andy Roddick, with a match win percentage of 73.1%.
