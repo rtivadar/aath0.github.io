@@ -32,7 +32,7 @@ This question is probably the next one on my list, partially because it'll give 
 
 * **Do taller players have an advantage?  Is there an optimal height?**
 
-This question is a bit of a two-parter.  The first part would examine whether or not taller players have any sort of advantage.  The obvious thought is yes, and their almost certainly do when serving the ball, but perhaps their tall size limits their mobility around the court.  Maybe a more interesting question would be to try and determine if their is an optimal height for men's professional tennis players.  For reasons just stated, being too tall has it's disadvantages, and being too short is almost certainly a disadvantage as well.  So there is likely an optimal height, and if I had to guess, I would bet it's likely between about 6'0" (183 cm) and 6'5" (196 cm).  For reference, Roger Federer and Rafael Nadal both stand at 6'1" (185 cm), while Novak Djokovic is 6'2" (188 cm) and Andy Murray is 6'3" (191 cm)
+This question is a bit of a two-parter.  The first part would examine whether or not taller players have any sort of advantage.  The obvious thought is yes, and they almost certainly do when serving the ball, but perhaps their tall size limits their mobility around the court.  Maybe a more interesting question would be to try and determine if their is an optimal height for men's professional tennis players.  For reasons just stated, being too tall has it's disadvantages, and being too short is almost certainly a disadvantage as well.  So there is likely an optimal height, and if I had to guess, I would bet it's likely between about 6'0" (183 cm) and 6'5" (196 cm).  For reference, Roger Federer and Rafael Nadal both stand at 6'1" (185 cm), while Novak Djokovic is 6'2" (188 cm) and Andy Murray is 6'3" (191 cm)
 
 * **Do younger players perform better in 5-set matches than older players?**
 
@@ -46,7 +46,7 @@ In addition to the thoughts for future analysis above, I also have follow-up que
 
 This result kind of goes against common thought.  In most sports, it's pretty well agreed that playing left-handed has it's advantages, and this is typically attributed to the rareness of a left-handed player.  And this advantage is likely true at most levels of play for most sports.
 
-At the end of my post on that topic, I hypothesized a reason for why left-handed players do not have an advantage.  In short, my hypothesis was that left-handed players do have an advantage in lower tiers of men's tennis.  Do to this slight advantage, they win matches they maybe shouldn't, and their skill level begin to lag behind similarly ranked right-handed players.  This culminates at the very elite level of men's tennis, the ATP World Tour.  At this level of the game, these left-handed players, who got their slightly due to their advantage, are playing the best right-handed players in the world.  And since there is this slight gap in skill level, right-handed players win a higher proportion of their matches than left-handed players.
+At the end of my post on that topic, I hypothesized a reason for why left-handed players do not have an advantage.  In short, my hypothesis was that left-handed players do have an advantage in lower tiers of men's tennis.  Do to this slight advantage, they win matches they maybe shouldn't, and their skill level begin to lag behind similarly ranked right-handed players.  This culminates at the very elite level of men's tennis, the ATP World Tour.  At this level of the game, these left-handed players, who got there slightly due to their advantage, are playing the best right-handed players in the world.  And since there is this slight gap in skill level, right-handed players win a higher proportion of their matches than left-handed players.
 
 This hypothesis brings up two interesting questions: 
 
@@ -54,7 +54,7 @@ This hypothesis brings up two interesting questions:
 
 * **If there is a leftie advantage, does it increase with the lower the level of play?**
 
-Depending on the answer, this could provide support for my hypothesis, or it could tear it apart.  If my hypothesis has any truth behind it, we would expect to see a slight advantage at the Challenger level, and a larger advantage at the Futures level.  Perhaps this could also be extended to junior level matches, but data for this matches isn't readily available.
+Depending on the answers, this could provide support for my hypothesis, or it could tear it apart.  If my hypothesis has any truth behind it, we would expect to see a slight advantage at the Challenger level, and a larger advantage at the Futures level.  Perhaps this could also be extended to junior level matches, but data for these matches isn't readily available.
 
 I have one last additional, somewhat related question:
 
