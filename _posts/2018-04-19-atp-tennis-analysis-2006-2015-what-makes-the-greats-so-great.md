@@ -238,7 +238,7 @@ atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>%
        x = "Year", 
        y = "Percent of Return Games Won")
 ```
-![alt text](/assets/img/tennis-pct-return-games-won.jpeg "Tennis Percent Return Games Won")
+![alt text](/assets/img/tennis-percent-return-games-won.jpeg "Tennis Percent Return Games Won")
 
 
 What's interesting here is that after 2006, Federer is consistently below Nadal, Djokovic, and Murray.  Federer is almost universially thought to be the best tennis player in history, so we might expect his defense game to be a little stronger.  
