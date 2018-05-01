@@ -15,7 +15,7 @@ My first post in this series covered an introduction to the data I would be work
 
 You can find my first post in this series by following this link: [ATP Tennis Analysis, 2006 - 2015: An Introduction and Data Cleaning](https://ethanwicker.github.io/journal/atp-tennis-analysis-2006-2015-an-introduction-and-data-cleaning.html).
 
-Also, if you would like to see my entire R project, you can find it here.  (INCLUDE LINKS)
+Also, if you would like to see my entire R project, [you can find it here](https://github.com/ethanwicker/atp-tennis-analysis).
 
 The rest of this post references the `atp` data frame.  For clarity and completeness, this data frame has 25,693 observations across 42 different variables.  The structure of the data frame is provided below using the `glimpse` function.  See the first post in this series for more details on how I constructed `atp`.
 
