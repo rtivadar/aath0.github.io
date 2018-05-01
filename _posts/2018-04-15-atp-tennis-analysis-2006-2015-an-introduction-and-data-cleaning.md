@@ -25,7 +25,7 @@ As a last comment, I have attempted to my make code incredibly readable and easy
 clear code is greater than clever code, in hopes that anyone can easily follow my analysis.  In places, this has lead to some rather long
 (but clear!) variable names.
 
-For anyone interested, my entire R project for this analysis can be found here. (INSERT LINK)
+For anyone interested, my entire R project for this analysis [can be found here](https://github.com/ethanwicker/atp-tennis-analysis).
 
 ---
 
