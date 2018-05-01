@@ -14,6 +14,8 @@ This post is the third in a series covering an analysis of ATP (Association of T
 * [ATP Tennis Analysis, 2006 - 2015: An Introduction and Data Cleaning](https://ethanwicker.github.io/journal/atp-tennis-analysis-2006-2015-an-introduction-and-data-cleaning.html).
 * [ATP Tennis Analysis, 2006 - 2015: Constructing Useful Data Frames](https://ethanwicker.github.io/journal/atp-tennis-analysis-2006-2015-constructing-useful-data-frames.html)
 
+For anyone interested, my entire R project for this analysis [can also be found here](https://github.com/ethanwicker/atp-tennis-analysis).
+
 In this post I will be discussing whether or not left-handed players have an advantage over their right-handed counterparts.  To provide some context, it has long been thought that lefties have an advantage over righties in various sports, and tennis especially, is no exception.  
 
 In tennis, there are various reasons why left-handed players are thought to have an advantage over right-handed players.  A crucial reason, if not the largest advantage lefties might possess, is that service games in tennis always start in the deuce court (right side) and then serves alternate from there, switching between the ad court (left side) and back to the deuce court until the service game is over.  What this means, is that more often than not, and everytime the score of a service game is 40-40 (called deuce), the last serve of the service game will come from the ad court. Due to the manner in which the net in tennis is pulled down from the middle, coupled with how players mechanically serve to produce spin, this is thought to provide an advantage to lefties.
