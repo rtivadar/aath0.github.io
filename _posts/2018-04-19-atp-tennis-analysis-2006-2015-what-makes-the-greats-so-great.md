@@ -174,7 +174,6 @@ atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>%
        y = "Average Percent of Rounds Won In All Tournaments")
 ```
 
-tennis-avg-percent-of-rounds-won-tournament
 ![alt text](/assets/img/tennis-avg-percent-of-rounds-won-tournament.jpeg "Tennis Average Percent Of Rounds Won In Tournaments")
 
 
@@ -320,7 +319,7 @@ atp_grand_slams %>%
 
 After constructing this data frame, I filtered it to inlude only players with more than 10 wins, and then arranged the data according to the average number of minutes per match.
 
-Among all 103 players who had won at least 10 Grand Slam matches from the first four rounds of Grand Slams, Roger Federer ranks as the number one most efficent player per match.  That is, he plays these matches in less amounts of time than anyone else.
+Among all 103 players who had won at least 10 Grand Slam matches from the first four rounds of Grand Slams, Roger Federer ranks as the number one most efficent player per match.  That is, he plays these matches in less time than any other player.
 
 On the average, it takes Federer 111.8 minutes, or just shy of two hours, to finish a match in the first four rounds of a Grand Slam.  It takes the next closest player (Roberto Bautista Agut) 113 minutes to finish one of these matches.  Novak Djokovic ranks ninth at about 125 minutes.
 
@@ -330,12 +329,12 @@ On the average, it takes Federer 111.8 minutes, or just shy of two hours, to fin
 
 To finish this post, I'll provide a quick summary of the above analysis, and then provide a few more comments.
 
-In this post, I attempted to quantify what it is about the great players than set them apart from all other players.  The great players between 2006 and 2015 are most obviously Roger Feder, Rafael Nadal, and Novak Djokovic.  As I showed, Andy Murray sits in a strange place between these top three players and the rest of the crowd.  Murray has the consistency and skills of the top three players, and has consistently won more Grand Slam quarter-final and semi-final matches than the lower players, but has not won nearly the number of Grand Slams as Federer, Nadal, or Djokovic.
+In this post, I attempted to quantify what it is about the great players that sets them apart from all other players.  The great players between 2006 and 2015 are most obviously Roger Feder, Rafael Nadal, and Novak Djokovic.  As I showed, Andy Murray sits in a strange place between these top three players and the rest of the crowd.  Murray has the consistency and skills of the top three players, and has consistently won more Grand Slam quarter-final and semi-final matches than the lower players, but has not won nearly the number of Grand Slams as Federer, Nadal, or Djokovic.
 
 In my analysis, I looked at various statistics.  Across all players who achieved an average yearly ranking of 5 or higher, I showed that Federer, Nadal, Djokovic, and Murray were far more consistent in terms of their percent of matches won, percent of service games won, average percent of tournament advancement, and percent of return games won.  In the scatterplot of average percent of rounds won in all tournaments versus total matches won, I showed that Federer, Nadal, and Djokovic were clearly far above the rest of players.
 
-In addition, I showed that among all players with at least 10 wins, Federer ranked number three in terms of double fault percentage, and Nadal ranked number three in terms break points conversion percentage.
+In addition, I showed that among all players with at least 10 wins, Federer ranked number three in lowest double fault percentage, and Nadal ranked number three in highest break points conversion percentage.
 
 Finally, I took at look at the average number of minutes a match takes for the first four rounds of Grand Slam tournaments.  Across all 103 players with at least 10 wins in the first four rounds of Grand Slams tournaments, Federer ranked as the most efficient player.
 
-In this post, I showed what is it is about the great players that sets them part.  I took a quantitative look at various statistics, and showed that the four best players in men's tennis from 2006 to 2015 were incrediblely consistent.  This consistency, coupled with their skills, allowed them to dominate the sport.  It is the reason why collectively, these four players accounted for 36 out of 40, or 90% of, Grand Slam Champions between 2006 and 2015.
+In this post, I showed what is it is about the great players that sets them part.  I took a quantitative look at various statistics, and showed that the four best players in men's tennis from 2006 to 2015 were incrediblely consistent.  This consistency, coupled with their skills, allowed them to dominate the sport.  It is the reason why collectively, these four players accounted for 36 out of 40, or 90% of, Grand Slam tournament winners between 2006 and 2015.
