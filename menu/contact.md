@@ -3,10 +3,12 @@ layout: page
 title: Contact
 ---
 
-Add contact info here
+You can contact me at:
 
-For now,
 ethanwicker@gmail.com
+
+
+You can also find my LinkedIn profile at:
 
 linkedin.com/in/ethanwicker
 
