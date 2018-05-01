@@ -17,7 +17,7 @@ This the fourth post in a series covering an analysis of ATP (Association of Ten
 
 In the rest of this post, I'll be referencing various parts of those previous posts.  In particular, I'll be making use of the `atp_stats_overall_by_player` and `atp_stats_by_player_by_year` data frames created in the second link above about creating useful data frames.  You may want to read those posts before this one.  
 
-Also, for anyone interested in my methodology or attempting to learn, I've include all of my R code used for the analysis in this post as well.  Furthermore, if you would like to see my entire R script file for this entire project, you can find it here.  (INSERT LINK) 
+Also, for anyone interested in my methodology or attempting to learn, I've include all of my R code used for the analysis in this post as well.  Furthermore, if you would like to see my entire R script file for this entire project, [you can find it here](https://github.com/ethanwicker/atp-tennis-analysis).
 
 SPELL CHECK EVERYTHING
 
