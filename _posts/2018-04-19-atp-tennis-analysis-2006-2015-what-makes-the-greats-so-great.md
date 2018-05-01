@@ -48,7 +48,7 @@ As you can see, although Murry won the same amount of Majors as Stanislas Wawrin
 
 Not surpisingly, what makes a tennis player great is to win often, and to win consistently.  
 
-In the remainder of this post, I'll be analysis and discussing some specifics about these great players and what allows them to win often and consistently.  I'll be looking at some more specific statistics, as well as trends over time.  Finally, I'll look at average match time for the first few rounds of a Major to see if any of these players play particularly short matches early on in a Major (as thus save energy).
+In the remainder of this post, I'll be analysis and discussing some specifics about these great players and what allows them to win often and consistently.  I'll be looking at some more specific statistics, as well as trends over time.  Finally, I'll look at average match time for the first few rounds of a Major to see if any of these players play particularly short matches early on in a Major.
 
 ---
 
@@ -60,7 +60,7 @@ This analysis will roughly be divided into various sections, divded between the 
 
 Throughout much of the below analysis, I subsetted my visualizations to include only players who for any year, were ranked in the top 5 players, by yearly avearge ranking.  This was done to make the trends in the data easier to see, and also for direct comparison between the great players and the next tier down of really good, but not consistent players.  As you'll see in the line graph belows, for players with an average ranking at or above the top 5 in the world in consectutive years, there are lines drawn between their data points.  On the contray, for players who sparacticaly were ranked in the top 5 players in the world, their statistics are just represented as singulary data points.
 
-I have one last important thing to mention as well before the analysis.  There were two instances in which a player had an average ranking of 5 or greater, but in non-consecutive years.  This happen for David Ferrer in 2008 and 2013, and Andy Murray in 2013 and 2015.  When constructing the line graphs, `ggplot2` drew in the lines between these points.  This is not what I wanted, and did not create a true visualization of the data.  There was no convenient manner I could find to fix this, so I had to hard code the inbetween years for these two players.  For example, I hard coded David Ferrers `pct_matches_won` to `NA` and his `avg_rank` to 5 for the years 2009, 2010, 2011, and 2012.  This was a workaround to create the graphs how I wanted them.  In the below R code, I have not shown how I did this, just to not confuse any readers.  However, if you're curious you can take a look at the analysis #2 portion my R script file, where you'll find commented code explaining everything.  For the remainder of this post however, you can just ignore this paragraph.
+I have one last important thing to mention as well before the analysis.  There were two instances in which a player had an average ranking of 5 or greater, but in non-consecutive years.  This happen for David Ferrer in 2008 and 2013, and Andy Murray in 2013 and 2015.  When constructing the line graphs, `ggplot2` drew in the lines between these points.  This is not what I wanted, and did not create a true visualization of the data.  There was no convenient manner I could find to fix this, so I had to hard code the inbetween years for these two players.  For example, I hard coded David Ferrer's `pct_matches_won` to `NA` and his `avg_rank` to 5 for the years 2009, 2010, 2011, and 2012.  This was a workaround to create the graphs how I wanted them.  In the below R code, I have not shown how I did this, just to not confuse any readers.  However, if you're curious you can take a look at the "Analysis #2" portion of my [R script file](https://github.com/ethanwicker/atp-tennis-analysis), where you'll find commented code explaining everything.  For the remainder of this post however, you can just ignore this paragraph.
  
 ### Percentage of Matches Won
 
@@ -151,12 +151,12 @@ atp_stats_overall_by_player %>%
 ![alt text](/assets/img/tennis-pct-service-games-won-vs-height.jpeg "Tennis Percent Service Games Won Versus Height")
 
 
-Theres a pretty weak positive association between a player's height and percentage of service games won.  However, what's interesting here is that for player's of their height, Federer and Nadal win the highest percentage of service games.  For reference, Federer and Nadal both stand at 185cm, or about 6'1".  For all players that are 185cm tall, the average percentage of service games won is 72.4%.  For players with an average ranking above 50, that percentage increases to 81.3%.  Federer and Nadal both win well above 85% of their service games.
+Theres a pretty weak positive association between a player's height and percentage of service games won.  However, what's interesting here is that for player's of their height, Federer and Nadal win the highest percentage of service games.  For reference, Federer and Nadal both stand at 185cm, or about 6'1".  For all players that are 185cm tall, the average percentage of service games won is 72.4%.  For players with an average ranking of at least 50, that percentage increases to 81.3%.  Federer and Nadal both win well above 85% of their service games.
 
 
 ### Average Tournament Advancement
 
-Next, below is a line graph that plots the a player's average tournament advancement, as a percent, versus year.  This plot is similar to the earlier plot on percentage of matches won.
+Next, below is a line graph that plots a player's average tournament advancement, as a percent, versus year.  This plot is similar to the earlier plot on percentage of matches won.
 
 ```r
 atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>% 
@@ -180,7 +180,7 @@ tennis-avg-percent-of-rounds-won-tournament
 
 As you would expect, the trends here are pretty similar to the first line graph showing percent of matches won.  Federer and Nadal both bounce around 75% for much of the data.  This means, that for those years, both these players tended to advance about 75% of the way through a tournament before losing out.  Andy Murray is consistently below Federer, Nadal, and Djokovic in just about every year.
 
-A couple of interesting observations with this plot are Federer's 2006 season and Djokovic's 2015 season, which are commonly held as two of the most dominating season in men's professional tennis.  In these years, respectively, both players reached the finals of all four Grand Slams, each and won three Grand Slams.  They both lost in the finals of the French Open.  In these years, Federer and Djokovic advanced through 90.3% and 90.8% of tournament rounds, respectively.  These were the highest such averages for the data set.
+A couple of interesting observations with this plot are Federer's 2006 season and Djokovic's 2015 season, which are commonly held as two of the most dominating season in men's professional tennis.  In these years, respectively, both players reached the finals of all four Grand Slams, and each won three Grand Slams.  They both lost in the finals of the French Open.  In these years, Federer and Djokovic advanced through 90.3% and 90.8% of tournament rounds, respectively.  These were the highest such averages for the data set.
 
 From the previous two line graphs, we've seen that Federer, Nadal, Djokovic, and Murray win more matches than every other player on tour, and also do so much more consistently.  Out of the remaining eight players that make appearances in the graphs, only Nikolay Davydenko had consecutive years with an average ranking of 5 or higher.
 
@@ -202,7 +202,7 @@ tennis-avg-percent-rounds-won-versus-total-matches-won
 ![alt text](/assets/img/tennis-avg-percent-rounds-won-versus-total-matches-won.jpeg "Tennis Average Percent Of Rounds Won In Tournaments Versus Total Matches Won")
 
 
-We of course expect the linear relationship here, but notice the large gap between Federer, Nadal, and Djokovic and everyone else.
+We of course expect the linear relationship here, but notice the large gap between Federer, Nadal, and Djokovic, and everyone else.
 
 ### Double Faults
 
@@ -219,7 +219,7 @@ Among all 258 players with more than 10 wins in my data set, Roger Federer had t
 
 ### Percent Return Games Won
 
-Now that I've discussed overall match wins as well as the serving side of the game, I'll turn my attention towards the defense side.  To begin, below is line graph showing a player's percent of return games won versus year.  Once again, I've filtered the data to only include players with an average ranking at or above 5 for a given year.
+Now that I've discussed overall match wins as well as the serving side of the game, I'll turn my attention towards the defense side.  To begin, below is a line graph showing a player's percent of return games won versus year.  Once again, I've filtered the data to only include players with an average ranking at or above 5 for a given year.
 
 ```r
 atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>% 
@@ -239,9 +239,9 @@ atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>%
 ![alt text](/assets/img/tennis-percent-return-games-won.jpeg "Tennis Percent Return Games Won")
 
 
-What's interesting here is that after 2006, Federer is consistently below Nadal, Djokovic, and Murray.  Federer is almost universially thought to be the best tennis player in history, so we might expect his defense game to be a little stronger.  
+What's interesting here is that after 2006, Federer is consistently below Nadal, Djokovic, and Murray.  Federer is almost universally thought to be the best tennis player in history, so we might expect his defense game to be a little stronger.  
 
-However, once again, what separates the great players apart is just their sheer consistency.  While other top ranked players win a higher percentage of return games in the sparitic years they are ranked, the great players are consistently ranked highly and consistently return well.
+However, once again, what separates the great players from other players is just their sheer consistency.  While other top ranked players win a higher percentage of return games in the sporadic years they are ranked, the great players are consistently ranked highly and consistently return well.
 
 ### Percent of Break Points Converted
 
