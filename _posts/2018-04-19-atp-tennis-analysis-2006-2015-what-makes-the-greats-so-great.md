@@ -9,7 +9,7 @@ image: tennis-federer.jpg
 
 ## Introduction
 
-This the fourth post in a series covering an analysis of ATP (Association of Tennis Professionals) Tennis Matches between 2006 a.  You can find my previous posts in this series at the following links:
+This the fourth post in a series covering an analysis of ATP (Association of Tennis Professionals) Tennis Matches between 2006 and 2015.  You can find my previous posts in this series at the following links:
 
 * [ATP Tennis Analysis, 2006 - 2015: An Introduction and Data Cleaning](https://ethanwicker.github.io/journal/atp-tennis-analysis-2006-2015-an-introduction-and-data-cleaning.html).
 * [ATP Tennis Analysis, 2006 - 2015: Constructing Useful Data Frames](https://ethanwicker.github.io/journal/atp-tennis-analysis-2006-2015-constructing-useful-data-frames.html)
