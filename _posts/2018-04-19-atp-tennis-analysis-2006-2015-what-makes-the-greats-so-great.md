@@ -9,17 +9,15 @@ image: tennis-federer.jpg
 
 ## Introduction
 
-This the fourth post in a series covering an analysis of ATP (Association of Tennis Professionals) Tennis Matches between the 10 year span from 2006 to 2016.  You can find my previous posts in this series at the following links:
+This the fourth post in a series covering an analysis of ATP (Association of Tennis Professionals) Tennis Matches between 2006 a.  You can find my previous posts in this series at the following links:
 
 * [ATP Tennis Analysis, 2006 - 2015: An Introduction and Data Cleaning](https://ethanwicker.github.io/journal/atp-tennis-analysis-2006-2015-an-introduction-and-data-cleaning.html).
 * [ATP Tennis Analysis, 2006 - 2015: Constructing Useful Data Frames](https://ethanwicker.github.io/journal/atp-tennis-analysis-2006-2015-constructing-useful-data-frames.html)
 * [ATP Tennis Analysis, 2006 - 2015: Do Lefties have an Advantage?](https://ethanwicker.github.io/journal/atp-tennis-analysis-2006-2015-do-lefties-have-an-advantage.html)
 
-In the rest of this post, I'll be referencing various parts of those previous posts.  In particular, I'll be making use of the `atp_stats_overall_by_player` and `atp_stats_by_player_by_year` data frames created in the second link above about creating useful data frames.  You may want to read those posts before this one.  
+In the rest of this post, I'll be referencing various parts of those previous posts.  In particular, I'll be making use of the `atp_stats_overall_by_player` and `atp_stats_by_player_by_year` data frames created in the second link above.  You may find it helpful to read those posts before this one.  
 
-Also, for anyone interested in my methodology or attempting to learn, I've include all of my R code used for the analysis in this post as well.  Furthermore, if you would like to see my entire R script file for this entire project, [you can find it here](https://github.com/ethanwicker/atp-tennis-analysis).
-
-SPELL CHECK EVERYTHING
+Also, for anyone interested in my methodology or attempting to learn, I've include all of my R code used for this analysis embedded in the post.  Furthermore, if you would like to see my entire R script file for this entire project, [you can find it here](https://github.com/ethanwicker/atp-tennis-analysis).
 
 In this post, I'll be discussing what separates the greatest players in the game from everyone else.  I'll attempt to quantify what is it about these few players that uniquely sets them apart from all the other incredibly skillful tennis players in the world.
 
