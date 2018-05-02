@@ -7,7 +7,7 @@ I'm Ethan Wicker.  I'm an aspiring Data Analyst and a current AP Statistics Teac
 
 I graduated from North Carolina State University in 2017 with a BS in Mathematics and a BS in Mathematics Education.  After teaching for a year, I decided to supplement my own education and get in the field of data analytics and data science.  This is my personal blog and portfolio.
 
-In addition to my math background, I've completed both of DataCamp's R Programmer and Data Analyst career tracks, approximately 76 or so hours of material.  I've also completed an 8.5 hour SQL bootcamp course on Udemy, have read numerous blogs and articles, and have listened to various podcasts.
+In addition to my math background, I've completed both of DataCamp's R Programmer and Data Analyst career tracks, approximately 76 or so hours of material.  I've also completed an 8.5-hour SQL boot camp course on Udemy, have read numerous blogs and articles, and have listened to various podcasts.
 
 Check out the Resources tab for some of my favorite data science resources.
 
