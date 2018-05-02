@@ -13,12 +13,12 @@ This post will be the first in a short series covering an analysis of ATP (Assoc
 
 Thanks to [Jeff Sackmann](https://github.com/JeffSackmann), I was able to get my hands on a plethora of professional tennis data.  In short, Jeff has player and match statistics on just about every ATP match going back to 1968.  He has also data on many WTA (Woman's Tennis Association) matches as well as many Challenger Level matches.
 
-For my analysis, I looked at the subset of ATP matches covering the 10 year span from 2006 to 2015.  In future posts, I may expand on this
+For my analysis, I looked at the subset of ATP matches covering the 10-year span from 2006 to 2015.  In future posts, I may expand on this
 to cover more years, and especially more recent years.
 
 In this post, I will briefly explain the structure of the data, and then I will explain my methodology and rationale for wrangling and cleaning the data.  In future posts, I will reference the cleaned data from this post, as well as the R code.
 
-During this post and subsequent posts, I will attempt to walk the line between breivty and clear explanations.  That is, 
+During this post and subsequent posts, I will attempt to walk the line between brevity and clear explanations.  That is, 
 I will try to interest those who are interested more in my methods, as well as those who are interested more in my results.  I want to provide my readers with a sense of the process, but to not bog them down too heavy in the technical details.
 
 As a last comment, I have attempted to my make code incredibly readable and easy to follow.  I have leaned on the coding mantra that
@@ -35,7 +35,7 @@ As with any analysis, the first step is to load any required packages and to rea
 
 I used `read_csv` from the `readr` package to read in the CSV files.  For reproducibility, I read in the files directly from their source URL.
 
-The `matchnum` variable was read in as a integer type for years 2013-2015, while it was read in as a character type for years 2006-2012.  In order to combine the data frames into the larger `atp` data frame, I coerced `matchnum` to a charcter type for the 2013-2015 years, so that it was the same as the other data frames.  The `matchnum` variable should actually be an integer (it details the particular number of a match for each tournament), but since I end up deleting the variable entirely, it doesn't make a difference either way.
+The `matchnum` variable was read in as a integer type for years 2013-2015, while it was read in as a character type for years 2006-2012.  In order to combine the data frames into the larger `atp` data frame, I coerced `matchnum` to a character type for the 2013-2015 years, so that it was the same as the other data frames.  The `matchnum` variable should actually be an integer (it details the particular number of a match for each tournament), but since I end up deleting the variable entirely, it doesn't make a difference either way.
 
 Next, I used `bind_rows` from the `dplyr` package to create the `atp` data frame.
 
@@ -97,8 +97,8 @@ rm(atp_2006, atp_2007, atp_2008, atp_2009, atp_2010,
 
 ## Structure of the data
 
-Before diving into data cleaning, I wanted to provide you with a sense of the structure of the data.  Below is an printout of the 
-structure of the data using `glimpse` from Hadley Wickham's `dplyr` package.  This function is analgous to the function `str` which shows the structure of a data frame provided in base R, but `glimpse` fills up the entire console with as much of the data as will fit, which can be handy.
+Before diving into data cleaning, I wanted to provide you with a sense of the structure of the data.  Below is a printout of the 
+structure of the data using `glimpse` from Hadley Wickham's `dplyr` package.  This function is analogous to the function `str` which shows the structure of a data frame provided in base R, but `glimpse` fills up the entire console with as much of the data as will fit, which can be handy.
 
 ```r
 glimpse(atp)
@@ -182,13 +182,13 @@ Next, I deleted various subsets of tournaments from the data set.  In particular
 
 * Davis Cup matches
 * Challenger Level matches
-* Olmypic matches
+* Olympic matches
 
 I elected to delete Davis Cup matches simply because they do not match the rest of the data, and I did not want their influence to effect my analysis.  For anyone unfamiliar, the Davis Cup is a yearly "knock-out" style tournament held each year between teams from countries all over the world.  Play takes place between two teams in round robin fashion.  Although it is a fun and interesting tennis event, it is not of my interest in this analysis.
 
-The Challenger Level matches were deleted as they are not ATP World level, They are the second highest tier of play in Men's Professional Tennis.  Since these matches were only spartically included in a couple years, they were likely included by mistake.
+The Challenger Level matches were deleted as they are not ATP World level, They are the second highest tier of play in Men's Professional Tennis.  Since these matches were only sporadically included in a couple years, they were likely included by mistake.
 
-Lastly, I debated with myself for a good while about whether to include the Olmypic matches in my analysis or not.  In the end I decided not to, partially because the data was a bit incomplete and partially because the Olympic matches are not ATP sanctioned events. 
+Lastly, I debated with myself for a good while about whether to include the Olympic matches in my analysis or not.  In the end I decided not to, partially because the data was a bit incomplete and partially because the Olympic matches are not ATP sanctioned events. 
 
 ```r
 # Removing Davis Cup - almost incomplete, and Davis Cup play doesn't match the rest of the data
@@ -223,7 +223,7 @@ index_empty_rows <- which(is.na(atp$w_ace) & is.na(atp$l_ace))
 atp <- atp[-index_empty_rows, ]
 ```
 
-After deleting rows without any match statistics, I cleaned up `atp` by deleting columns that were not necessary for my analysis. There columns included `match_num`, `winner_entry`, `loser_entry`, `winner_rank_points`, `loser_rank_points`, `winner_seed`, and `loser_seed`.  Of note here, in leiu of winner and loser seed at a particular tournament, I keep `winner_rank` and `loser_rank`, which contains information on the winner and loser's ATP ranking at the time of the match.
+After deleting rows without any match statistics, I cleaned up `atp` by deleting columns that were not necessary for my analysis. These columns included `match_num`, `winner_entry`, `loser_entry`, `winner_rank_points`, `loser_rank_points`, `winner_seed`, and `loser_seed`.  Of note here, in lieu of winner and loser seed at a particular tournament, I keep `winner_rank` and `loser_rank`, which contains information on the winner and loser's ATP ranking at the time of the match.
 
 ```r
 # Deleting unnecessary columns
@@ -233,11 +233,11 @@ atp <- subset(atp, select = -c(match_num, winner_entry, loser_entry, winner_rank
 atp <- subset(atp, select = -c(winner_seed, loser_seed))
 ```
 
-Below I filtered out all matches where a player either retired, or where a walkover occured.  
+Below I filtered out all matches where a player either retired, or where a walkover occurred.  
 
-For anyone unfamiliar with these concepts, a player retires when that player is unable to finish the match, typically due to injury.  In contrast, a walkover occurs when a player is unable to even begin the match.  At the professional level, this is rare and is typically the result of a nagging injury recieved in a previous match.
+For anyone unfamiliar with these concepts, a player retires when that player is unable to finish the match, typically due to injury.  In contrast, a walkover occurs when a player is unable to even begin the match.  At the professional level, this is rare and is typically the result of a nagging injury received in a previous match.
 
-These observations where deleted because their data is either incomplete, as in the case of a walkover, or the data does not represent an entire match, as in the case of a retirement.  Furthermore, match data where a player retired likely indicates the losing player was injuried, and match statistics from this situation could be influenced by this.
+These observations where deleted because their data is either incomplete, as in the case of a walkover, or the data does not represent an entire match, as in the case of a retirement.  Furthermore, match data where a player retired likely indicates the losing player was injured, and this could influence match statistics.
 
 ```r
 # Filtering out rows where a player retired
@@ -248,7 +248,7 @@ atp <- atp %>% filter(!str_detect(score, "RET"))
 atp <- atp %>% filter(score != "W/O")
 ```
 
-Next, I renamed the abbreviations in the `tourney_level`, `winner_hand`, and `loser_hand` columns to be a bit more clear using the `recode` function.
+Next, I renamed the abbreviations in the `tourney_level`, `winner_hand`, and `loser_hand` columns to be a bit clearer using the `recode` function.
 
 I also renamed the `winner_ht` and `loser_ht` columns to `winner_height` and `loser_height`.
 
@@ -276,7 +276,7 @@ setnames(atp, old = "loser_ht", new = "loser_height")
 
 Lastly, I redefined the variable type of `round`, `best_of`, `draw_size`, and `tourney_level`.  Each of these variables were read in as character or integer types, when they are really factors. 
 
-I also defined the levels of `round`, since the rounds of a tournament have an inherit ordering to them.  To clarify here, the last level of `round` is `RR`.  This stands for round-robin, and indicates matches that were played in a round-robin style tournament.  The only matches that meet that specification are those that take place each year during the ATP World Tour Finals.
+I also defined the levels of `round`, since the rounds of a tournament have an inherit ordering to them.  To clarify here, the last level of `round` is `RR`.  This stands for "round robin", and indicates matches that were played in a round-robin style tournament.  The only matches that meet that specification are those that take place each year during the ATP World Tour Finals.
 
 ```r
 # Defining best_of, draw_size, tourney_level to be factors 
