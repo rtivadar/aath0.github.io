@@ -99,7 +99,7 @@ This post will be divided into three main sections.  By the end of the three sec
   
 ## 1. Calculating Percent of Rounds Won in Tournaments
   
-As briefly mentioned in the short preview above, in this section, I will be constructing two similiar data frames.  These data frames are `atp_pct_rounds_won_overall_by_player` and `atp_pct_rounds_won_by_year_by_player`.
+As briefly mentioned in the short preview above, in this section, I will be constructing two similar data frames.  These data frames are `atp_pct_rounds_won_overall_by_player` and `atp_pct_rounds_won_by_year_by_player`.
   
 Before I begin my discussion of how I constructed these data frames, I first need to explain the metric I am creating.  In short, I wanted  a way to quantify how far a player typically advances through a tournament, in order to see which players usually win more rounds than other players.  The clear problem here is that not all tournaments have the same number of rounds.  So winning a quarterfinal match in a grand slam (where the draw size is 128 players) isn't the same as winning a quarterfinal match in a much smaller tournament (with a draw size of say 32).
 
@@ -145,9 +145,9 @@ In the `atp_last_round_player_won_by_tournament` data frame created above, I onl
 
 To determine which players lost in the first round, I grouped `atp` by `tourney_name`, `tourney_date`, `loser_name`, and once again summarized using `max` to determine the last round a player played in at any given tournament.  
 
-However, here I only want those players that lost in the first round, and not those that lost in any other round.  To determine those players, I first need to know the the number of the first round in the tournament.  Notice here that this will change depending on the tournament.  For example, the first round of the US Open is the round of 128, and R assigned the `R128` level of the round variable the number 1.  For a different sized tournament, say Acapulco with a draw size of only 32 players, the first round for this tournament is the round of 32, but R assigned the `R32` level of the round variable the number 3.
+However, here I only want those players that lost in the first round, and not those that lost in any other round.  To determine those players, I first need to know the number of the first round in the tournament.  Notice here that this will change depending on the tournament.  For example, the first round of the US Open is the round of 128, and R assigned the `R128` level of the round variable the number 1.  For a different sized tournament, say Acapulco with a draw size of only 32 players, the first round for this tournament is the round of 32, but R assigned the `R32` level of the round variable the number 3.
 
-To determine the number of the first round of each tournament, I grouped the data by `tourney_name` and `tourney_date` and then filtered the data with the `min` function such that the resulting data frame had only those players who lost in the first round of a tournment.
+To determine the number of the first round of each tournament, I grouped the data by `tourney_name` and `tourney_date` and then filtered the data with the `min` function such that the resulting data frame had only those players who lost in the first round of a tournament.
 
 Lastly here, I used `mutate` to subtract 1 from each value in the `number_round_of_tournament_advanced_through` variable.  This needed to be done, because even though a losing player may have played in the first round of a tournament, that player did not actually win that round.  Subtracting 1 from each of these values allows me to later determine which players advances through 0 rounds of a tournament, and thus 0%.
 
@@ -165,7 +165,7 @@ atp_first_round_losers_by_tournament <- atp %>%
 setnames(atp_first_round_losers_by_tournament, old = "loser_name", new = "name")
 ```
 
-After creating these two separate data frames, one containing the last round of a tournament a player won, and the other containing any player who lost in the first round of a tournament, I used `bind_rows` from `dplyr` to combine them into one one data frame.  At this point, this data frame contains information on the number of the round a player last advanced through, for each combination of player and tournament in the original `atp` data frame.
+After creating these two separate data frames, one containing the last round of a tournament a player won, and the other containing any player who lost in the first round of a tournament, I used `bind_rows` from `dplyr` to combine them into one data frame.  At this point, this data frame contains information on the number of the round a player last advanced through, for each combination of player and tournament in the original `atp` data frame.
 
 ```r
 atp_pct_rounds_won_by_tournament_by_year <- bind_rows(atp_last_round_player_won_by_tournament, 
@@ -182,7 +182,7 @@ atp_number_of_rounds_by_tournament <- atp %>%
             number_rounds_in_tournament = max(as.numeric(round)) - min(as.numeric(round)) + 1)          
 ```
 
-After creating the above data frame which contains information on the number of rounds in each tournament, I created `atp_pct_rounds_won_by_tournament_by_year` by joining the previous two data frames together.  To do this, I used the `full_join` command available in the `dplyr` package.  
+After creating the above data frame that contains information on the number of rounds in each tournament, I created `atp_pct_rounds_won_by_tournament_by_year` by joining the previous two data frames together.  To do this, I used the `full_join` command available in the `dplyr` package.  
 
 ```r
 atp_pct_rounds_won_by_tournament_by_year <- full_join(atp_pct_rounds_won_by_tournament_by_year, 
@@ -234,7 +234,7 @@ atp_pct_rounds_won_by_year_by_player <- atp_pct_rounds_won_by_tournament_by_year
 
 So far in this post, I have created two data frames.  These data frames are `atp_pct_rounds_won_overall_by_player` and `atp_pct_rounds_won_by_year_by_player`.  
 
-These data frames are very similar to each other.  They each show how far a player advances through a tournament on average, as a percent.  The first data frame shows this as an average across all years a player is in the original data set.  Below is the first six rows of the `atp_pct_rounds_won_overall_by_player data frame`.  For example, across all years he was in my data frame and all the tournaments he played in, Adrian Mannarino won an average of 13.8% of rounds
+These data frames are very similar to each other.  They each show how far a player advances through a tournament on average, as a percent.  The first data frame shows this as an average across all years a player is in the original data set.  Below are the first six rows of the `atp_pct_rounds_won_overall_by_player data frame`.  For example, across all years he was in my data frame and all the tournaments he played in, Adrian Mannarino won an average of 13.8% of rounds
 
 name | avg_pct_of_rounds_won_in_all_tournaments
 ---- | ----------------------------------------
@@ -326,7 +326,7 @@ atp_by_year_grouped_by_loser_id <- atp_ymd_separated %>%
             minutes_as_loser = sum(minutes, na.rm = TRUE))
 ```
 
-So far I have created two data frames: `atp_by_year_grouped_by_winner_id` and `atp_by_year_grouped_by_loser_id`.  These data frames only contain the `winner_id` or `loser_id` (which is just an integer string), `year`, and the various stats I defined above.  Although a player's ID number is useful for grouping, it isn't really useful for gleening information from the data.  For that, we of course want player information, such as name and country.
+So far I have created two data frames: `atp_by_year_grouped_by_winner_id` and `atp_by_year_grouped_by_loser_id`.  These data frames only contain the `winner_id` or `loser_id` (which is just an integer string), `year`, and the various stats I defined above.  Although a player's ID number is useful for grouping, it isn't really useful for gleaning information from the data.  For that, we of course want player information, such as name and country.
 
 To get that information, I created a new data frame `atp_player_info`.  To construct this data frame, I defined `player_info_columns` as a character string of the column names I was interested in.  Since no player went undefeated, I could use the loser information to get all the player information I wanted.  After defining what columns I wanted, I subsetted the `atp_ymd_separated` data frame and assigned this new data frame to `atp_player_info`.  Since this gave me multiple rows of the same information, I used `unique` to only get one row per player.
 
@@ -375,7 +375,7 @@ setnames(atp_by_year_grouped_by_player_id, old = "height_as_loser", new = "heigh
 
 As just mentioned, there where many players who had not won a single match in the entire data frame.  So when joining the match winners and match losers data frames, all of those players who only lost matches had no statistics for columns in the match winners data frame.  So in short, lots of `NA`'s where introduced.
 
-To perform my later calculations, I needed to handle this situation.  Since these players did not win any matches, they really should have 0's for all the match winner statistics.  For example, a player with only losts, should have 0 aces as the match winner (since that player was never a match winner).
+To perform my later calculations, I needed to handle this situation.  Since these players did not win any matches, they really should have 0's for all the match winner statistics.  For example, a player with only loses, should have 0 aces as the match winner (since that player was never a match winner).
 
 To fix this issue, I created a list, and assigned each match winner statistic to be 0.  I then used the very convenient `replace_na` function from the `tidyr` package to replace all the `NA` values in the winner columns with 0.  For each of the variables I defined to be 0, this function replaced any NA's in those columns with 0.  
 
@@ -446,7 +446,7 @@ atp_by_year_grouped_by_player_id <- atp_by_year_grouped_by_player_id %>%
 atp_by_year_grouped_by_player_id$hand <- as.factor(atp_by_year_grouped_by_player_id$hand)
 ```
 
-So far, I have constructed `atp_by_year_grouped_by_player_id`.  This data frame contains information on players, as well as various match statitics separated into match winner columns and match loser columns, for each year a player was in the original data set.
+So far, I have constructed `atp_by_year_grouped_by_player_id`.  This data frame contains information on players, as well as various match statistics separated into match winner columns and match loser columns, for each year a player was in the original data set.
 
 You can see the structure of the data frame below:
 
@@ -569,7 +569,7 @@ atp_stats_by_player_by_year <- atp_stats_by_player_by_year %>%
                                             by = c("year", "name"))
 ```
 
-For clarity, below is the struture of the `atp_stats_by_player_by_year`.  It contains various player statistics, by year.  In subsequent posts, I'll use this data frame to answer some interesting questions, such as do left handed players have an advantage, and what separates the great players from everyone else.
+For clarity, below is the structure of the `atp_stats_by_player_by_year`.  It contains various player statistics, by year.  In subsequent posts, I'll use this data frame to answer some interesting questions, such as do left handed players have an advantage, and what separates the great players from everyone else.
 
 ```r
 > glimpse(atp_stats_by_player_by_year)
@@ -625,15 +625,15 @@ $ avg_pct_of_rounds_won_in_all_tournaments <dbl> 0.26530612, 0.05396825, 0.11666
 
 ## 3. Calculating Player Stats Overall
   
-In the final section of this post, I'll be detailing how I constructed the `atp_stats_overall_by_player` data frame.  This data frame is extremely similar to the `atp_stats_by_player_by_year` data frame created in the previous section, except that this new data frame will contain ovearll player statistics.  In other words, each row will contain a player's averaged match stats for all years that player was in the original data frame.
+In the final section of this post, I'll be detailing how I constructed the `atp_stats_overall_by_player` data frame.  This data frame is extremely similar to the `atp_stats_by_player_by_year` data frame created in the previous section, except that this new data frame will contain overall player statistics.  In other words, each row will contain a player's averaged match stats for all years that player was in the original data frame.
   
 My methods used to create the below data frame are almost identical to the methods used above.  In short, I created a data frame for all the match winners, followed by all the match losers, and then joined these data frames together.  After creating this intermediary data frame and performing a little data cleaning, I used `mutate` to determine total counts of match statistics for each player, such as `total_matches_won` and `total_minutes`.  
 
-Finally, from these total counts, I used `mutute` once more to construct overall match percentages for each individual player.  The statistics calculated are identical to those calculated in the second section above.
+Finally, from these total counts, I used `mutate` once more to construct overall match percentages for each individual player.  The statistics calculated are identical to those calculated in the second section above.
 
 The main difference in constructing `atp_stats_overall_by_player` from `atp_stats_by_player_by_year` was grouping only by the player ID variable, and not both the player ID variable and `year`.
 
-For this reasoning and to eliminate redundencies, my explanations for this section will be sparse.  For more indepth explanations of my thinking and reasoning, refer to the analogous section of the code from the second section. 
+For this reasoning and to eliminate redundancies, my explanations for this section will be sparse.  For more in-depth explanations of my thinking and reasoning, refer to the analogous section of the code from the second section. 
 
 The first chunk of code below is constructing the match winner and match loser data frames.
 
@@ -707,7 +707,7 @@ setnames(atp_grouped_by_loser_id,
 atp_grouped_by_player_id <- full_join(atp_grouped_by_winner_id, atp_grouped_by_loser_id, by = "player_id")
 ```
 
-Below is a little data cleaning to organize player height's more clearly.
+Below is a little data cleaning to organize player heights more clearly.
 
 ```r
 # Deleting winner_as_height column, since loser_as_height is more expansive
