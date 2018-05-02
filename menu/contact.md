@@ -3,14 +3,16 @@ layout: page
 title: Contact
 ---
 
-You can contact me at:
+### Email
 
 ethanwicker@gmail.com
 
 
-You can also find my LinkedIn profile at:
 
-linkedin.com/in/ethanwicker
+
+### LinkedIn
+
+[linkedin.com/in/ethanwicker](linkedin.com/in/ethanwicker)
 
 
 
