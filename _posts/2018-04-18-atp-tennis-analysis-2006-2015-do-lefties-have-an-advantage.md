@@ -9,7 +9,7 @@ image: tennis-nadal-serving.jpg
 
 ## Introduction
 
-This post is the third in a series covering an analysis of ATP (Association of Tennis Professionals) tennis matches during the 10 year span between 2006 and 2015.  You can find the first two posts in this series at the following links:
+This post is the third in a series covering an analysis of ATP (Association of Tennis Professionals) tennis matches during the 10-year span between 2006 and 2015.  You can find the first two posts in this series at the following links:
 
 * [ATP Tennis Analysis, 2006 - 2015: An Introduction and Data Cleaning](https://ethanwicker.github.io/journal/atp-tennis-analysis-2006-2015-an-introduction-and-data-cleaning.html).
 * [ATP Tennis Analysis, 2006 - 2015: Constructing Useful Data Frames](https://ethanwicker.github.io/journal/atp-tennis-analysis-2006-2015-constructing-useful-data-frames.html)
@@ -18,13 +18,13 @@ For anyone interested, my entire R project for this analysis [can also be found 
 
 In this post I will be discussing whether or not left-handed players have an advantage over their right-handed counterparts.  To provide some context, it has long been thought that lefties have an advantage over righties in various sports, and tennis especially, is no exception.  
 
-In tennis, there are various reasons why left-handed players are thought to have an advantage over right-handed players.  A crucial reason, if not the largest advantage lefties might possess, is that service games in tennis always start in the deuce court (right side) and then serves alternate from there, switching between the ad court (left side) and back to the deuce court until the service game is over.  What this means, is that more often than not, and everytime the score of a service game is 40-40 (called deuce), the last serve of the service game will come from the ad court. Due to the manner in which the net in tennis is pulled down from the middle, coupled with how players mechanically serve to produce spin, this is thought to provide an advantage to lefties.
+In tennis, there are various reasons why left-handed players are thought to have an advantage over right-handed players.  A crucial reason, if not the largest advantage lefties might possess, is that service games in tennis always start in the deuce court (right side) and then serves alternate from there, switching between the ad court (left side) and back to the deuce court until the service game is over.  What this means, is that more often than not, and every time the score of a service game is 40-40 (called deuce), the last serve of the service game will come from the ad court. Due to the manner in which the net in tennis is pulled down from the middle, coupled with how players mechanically serve to produce spin, this is thought to provide an advantage to lefties.
 
-Another typical reason lefties are thought to have an advantage is just that there are less of them.  They're just a rarer breed.  And since players typically play right-handed players, when they face the occasional left-handed player, they're thrown off their game.  For a more tennis exact rational of this, this often has to do with both tennis strategy, and the spin of the ball coming off different shots.  In short, when playing a leftie, a player has to flip their strategy upside down.  All of a sudden, hitting a backhand approach has to be hit to the opposite side.  And as for the spin, tennis players rarely hit perfect 6-o'clock-to-12-o'clock spin on the ball.  Often times that spin has a little or a lot of side spin mixed in as well - think 5-o'clock-to-11-o'clock for a right-handed forehand.  This spin completely changes how the ball flies through the air, how the ball bounces, and how potentionally, how a player has to redirect the ball to counter the spin.
+Another typical reason lefties are thought to have an advantage is just that there are less of them.  They're just a rarer breed.  And since players typically play right-handed players, when they face the occasional left-handed player, they're thrown off their game.  For a more tennis exact rational of this, this often has to do with both tennis strategy, and the spin of the ball coming off different shots.  In short, when playing a leftie, a player has to flip their strategy upside down.  All of a sudden, hitting a backhand approach has to be hit to the opposite side.  And as for the spin, tennis players rarely hit perfect 6-o'clock-to-12-o'clock spin on the ball.  Often times that spin has a little or a lot of sidespin mixed in as well - think 5-o'clock-to-11-o'clock for a right-handed forehand.  This spin completely changes how the ball flies through the air, how the ball bounces, and potentially, how a player has to redirect the ball to counter the spin.
 
-This only scratches the surface of the advantages and disadvantages of handediness in tennis, but if you were unfamiliar with the nuances of the sport, it provides you with enough information to see the legitimacy in the question.
+This only scratches the surface of the advantages and disadvantages of handedness in tennis, but if you were unfamiliar with the nuances of the sport, it provides you with enough information to see the legitimacy in the question.
 
-For the remainder of this post, I'll be describing my methods and my results, as well as including and discussing various segments of my R code.  I'll be discussing some smaller topics in each section, such as if lefties serve more aces or win a higher percentage of service games.  Towards the end of this post, I'll perform some more indepth statistical analysis (i.e. a Two Sample Proportion z-Test)and I'll summarize my results.
+For the remainder of this post, I'll be describing my methods and my results, as well as including and discussing various segments of my R code.  I'll be discussing some smaller topics in each section, such as if lefties serve more aces or win a higher percentage of service games.  Towards the end of this post, I'll perform some more in-depth statistical analysis (i.e. a Two Sample Proportion z-Test) and I'll summarize my results.
 
 So, do lefties really have an advantage?
 
@@ -32,9 +32,9 @@ The answer: No.  Not a bit.  If anything, they lose more matches than they shoul
 
 In the rest of this post you'll find my rationale and supporting arguments.
 
-I should pause right here and make one very important point.  My analysis shows that lefties, during the 10 year span from 2006 - 2015 did not have an advantage over right handed players (in part because they lost more often to righties than won over them).  This analysis, and the resulting conclusion only holds true for ATP World Tour players (i.e. the top 250 or so players in the world), and cannot really be extrapolated beyond these elite players.
+I should pause right here and make one very important point.  My analysis shows that lefties, during the 10-year span from 2006 to 2015 did not have an advantage over right handed players (in part because they lost more often to righties than won over them).  This analysis, and the resulting conclusion only hold true for ATP World Tour players (i.e. the top 250 or so players in the world), and cannot really be extrapolated beyond these elite players.
 
-In particular, I would absolutely be willing to extend my conclusion out some years and bet that lefties still do not have an advantage in today's game.  But this analysis can not be used to draw any conclusions about lower skilled players.  Among lower level players, such as those on the Challenger or Future circuits, or even college players in the US, lefties almost universely have an advantage (although some future analyses would be needed to really show this).  And of course, at even lower levels, we would imagine the advantage would increase.  However, my analysis is only concerned with ATP World Tour players between 2006 and 2015, and the results of my analyses cannot properly be extrapolated to lower level players.  See the conclusion section of this post for more details.
+In particular, I would absolutely be willing to extend my conclusion out some years and bet that lefties still do not have an advantage in today's game.  But this analysis cannot be used to draw any conclusions about lower skilled players.  Among lower level players, such as those on the Challenger or Future circuits, or even college players in the US, lefties almost universally have an advantage (although some future analyses would be needed to really show this).  And of course, at even lower levels, we would imagine the advantage would increase.  However, my analysis is only concerned with ATP World Tour players between 2006 and 2015, and the results of my analyses cannot properly be extrapolated to lower level players.  See the conclusion section of this post for more details.
 
 ---
 
@@ -42,7 +42,7 @@ In particular, I would absolutely be willing to extend my conclusion out some ye
 
 To begin this analysis, I'll first look at specific match statistics to see if, for example, left-handed players serve better or if they win more break points.  After that, I'll turn my attention towards match-ups of left-handed players versus right-handed players.  And finally, I'll then look at the overall proportions of matches won by left-handed players versus right-handed players to see if there is any statistically significant difference.
 
-Unfortunately, the playing hand for 114 out of the 832 unique players in my data set is unknown.  These players are mostly players that only played in a couple of smaller tournaments and were not very successful at this level of the game.  The mean and median world ranking for these players is 314 and 275, respectifully.  The mean and median total number of matches played for these players was 2.47 and 1, confirming their lack of playing time.  Regardless, since their playing hand is unknown, they have to be removed from my data set for the purposes of this analysis.
+Unfortunately, the playing hand for 114 out of the 832 unique players in my data set is unknown.  These players are mostly players that only played in a couple of smaller tournaments and were not very successful at this level of the game.  The mean and median world ranking for these players is 314 and 275, respectfully.  The mean and median total number of matches played for these players was 2.47 and 1, confirming their lack of playing time.  Regardless, since their playing hand is unknown, they have to be removed from my data set for the purposes of this analysis.
 
 Note:  For the majority of this analysis, I'll be referencing the `atp_stats_overall_by_player` data frame constructed in my second post in this series.  See that post for more details on how it was constructed.
 
@@ -51,7 +51,7 @@ Note:  For the majority of this analysis, I'll be referencing the `atp_stats_ove
 atp_stats_overall_by_player_left_right_known <- atp_stats_overall_by_player %>% filter(hand != "Unknown")
 ```
 
-Furthermore, it's worth checking a couple of conditions before diving into the bulk of my analysis.  The first condition worth checking is to ensure that there is a relatively even distribution of left-handed players and right-handed players in the data set.  If for instance, lefties really did have an enormous advantage, and there were a disporptionionate amount of them among the very top players, that could throw off some of my later analyses.  
+Furthermore, it's worth checking a couple of conditions before diving into the bulk of my analysis.  The first condition worth checking is to ensure that there is a relatively even distribution of left-handed players and right-handed players in the data set.  If for instance, lefties really did have an enormous advantage, and there were a disproportionate amount of them among the very top players, that could throw off some of my later analyses.  
 
 ```r
 # Creates boxplot - making sure lefties are uniformly dispersed across players
@@ -182,7 +182,7 @@ In this portion, I'll be looking at head-to-head matchups between left-handed pl
 
 If left-handed players have an advantage, we would expect them to win more matches against right-handed players.  That is, we would expect them to win more than 50% of these matches, due to this supposed advantage.
 
-In the below chunk of code I created the data frame `matches_right_vs_left` which contains the percentage of these matche won by left-handed players, as well as the percentage won by right-handed players.  These values are of course complements to each other.
+In the below chunk of code I created the data frame `matches_right_vs_left` which contains the percentage of these matches won by left-handed players, as well as the percentage won by right-handed players.  These values are of course complements to each other.
 
 ```r
 number_matches_right_vs_left_won_by_right <- atp %>% 
@@ -207,7 +207,7 @@ From the above data frame, we can see that 48.1% of head-to-head matchups are wo
 
 So across 10 years of modern man's tennis, right-handed players have actually won a higher percentage of these match ups than left-handed players.  
 
-### Proportion of Match Wins and Losts
+### Proportion of Match Wins and Loses
 
 In the last portion of my analysis below, I explored the proportion of all matches won and lost by left-handed and right-handed players between 2006 and 2015.  Using a Two-Sample proportion test, I then show that right-handed players win a statistically significant higher proportion of their matches.
 
@@ -221,7 +221,7 @@ atp_hand_analysis <- atp[, c("tourney_id", "tourney_date", "tourney_name", "surf
                          "winner_rank", "loser_rank")]
 ```                         
                          
-Next I need to create two new variables, `result` and `hand`, which I'll later use to sum up the total number of wins and losts per each type of player.  To create these two new variables, I used the `gather` function from the `tidyr` package. 
+Next I need to create two new variables, `result` and `hand`, which I'll later use to sum up the total number of wins and loses per each type of player.  To create these two new variables, I used the `gather` function from the `tidyr` package. 
 
 `gather` is a function commonly used to gather a data frame over two columns that should really be one.  That is, in an instance where one variable is spread out over two columns, gather can be used to restructure the data such that these two columns are fully represented in one variable.  This often times makes the data easier to manipulate.
 
@@ -287,15 +287,15 @@ sample estimates:
 0.4860275 0.5040317 
 ```
 
-In the above R printout, `prop 1` is the proportion of matches left-handed players won, and `prop 2` is the proportion of matches right-handed players won.  So, during the 10 year span from 2006 to 2015, left-handed players won 48.6% of their matches, while right-handed players won 50.4% of their matches.
+In the above R printout, `prop 1` is the proportion of matches left-handed players won, and `prop 2` is the proportion of matches right-handed players won.  So, during the 10-year span from 2006 to 2015, left-handed players won 48.6% of their matches, while right-handed players won 50.4% of their matches.
 
 The p-value of this test was 0.007041, which is much lower than the common significance level of \\( \alpha = 0.05 \\), or even \\( \alpha = 0.01 \\).  This test provides statistically significant evidence that right-handed players actually win a higher proportion of their matches than left-handed players.
 
-I should mention here that the independence clause of the proportion test may be a bit shakey.  If we assume that all of the matches in the data set are independent of each other, then the results of the test hold.  However, this assumption may or may not be completely true, and is certainly up for debate.  There are various ways the matches may or may not be independent.  If right-handed players, for example, have some slight advantage, then as they advance through tournaments over left-handed players we might expect them to continue advancing.  Or we could pick out the 31 matches in which the right-handed Roger Federer played the left-handed Rafael Nadal across these 10 years.  Nadal won 67.7% of these matches, so clearly the leftie here won a significantly higher proportion of matches.
+I should mention here that the independence clause of the proportion test might be a bit shaky.  If we assume that all of the matches in the data set are independent of each other, then the results of the test hold.  However, this assumption may or may not be completely true, and is certainly up for debate.  There are various ways the matches may or may not be independent.  If right-handed players, for example, have some slight advantage, then as they advance through tournaments over left-handed players we might expect them to continue advancing.  Or we could pick out the 31 matches in which the right-handed Roger Federer played the left-handed Rafael Nadal across these 10 years.  Nadal won 67.7% of these matches, so clearly the leftie here won a significantly higher proportion of matches.
 
 However, I do think the independence assumption here is appropriate, especially with my immensely large sample size.
 
-Out of curiousity, I took a second look at matches between players ranked in the top 100, to see if the results were still signifant.  I've provided the supporting R code as well as the `prop.test` output below.
+Out of curiosity, I took a second look at matches between players ranked in the top 100, to see if the results were still significant.  I've provided the supporting R code as well as the `prop.test` output below.
 
 ```r
 atp_hand_analysis_top_100_players <- atp_hand_analysis %>% 
@@ -328,7 +328,7 @@ To close out this post, I'll be summarizing my supporting arguments to show that
 
 ### Summary
 
-In this post, I showed significant evidence against the claim that left-handed players have an advantage.  This argument, of course, only hold weight at the very top tier of professional men's tennis, and should not exprapolated to any other tier of either the men's or women's game.
+In this post, I showed significant evidence against the claim that left-handed players have an advantage.  This argument, of course, only hold weight at the very top tier of professional men's tennis, and should not extrapolated to any other tier of either the men's or women's game.
 
 In looking at just averaged statistics, I showed that right-handed players outperform left-handed players in every category.  The statistics I looked at were:
 
@@ -346,7 +346,7 @@ In looking at matches played between left-handed and right-handed players, I sho
 
 Finally, I examined the overall proportion of matches won for both left-handed and right-handed players.  Across all matches in my data set from 2006 to 2015, left-handed players won 48.6% of their matches, while right-handed players won 50.4% of their matches.  A proportion test to see if there was a difference in the proportion of matches won by left-handed and right-handed players had a statistically significant result, with a p-value of 0.007041.  That is, we would expect the difference in proportions to be this extreme, in either direction, less than 1 out of 100 times.
 
-I also reexamined the proportion of matches won for the top 100 players in the world.  For just this subset of data, left-handed players won 48.5% of their matches, while right-handed players won 50.2% of their matches.  The results of this proportion test were just above the statisically significant threshold, with a p-value of 0.05288.
+I also reexamined the proportion of matches won for the top 100 players in the world.  For just this subset of data, left-handed players won 48.5% of their matches, while right-handed players won 50.2% of their matches.  The results of this proportion test were just above the statistically significant threshold, with a p-value of 0.05288.
 
 To summarize, my analysis has show that left-handed players absolutely do not have an advantage at the ATP World Tour Level of men's professional tennis.  They systematically have lower match statistics than right-handed players, they lose over 50% of the time to right-handed players, and they also win a significantly lower proportion of their overall matches than right-handed players.
 
