@@ -12,7 +12,7 @@ ethanwicker@gmail.com
 
 ### LinkedIn
 
-[linkedin.com/in/ethanwicker](linkedin.com/in/ethanwicker)
+[linkedin.com/in/ethanwicker](https://linkedin.com/in/ethanwicker)
 
 
 
