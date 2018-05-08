@@ -69,7 +69,7 @@ To begin the analysis, I'll first be looking at the percentage of matches won by
 To begin, below is a line graph of a player's percent of matches won on the y-axis versus year on the x-axis.
 
 ```r
-atp_stats_by_player_by_year_hard_coded_nas %>% filter(avg_rank <= 5) %>% 
+atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>% 
   ggplot(aes(x = year, y = 100 * pct_matches_won, 
              group = name, color = name)) + 
   geom_line(size = 3) +
@@ -100,8 +100,8 @@ To look at the percentage of matches won in more detail, below is a histogram of
 ```r
 atp_stats_overall_by_player %>% 
   filter(total_matches_won >= 10) %>% 
-  ggplot(aes(x = pct_matches_won)) + 
-  geom_histogram(binwidth = .02, fill = "cyan", color = "black") +
+  ggplot(aes(x = 100 * pct_matches_won)) + 
+  geom_histogram(binwidth = 2, fill = "cyan", color = "black") +
   labs(title = "Percent of Matches Won Between 2006 and 2015",
        subtitle = "Minimum of 10 Match Wins",
        x = "Percent of Matches Won",
@@ -121,7 +121,7 @@ This histogram shows just how far above all other players Federer, Nadal, and Dj
 Moving on, I turned my attention to a player's percent of service games won, by year.
 
 ```r
-atp_stats_by_player_by_year_hard_coded_nas %>% filter(avg_rank <= 5) %>% 
+atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>% 
   ggplot(aes(x = year, y = 100 * pct_service_games_won, 
              group = name, color = name)) + 
   geom_line(size = 3) +
@@ -174,7 +174,7 @@ There's a pretty weak positive association between a player's height and percent
 Next, below is a line graph that plots a player's average tournament advancement, as a percent, versus year.  This plot is similar to the earlier plot showing percentage of matches won.
 
 ```r
-atp_stats_by_player_by_year_hard_coded_nas %>% filter(avg_rank <= 5) %>% 
+atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>% 
   ggplot(aes(x = year, y = 100 * avg_pct_of_rounds_won_in_all_tournaments, 
              group = name, color = name)) + 
   geom_line(size = 3) +
@@ -242,7 +242,7 @@ Among all 258 players with more than 10 wins in my data set, Roger Federer had t
 Now that I've discussed overall match wins as well as the serving side of the game, I'll turn my attention towards the defense side.  To begin, below is a line graph showing a player's percent of return games won versus year.  Once again, I've filtered the data to only include players with an average ranking at or above 5 for a given year.
 
 ```r
-atp_stats_by_player_by_year_hard_coded_nas %>% filter(avg_rank <= 5) %>% 
+atp_stats_by_player_by_year %>% filter(avg_rank <= 5) %>% 
   ggplot(aes(x = year, y = 100 * pct_return_games_won_on_defense, 
              group = name, color = name)) + 
   geom_line(size = 3) +
