@@ -102,10 +102,14 @@ atp_stats_overall_by_player %>%
   filter(total_matches_won >= 10) %>% 
   ggplot(aes(x = pct_matches_won)) + 
   geom_histogram(binwidth = .02, fill = "cyan", color = "black") +
-  labs(title = "Percent of Matches Won between 2006 and 2015",
+  labs(title = "Percent of Matches Won Between 2006 and 2015",
        subtitle = "Minimum of 10 Match Wins",
        x = "Percent of Matches Won",
-       y = "Count")
+       y = "Count") + 
+  theme(axis.text=element_text(size=16),
+        axis.title=element_text(size=20),
+        plot.title = element_text(size = 20, hjust = 0.5),
+        plot.subtitle = element_text(size = 16, hjust = 0.5)) 
 ```
 ![alt text](/assets/img/tennis-histogram-pct-matches-won.jpeg "Tennis Histogram Percent Matches Won")
 
@@ -145,14 +149,18 @@ Next is an interesting scatterplot of a player's percent of service games won ve
 ```r
 atp_stats_overall_by_player %>% 
   filter(avg_rank <= 50) %>% 
-  ggplot(aes(x = height, y = pct_service_games_won, label = name)) + 
+  ggplot(aes(x = height, y = 100 * pct_service_games_won, label = name)) + 
   geom_point() +
   geom_jitter() +
-  geom_label(cex = 4) +
+  geom_label(cex = 5) +
   labs(title = "Percent Service Games Won vs. Height",
        subtitle = "Top 50 Averaged Ranked Players",
        x = "Height (cm)",
-       y = "Percent Service Games Won")
+       y = "Percent Service Games Won") + 
+  theme(axis.text=element_text(size=16),
+        axis.title=element_text(size=20),
+        plot.title = element_text(size = 20, hjust = 0.5),
+        plot.subtitle = element_text(size = 16, hjust = 0.5))
 ```  
 
 ![alt text](/assets/img/tennis-pct-service-games-won-vs-height.jpeg "Tennis Percent Service Games Won Versus Height")
@@ -197,13 +205,17 @@ To make the dominance of Federer, Nadal, and Djokovic clear, we can look at the 
 
 ```r
 atp_stats_overall_by_player %>% filter(avg_rank <= 50) %>% 
-  ggplot(aes(x = total_matches_won, y = avg_pct_of_rounds_won_in_all_tournaments, label = name)) + 
+  ggplot(aes(x = total_matches_won, y = 100 * avg_pct_of_rounds_won_in_all_tournaments, label = name)) + 
   geom_point() + 
-  geom_label() +
+  geom_label(cex = 5) +
   labs(title = "Average Percent of Rounds Won in Tournament vs. Total Matches Won",
        subtitle = "Top 50 Averaged Ranked Players",
        x = "Total matches Won",
-       y = "Average Percent of Rounds Won in all Tournaments")
+       y = "Average Percent of Rounds Won in all Tournaments") + 
+  theme(axis.text=element_text(size=16),
+        axis.title=element_text(size=20),
+        plot.title = element_text(size = 20, hjust = 0.5),
+        plot.subtitle = element_text(size = 16, hjust = 0.5))
 
 ```
 
