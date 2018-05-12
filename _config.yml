@@ -20,7 +20,7 @@ permalink:           none
 plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           'Data Analytics'
+title:		           'Data Analytics 1'
 description:	       'A blog and portfolio'
 author:              'Ethan Wicker'
 
