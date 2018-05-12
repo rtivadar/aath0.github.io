@@ -10,7 +10,7 @@ In our day-to-day lives, we are constantly immersed in streams of sensory inform
 
 In particular, in previous work we have used multivariate EEG decoding techniques to show, that patients who are deeply unconscious can detect at a neural level, violations of [simple rules](https://academic.oup.com/brain/article/136/1/81/430538/Progression-of-auditory-discrimination-based-on) and [complex sound sequences](https://academic.oup.com/brain/article/138/5/1160/406045/Neural-detection-of-complex-sound-sequences-in-the).
 
-![Auditory discrimination](OutComePred.jpg)
+![Auditory discrimination](https://raw.githubusercontent.com/aath0/aath0.github.io/master/assets/img/OutComePred.jpg)
 *Tzovara et al., 2013, Brain, [doi:10.1093/brain/aws264](https://www.ncbi.nlm.nih.gov/pubmed/23148350)*
 
 ### Representative publications:
