@@ -76,13 +76,13 @@ hr {
 }
 
 /*
-  Site container - LOOK HERE TO CHANGE PAGE WIDTH.  Default was 615px.  Also have done 90%.
+  Site container
 */
 
 .container {
   margin-left: auto;
   margin-right: auto;
-  width: 70%;
+  width: 615px;
 }
 
 /*48em*/
