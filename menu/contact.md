@@ -5,15 +5,15 @@ title: Contact
 
 ### Email
 
-ethanwicker@gmail.com
+athina.tz@gmail.com
 
 
 
 
-### LinkedIn
+### [GitHub](https://github.com/aath0)
 
-[linkedin.com/in/ethanwicker](https://linkedin.com/in/ethanwicker)
+### [Google scholar](https://scholar.google.ch/citations?user=XdOdIKYAAAAJ&hl=en)
 
-
+### [ORCiD](http://orcid.org/0000-0002-7588-1418?lang=en)
 
 
