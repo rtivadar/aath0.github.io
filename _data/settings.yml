@@ -1,7 +1,7 @@
 # Change to true for Disqus comments
 disqus:
   comments: false
-  disqus_shortname: 'https-lenpaul-github-io-lagrange'
+  disqus_shortname: 'https-aath0-github-io'
 
 google-ID: 'UA-118662545-1'
 
@@ -13,9 +13,9 @@ menu:
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
 social:
-- {icon: 'github', link: 'https://www.github.com/ethanwicker'}
+- {icon: 'github', link: 'https://www.github.com/aath0'}
 - {icon: 'linkedin', link: 'http://www.linkedin.com/in/ethanwicker/'}
-- {icon: 'envelope', link: 'mailto:ethanwicker@gmail.com'}
+- {icon: 'envelope', link: 'mailto:athina.tz@gmail.com'}
 
 
 # Customize site text
