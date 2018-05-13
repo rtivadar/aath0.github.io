@@ -4,7 +4,7 @@ title: About
 ---
 
 <p>
-	<img src="https://raw.githubusercontent.com/aath0/aath0.github.io/master/assets/img/TzovaraAthina_Picture.jpg" alt="Smiley face" width="200" align="left"/> 
+	<img src="/assets/img/TzovaraAthina_Picture.jpg" alt="Smiley face" width="200" align="left"/> 
 	
 I am a visiting scholar at [Helen Wills Neuroscience Institute](http://neuroscience.berkeley.edu/), at the University of California, Berkeley.
 
