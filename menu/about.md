@@ -6,9 +6,7 @@ title: About
 <p>
 	<img src="/assets/img/TzovaraAthina_Picture.jpg" alt="Smiley face" width="200" align="left"/> 
 	
-I am a visiting scholar at [Helen Wills Neuroscience Institute](http://neuroscience.berkeley.edu/), at the University of California, Berkeley.
-
-My research studies the neural mechanisms that allow us to perceive our environment. I am particularly interested on how we detect regularities and statistical rules in sensory stimuli, and how we use those to form predictions about future events. 
+I am a visiting scholar at <a href = "http://neuroscience.berkeley.edu/">Helen Wills Neuroscience Institute</a>, at the University of California, Berkeley. My research studies the neural mechanisms that allow us to perceive our environment. I am particularly interested on how we detect regularities and statistical rules in sensory stimuli, and how we use those to form predictions about future events. 
 </p>
 In the past, I have been investigating the neural and computational mechanisms underlying associative learning in humans and the neural mechanisms underlying the formation of auditory predictions in coma patients.
 
