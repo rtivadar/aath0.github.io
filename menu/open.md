@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Shared material
+title: Material
 ---
 
 ### [Importing Neuralynx data to eeglab and fieldtrip](https://github.com/aath0/EEG_Neuralynx2Fieldtrip2MNE)
