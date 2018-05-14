@@ -10,7 +10,7 @@ menu:
 - {name: 'Coma & Consciousness', path: 'menu', url: 'coma.html'}
 - {name: 'Methods', path: 'menu', url: 'methods.html'}
 - {name: 'Shared material', path: 'menu', url: 'open.html'}
-- {name: 'Publications', path: 'menu', url: 'https://scholar.google.ch/citations?user=XdOdIKYAAAAJ&hl=en'}
+- {name: 'Publications', path: 'menu', link: 'https://scholar.google.ch/citations?user=XdOdIKYAAAAJ&hl=en'}
 - {name: 'Contact', path: 'menu', url: 'contact.html'}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
