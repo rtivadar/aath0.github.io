@@ -11,6 +11,15 @@ Studying neural responses to environmental stimuli through electroencephalograph
 
 *Tzovara et al., 2012, Develop. Neuropsychology, [doi: 110.1080/87565641.2011.636851](http://dx.doi.org/10.1080/87565641.2011.636851)*
 
+## Reconstructing oscillatory activity from the hippocampus & amygdala using MEG
+
+under construction
+
+## Modeling skin conductance & pupil responses
+
+under construction
+
+
 ### Representative publications
 
 * Tzovara A, Murray MM, Michel CM, De Lucia M. (2012) [A tutorial review of electrical neuroimaging from group-average to single-trial event-related potentials.](http://www.tandfonline.com/doi/abs/10.1080/87565641.2011.636851) Developmental Neuropsychology. 37(6):518-44.
