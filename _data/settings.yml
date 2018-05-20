@@ -3,7 +3,7 @@ disqus:
   comments: false
   disqus_shortname: 'https-aath0-github-io'
 
-google-ID: 'UA-118662545-1'
+google-ID: 'UA-103680525-1'
 
 menu:
 - {name: 'About', path: 'menu', url: 'about.html'}
