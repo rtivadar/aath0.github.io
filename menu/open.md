@@ -4,13 +4,13 @@ title: Material
 ---
 
 #### Neuroscience-related material:
-* [Auditory oddball paradigm in python](Auditory-oddball-paradigm-in-python)
-* [Neuralynx Importer](Importing-Neuralynx-data-to-eeglab-and-fieldtrip)
-* [R functions to plot EEG data](R-functions-to-plot-EEG-data)
-* [Analysis of intracranial EEG data](Analysis-of-intracranial-EEG-data)
+* [Auditory oddball paradigm in python](#Auditory-oddball-paradigm-in-python)
+* [Neuralynx Importer](#Importing-Neuralynx-data-to-eeglab-and-fieldtrip)
+* [R functions to plot EEG data](#R-functions-to-plot-EEG-data)
+* [Analysis of intracranial EEG data](#Analysis-of-intracranial-EEG-data)
 
 #### Various projects:
-* [How does research treat underrepresented minorities?](How-does-research-treat-underrepresented-minorities)
+* [How does research treat underrepresented minorities?](#How-does-research-treat-underrepresented-minorities)
 
 
 
