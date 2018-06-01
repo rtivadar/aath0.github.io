@@ -4,7 +4,7 @@ title: Material
 ---
 
 #### Neuroscience-related material:
-* [Auditory oddball paradigm in python](#auditory-oddball)
+* [Auditory oddball paradigm in python](#auditory-oddball-in-python)
 * [Neuralynx Importer](#importing-neuralynx-data)
 * [R functions to plot EEG data](#r-functions-to-plot-eeg-data)
 * [Analysis of intracranial EEG data](#analysis-of-intracranial-eeg-data)
@@ -14,7 +14,7 @@ title: Material
 
 
 
-### Auditory oddball paradigm in python
+### Auditory oddball in python
 [Scripts](https://github.com/aath0/AuditoryOddball) to create pure tones in python and to run an auditory oddball paradigm, using pygame.
 
 ### Importing Neuralynx data
