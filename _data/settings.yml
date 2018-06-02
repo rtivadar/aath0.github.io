@@ -6,12 +6,12 @@ disqus:
 google-ID: 'UA-103680525-1'
 
 menu:
-- {name: 'CV', path: 'menu', url: 'about.html'}
-- {name: 'Coma & Consciousness', path: 'menu', url: 'coma.html'}
-- {name: 'Methods', path: 'menu', url: 'methods.html'}
-- {name: 'Material', path: 'menu', url: 'open.html'}
-- {name: 'Publications', link: 'https://scholar.google.ch/citations?user=XdOdIKYAAAAJ&hl=en'}
-- {name: 'Contact', path: 'menu', url: 'contact.html'}
+- {name: 'CV', path: 'aath0.github.io/menu', url: 'about.html'}
+- {name: 'Coma & Consciousness', path: 'aath0.github.io/menu', url: 'coma.html'}
+- {name: 'Methods', path: 'aath0.github.io/menu', url: 'methods.html'}
+- {name: 'Material', path: 'http://aath0.github.io/menu', url: 'open.html'}
+- {name: 'Publications', path: 'https://scholar.google.ch/citations?user=XdOdIKYAAAAJ&hl=en', url: ''}
+- {name: 'Contact', path: 'http://aath0.github.io/menu', url: 'contact.html'}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
 social:
