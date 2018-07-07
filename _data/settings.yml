@@ -6,11 +6,10 @@ disqus:
 google-ID: 'UA-103680525-1'
 
 menu:
-- {name: 'CV', path: 'https://aath0.github.io/menu', url: 'about.html'}
-- {name: 'Coma & Consciousness', path: 'https://aath0.github.io/menu', url: 'coma.html'}
-- {name: 'Methods', path: 'https://aath0.github.io/menu', url: 'methods.html'}
-- {name: 'Material', path: 'https://aath0.github.io/menu', url: 'open.html'}
+- {name: 'Research', path: 'https://aath0.github.io/menu', url: 'coma.html'}
+- {name: 'Shared material', path: 'https://aath0.github.io/menu', url: 'open.html'}
 - {name: 'Publications', path: 'https://scholar.google.ch/citations?user=XdOdIKYAAAAJ&hl=en', url: ''}
+- {name: 'CV', path: 'https://aath0.github.io/menu', url: 'about.html'}
 - {name: 'Contact', path: 'https://aath0.github.io/menu', url: 'contact.html'}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
