@@ -3,17 +3,13 @@ layout: page
 title: Contact
 ---
 
-### Email
+#### Address - affiliation:
+
+Helen Wills Neuroscience Institute
+Knight Cognitive Neuroscience Lab
+132 Barker Hall
+Berkeley, CA 94720-3190
+
+#### Email:
 
 athina.tz@gmail.com
-
-
-
-
-### [GitHub](https://github.com/aath0)
-
-### [Google scholar](https://scholar.google.ch/citations?user=XdOdIKYAAAAJ&hl=en)
-
-### [ORCiD](http://orcid.org/0000-0002-7588-1418?lang=en)
-
-
