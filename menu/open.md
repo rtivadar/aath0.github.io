@@ -3,6 +3,8 @@ layout: page
 title: Material
 ---
 
+Please find bellow code for running experiments or analyzing (intracranial) EEG data, and other shared material.
+
 #### Neuroscience-related material:
 * [Auditory oddball paradigm in python](#auditory-oddball-in-python)
 * [Neuralynx Importer](#importing-neuralynx-data)
@@ -11,7 +13,6 @@ title: Material
 
 #### Various projects:
 * [How does research treat underrepresented minorities?](#how-does-research-treat-underrepresented-minorities)
-
 
 
 ### Auditory oddball in python
