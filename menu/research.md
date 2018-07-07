@@ -6,7 +6,7 @@ title: Research
 My research focuses on the use of computational and machine learning techniques to study neural functions of the human brain, in healthy and pathological conditions. The main axes of my research lay in three areas:
 
 * [Learning environmental regularities](#learning-environmental-regularities)
-* [Outcome prediction in coma patients & consciousness research](#outcome-prediction-in-coma-patients-and-consciousness)
+* [Outcome prediction in coma patients & consciousness](#outcome-prediction-in-coma-patients-and-consciousness)
 * [Computational and machine learning techniques](#computational-and-machine-learning-techniques)
 
 ---
@@ -22,7 +22,7 @@ In our day-to-day lives, we are constantly immersed in streams of sensory inform
 
 ## Outcome prediction in coma patients and consciousness
 
-In particular, in previous work we have used multivariate EEG decoding techniques to show, that patients who are deeply unconscious can detect at a neural level, violations of [simple rules](https://academic.oup.com/brain/article/136/1/81/430538/Progression-of-auditory-discrimination-based-on) and [complex sound sequences](https://academic.oup.com/brain/article/138/5/1160/406045/Neural-detection-of-complex-sound-sequences-in-the).
+We have been using EEG recordings in coma patients to study neural functions in the absence of consciousness and, at the same time, to establish predictors of their outcome. In particular, we have applied multivariate EEG decoding techniques to analyze EEG responses at the single patient level. We were able to show that even patients who are deeply unconscious can detect at a neural level, violations of [simple rules](https://academic.oup.com/brain/article/136/1/81/430538/Progression-of-auditory-discrimination-based-on) and [complex sound sequences](https://academic.oup.com/brain/article/138/5/1160/406045/Neural-detection-of-complex-sound-sequences-in-the). Importantly, the progression of auditory discrimination, quantified by the level of decoding performance over the two first days of coma, was informative of the patients' chances of awakening:
 
 ![Auditory discrimination](https://raw.githubusercontent.com/aath0/aath0.github.io/master/assets/img/OutComePred.jpg)
 *Tzovara et al., 2013, Brain, [doi:10.1093/brain/aws264](https://www.ncbi.nlm.nih.gov/pubmed/23148350)*
