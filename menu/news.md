@@ -9,6 +9,6 @@ title: News
 
 * **June 2018**: I look forward to visiting the [2018 annual meeting of the Organization for Human Brain Mapping](https://www.humanbrainmapping.org/i4a/pages/index.cfm?pageid=3821) and [OHBM hackathon](https://ohbm.github.io/hackathon2018/), and to presenting our recent work on reconstructing oscillatory activity from the hippocampus and amygala using high precision magnetoencephalography!
 
-* **June 2018**: Our latest manuscript on modeling associative learning based on resposnes on the autonomic nervous system has been accepted for publication on PLOS Computational Biology! We found that during fear conditioning, skin conductance and pupil responses map onto different quantities of a probabilistic learning model: pupil size reflects the estimated threat probability, while skin conductance reflects a combination of the estimated threat and the uncertainty over the estimate.
+* **June 2018**: Our manuscript on modeling associative learning based on resposnes on the autonomic nervous system has been accepted for publication on PLOS Computational Biology! We found that during fear conditioning, skin conductance and pupil responses map onto different quantities of a probabilistic learning model: pupil size reflects the estimated threat probability, while skin conductance reflects a combination of the estimated threat and the uncertainty over the estimate.
 
 ![Modeling associative learning](https://raw.githubusercontent.com/aath0/aath0.github.io/master/assets/img/Fig3.jpg)
