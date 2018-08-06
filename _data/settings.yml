@@ -7,9 +7,10 @@ google-ID: 'UA-103680525-1'
 
 menu:
 - {name: 'Research', path: 'https://aath0.github.io/menu', url: 'research.html'}
-- {name: 'Shared material', path: 'https://aath0.github.io/menu', url: 'open.html'}
 - {name: 'Publications', path: 'https://scholar.google.ch/citations?user=XdOdIKYAAAAJ&hl=en', url: ''}
 - {name: 'CV', path: 'https://github.com/aath0/aath0.github.io/raw/master/menu/CV_TzovaraAthina.pdf', url: ''}
+- {name: 'Material', path: 'https://aath0.github.io/menu', url: 'open.html'}
+- {name: 'News', path: 'https://aath0.github.io/menu', url: 'news.html'}
 - {name: 'Contact', path: 'https://aath0.github.io/menu', url: 'contact.html'}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
