@@ -37,8 +37,8 @@ During my PhD I have been using machine learning techniques to study auditory pr
 
 ## Computational and machine learning techniques
 * [Machine learning techniques for analysing EEG data](#machine-learning-techniques-for-analyzing-eeg-data)
-* [Reconstruction of subcortical sources using MEG](#reconstruction-of-subcortical-sources-using-meg)
 * [Modeling skin conductance & pupil responses](#modeling-skin-conductance-and-pupil-size-responses)
+* [Reconstruction of subcortical sources using MEG](#reconstruction-of-subcortical-sources-using-meg)
 
 ### Machine learning techniques for analyzing EEG data
 Studying neural responses to environmental stimuli through electroencephalography (EEG), typically requires averaging hundrents or thousands of single-trial responses, and contrasting them at single electrode locations. During my PhD, I used multivariate techniques to model the distribution of single-trial EEG responses across the scalp, and extract topographic EEG responses in a data-driven way. These techniques can be used to model data at the [single-patient](http://www.sciencedirect.com/science/article/pii/S0165027014003872) level, to decode [decisions from EEG responses](http://www.sciencedirect.com/science/article/pii/S1053811912001632), or to test the role of [temporal intervals in processing environmental stimuli](http://www.sciencedirect.com/science/article/pii/S1053811912001589). 
@@ -53,11 +53,14 @@ Studying neural responses to environmental stimuli through electroencephalograph
 * De Lucia M, Tzovara A. (2015) [Decoding auditory EEG responses in healthy and clinical populations: A comparative study.](http://www.sciencedirect.com/science/article/pii/S0165027014003872) J Neurosci Methods. 250:106-13.
 
 ### Modeling skin conductance and pupil size responses
+Using environmental cues to predict threat is a crucial skill, encountered in many species, however a computational understanding of this process at a system's level is lacking. We used modeling of psychophysiological responses (i.e. skin conductance and pupil size responses) to study which computational model best predicts activity of the human autonomic nervous system (ANS) during fear conditioning. We found that ANS activity is best explained by a probabilistic learning model that accounts for uncertainty in  threat estimation. Furthermore, skin conductance and pupil responses map onto different learning quantities: pupil size reflects the estimated threat probability, but skin conductance reflects a combination of this and the uncertainty of the estimate.
 
-under construction
+![Modeling associative learning](https://raw.githubusercontent.com/aath0/aath0.github.io/master/assets/img/Fig3.jpg)
+
 
 #### Representative publications
 * Khemka S*, Tzovara A*, Gerster S, et al, 2017. [Modelling startle eye blink electromyogram to assess fear learning.](https://onlinelibrary.wiley.com/doi/full/10.1111/psyp.12775) Psychophysiology, 54, 202-214.
+* Tzovara A, Korn C,  Bach D R, 2018. Human Pavlovian fear conditioning conforms to probabilistic learning. PLOS Computational Biology, in press).
 
 ### Reconstruction of subcortical sources using MEG
 
