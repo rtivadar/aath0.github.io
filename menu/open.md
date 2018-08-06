@@ -3,7 +3,7 @@ layout: page
 title: Material
 ---
 
-Please find bellow code for running experiments or analyzing (intracranial) EEG data, and other shared material.
+Bellow you can find scripts for running experiments or analyzing (intracranial) EEG data, and other shared material.
 
 #### Neuroscience-related material:
 * [Auditory oddball paradigm in python](#auditory-oddball-in-python)
