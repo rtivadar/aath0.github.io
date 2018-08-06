@@ -41,7 +41,7 @@ During my PhD I have been using machine learning techniques to study auditory pr
 * [Modeling skin conductance & pupil responses](#modeling-skin-conductance-and-pupil-size-responses)
 
 ### Machine learning techniques for analyzing EEG data
-Studying neural responses to environmental stimuli through electroencephalography (EEG), typically requires averaging hundrents or thousands of single-trial responses, and contrasting them at single electrode locations. During my PhD, I used multivariate techniques to model the distribution of single-trial EEG responses across the scalp, and extract topographic EEG responses in a data-driven way. This technique can be used to model data at the [single-patient](http://www.sciencedirect.com/science/article/pii/S0165027014003872) level, to decode [decisions from EEG responses](http://www.sciencedirect.com/science/article/pii/S1053811912001632), or to test the role of [temporal intervals in processing environmental stimuli](http://www.sciencedirect.com/science/article/pii/S1053811912001589). 
+Studying neural responses to environmental stimuli through electroencephalography (EEG), typically requires averaging hundrents or thousands of single-trial responses, and contrasting them at single electrode locations. During my PhD, I used multivariate techniques to model the distribution of single-trial EEG responses across the scalp, and extract topographic EEG responses in a data-driven way. These techniques can be used to model data at the [single-patient](http://www.sciencedirect.com/science/article/pii/S0165027014003872) level, to decode [decisions from EEG responses](http://www.sciencedirect.com/science/article/pii/S1053811912001632), or to test the role of [temporal intervals in processing environmental stimuli](http://www.sciencedirect.com/science/article/pii/S1053811912001589). 
 
 ![Single trial EEG analysis](https://raw.githubusercontent.com/aath0/aath0.github.io/master/assets/img/topogr.jpg)
 
@@ -54,6 +54,7 @@ Studying neural responses to environmental stimuli through electroencephalograph
 
 ### Modeling skin conductance and pupil size responses
 
+under construction
 
 #### Representative publications
 * Khemka S*, Tzovara A*, Gerster S, et al, 2017. [Modelling startle eye blink electromyogram to assess fear learning.](https://onlinelibrary.wiley.com/doi/full/10.1111/psyp.12775) Psychophysiology, 54, 202-214.
