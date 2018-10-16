@@ -3,7 +3,9 @@ layout: page
 title: News
 ---
 
-* **September 2018**: It's time to visit Bremen again to teach! This year I'll be teaching at the [PIP Summer School on Machine Learning](http://www.pip.uni-bremen.de/news/pip-summer-school-2018/), organised by the Postgraduate International Programme in Physics and Electrical Engineering (PIP) of the University of Bremen. I'm very excited to give a course on machine learning applications for analyzing EEG data using python! The course material will be posted here soon!
+* **October 2018**: I will be co-facilitating three sessions at this year's [MozFest](https://mozillafestival.org/), on October 26-28th in London. Join us in the [Digital Inclusion](https://mozillafestival.org/spaces#Digital-Inclusion), [Openness](https://mozillafestival.org/spaces#Openness) and [Decentralization](https://mozillafestival.org/spaces#Decentralisation) spaces to discuss about [data sharing](https://guidebook.com/guide/147793/event/21682452/), [machine learning](https://guidebook.com/guide/147793/event/21682711/) and [improving inclusivity in science and technology](https://guidebook.com/guide/147793/event/21682463/).
+
+* **September 2018**: It's time to visit Bremen again to teach. This year I'll be teaching at the [PIP Summer School on Machine Learning](http://www.pip.uni-bremen.de/news/pip-summer-school-2018/), organised by the Postgraduate International Programme in Physics and Electrical Engineering (PIP) of the University of Bremen. I'm very excited to give a course on machine learning applications for analyzing EEG data using python! The course material will be posted here soon!
 
 * **August 2018**: I'm delighted to join the [Round 6 of the Mozilla Open Leaders](https://foundation.mozilla.org/opportunity/mozilla-open-leaders/round-6/) training program as a mentor!
 
