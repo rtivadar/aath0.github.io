@@ -6,7 +6,7 @@ title: Material
 Bellow you can find scripts for running experiments or analyzing (intracranial) EEG data, and other shared material.
 
 #### Neuroscience-related material:
-* [Tutorials for maching learning on EEG data in python](#machine-learning--for-EEG-in-python)
+* [Tutorials for maching learning on EEG data in python](#machine-learning-for-EEG-in-python)
 * [Auditory oddball paradigm in python](#auditory-oddball-in-python)
 * [Scripts to import neuralynx data](#importing-neuralynx-data)
 * [Scripts for analysing intracranial EEG data](#analysis-of-intracranial-eeg-data)
