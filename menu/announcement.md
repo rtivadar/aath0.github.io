@@ -1,9 +1,7 @@
 ---
 layout: page
-title: Announcement
+title: Positions for PhD students in Machine Learning & Computational Neuroscience
 ---
-
-### Positions for PhD students in Machine Learning & Computational Neuroscience
 
 Applications are invited for 2 PhD students in Machine Learning & Computational Neuroscience. The research focus will be on using machine learning techniques to model electrophysiological data related to epilepsy and consciousness research. The positions will be part of a newly formed group between the Institute of Computer Science and Faculty of Medicine at the University of Bern in Switzerland and will be funded by the Interfaculty Research Cooperation (IRC) project on sleep research.
 
