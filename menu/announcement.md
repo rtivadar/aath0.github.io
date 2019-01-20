@@ -22,8 +22,6 @@ Applications are invited for 2 PhD students in Machine Learning & Computational 
 *	Experience with machine learning, deep learning and/or analyzing EEG data is a big plus
 
 #### Application:
-Applications will be accepted until the positions are filled. The first review of applications will begin on *15th January 2019*. Salary is based on Swiss regulations. 
+If you are interested, please send one pdf-document including your CV, a brief statement of research interests, and the contact details of two referees to: Athina Tzovara, athina.tz@gmail.com. Applications will be accepted until the positions are filled. 
 
-If you are interested, please send one pdf-document including your CV, a brief statement of research interests, and the contact details of two referees to: 
-Athina Tzovara, athina.tz@gmail.com . Informal inquiries are welcome. 
 
