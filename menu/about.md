@@ -19,7 +19,6 @@ For additional information please check:
 			
 * some of my badly commented code on <a href = "https://github.com/aath0">Github</a>
 
-* the books that I'm reading on <a href = "https://www.goodreads.com/user/show/3614063-athina">Goodreads</a>
 
 
 
