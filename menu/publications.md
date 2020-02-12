@@ -1,10 +1,7 @@
 ---
 layout: page
-title: Publications
+title: Representative Publications
 ---
-
-
-## Representative publications
 
 **Tzovara A.**, Meyer S.S., Bonaiuto J., Abivardi A., Dolan R., Barnes G.R., Bac D. R. (**2019**). [High‐precision magnetoencephalography for reconstructing amygdalar and hippocampal oscillations during prediction of safety and threat](https://onlinelibrary.wiley.com/doi/full/10.1002/hbm.24689), Human Brain Mapping.
 
