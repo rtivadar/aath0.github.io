@@ -5,6 +5,7 @@ title: People
 
 
 ### Lab Members
+
 |<img align="center" src="https://raw.githubusercontent.com/ccneuro/ccneuro.github.io/master/assets/img/posts/TzovaraAthina_Picture.jpg" alt="Smiley face"/> | **<a href="https://ccneuro.github.io/atzovara/">Athina Tzovara</a>** <br/> **Head**<br/><br/>**Tel:** +41 (0) 31 511 7636<br/>**Email:** athina.tzovara@inf.unibe.ch|
 |:---:|:---|
 |<img align="center" src="https://raw.githubusercontent.com/ccneuro/ccneuro.github.io/master/assets/img/posts/Brainy2.jpg" alt="Smiley face"/> | **<a href="https://ccneuro.github.io/faellen/">Florence (Flo) Aellen</a>** <br/> **PhD Student**<br/><br/>**Email:** athina.tzovara@inf.unibe.ch|
