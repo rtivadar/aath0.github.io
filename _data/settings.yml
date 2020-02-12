@@ -9,7 +9,6 @@ menu:
 - {name: 'Research', path: 'https://aath0.github.io/menu', url: 'research.html'}
 - {name: 'People', path: 'https://aath0.github.io/menu', url: 'people.html'}
 - {name: 'Publications', path: 'https://scholar.google.ch/citations?user=XdOdIKYAAAAJ&hl=en', url: ''}
-- {name: 'CV', path: 'https://github.com/aath0/aath0.github.io/raw/master/menu/TzovaraAthina_CV.pdf', url: ''}
 - {name: 'Material', path: 'https://aath0.github.io/menu', url: 'open.html'}
 - {name: 'News', path: 'https://aath0.github.io/menu', url: 'news.html'}
 - {name: 'Contact', path: 'https://aath0.github.io/menu', url: 'contact.html'}
