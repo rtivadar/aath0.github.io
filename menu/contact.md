@@ -3,16 +3,16 @@ layout: page
 title: Contact
 ---
 
-#### Address - affiliation:
 
-Helen Wills Neuroscience Institute
+We are located at:
 
-Knight Cognitive Neuroscience Lab
+Institute for Computer Science <br/>
+University of Bern <br/>
+Schützenmattstrasse 14 <br/>
+CH-3012 Bern <br/>
 
-132 Barker Hall
-
-Berkeley, CA 94720-3190
+[Map](https://goo.gl/maps/t41SiP6Tq4PVcJa26)
 
 #### Email:
 
-athina dot tz at gmail.com
+athina.tzovara@inf.unibe.ch
