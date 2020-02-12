@@ -10,6 +10,7 @@ menu:
 - {name: 'People', path: 'https://aath0.github.io/menu', url: 'people.html'}
 - {name: 'Publications', path: 'https://scholar.google.ch/citations?user=XdOdIKYAAAAJ&hl=en', url: ''}
 - {name: 'News', path: 'https://aath0.github.io/menu', url: 'news.html'}
+- {name: 'Open positions', path: 'https://aath0.github.io/menu', url: 'announcement.html'}
 - {name: 'Contact', path: 'https://aath0.github.io/menu', url: 'contact.html'}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
