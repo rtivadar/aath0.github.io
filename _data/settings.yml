@@ -8,7 +8,7 @@ google-ID: 'UA-103680525-1'
 menu:
 - {name: 'Research', path: 'https://aath0.github.io/menu', url: 'research.html'}
 - {name: 'People', path: 'https://aath0.github.io/menu', url: 'people.html'}
-- {name: 'Publications', path: 'https://scholar.google.ch/citations?user=XdOdIKYAAAAJ&hl=en', url: ''}
+- {name: 'Publications', path: 'https://aath0.github.io/menu', url: 'publications.html'}
 - {name: 'News', path: 'https://aath0.github.io/menu', url: 'news.html'}
 - {name: 'Open positions', path: 'https://aath0.github.io/menu', url: 'announcement.html'}
 - {name: 'Contact', path: 'https://aath0.github.io/menu', url: 'contact.html'}
