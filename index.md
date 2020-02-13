@@ -6,16 +6,18 @@ title:
 
 <p>
 <em>Our research</em>
+    <br>
 <img src="/assets/img/topogr.jpg" alt="Smiley face"/> 
-<br>
+
 
 </p>
 
 <p>
 <em>People</em>
+  <br>
 <img src="/assets/img/ppl1.jpg" alt="Smiley face" /> 
 
-  <br>
+
 </p>
 
 <p>
