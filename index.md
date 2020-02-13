@@ -3,10 +3,10 @@ layout: page
 title: 
 ---
 
-
+Aim
 ---
 
-Our lab focuses on studying human perception and cognition from a cognitive and computational neuroscience perspective. 
+Our lab studies human perception and cognition from a cognitive and computational neuroscience perspective. 
 
 Our research interests focus in the following areas:
 * Investigating the neural underpinnings and computational contents of predictive circuits of the human brain
