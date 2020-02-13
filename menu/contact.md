@@ -4,8 +4,6 @@ title: Contact
 ---
 
 
-We are located at:
-
 [Institute for Computer Science](https://www.inf.unibe.ch/index_eng.html) <br/>
 University of Bern <br/>
 Schützenmattstrasse 14 <br/>
