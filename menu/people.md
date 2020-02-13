@@ -1,10 +1,7 @@
 ---
 layout: page
-title: People
+title: Lab Members
 ---
-
-
-### Lab Members
 
 |<img align="center" src="https://raw.githubusercontent.com/aath0/aath0.github.io/master/assets/img/TzovaraAthina_Picture.jpg" alt="Smiley face"/> | **<a href="https://ccneuro.github.io/atzovara/">Athina Tzovara</a>** <br/> **Head**<br/><br/>Tel: +41 (0) 31 511 7636<br/>Email: athina.tzovara@inf.unibe.ch|
 |:---:|:---|
