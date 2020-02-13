@@ -1,9 +1,9 @@
 ---
 layout: page
-title: 
+title: Aim
 ---
 
-Aim
+
 ---
 
 Our lab studies human perception and cognition from a cognitive and computational neuroscience perspective. 
