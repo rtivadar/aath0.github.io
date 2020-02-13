@@ -337,12 +337,13 @@ pre code {
 
 table {
   border-collapse: collapse;
+  border: none;
   margin-bottom: 5px;
   width: 100%;
 }
 
 table, th, td {
-  border: 1px none;
+  border: none;
 }
 
 th, td {
