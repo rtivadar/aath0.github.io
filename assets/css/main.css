@@ -351,6 +351,34 @@ th, td {
   text-align: left;
 }
 
+@media all and (max-width: 30em)
+{
+table {
+display: block;
+}
+
+table caption {
+display: inline-block;
+}
+
+table tr {
+display: list-item;
+border: none;
+}
+
+table th {
+display: inline-block;
+margin-right: 0.2rem;
+}
+
+table td {
+display: inline-block;
+margin-right: 0.2rem;
+}
+
+}
+
+
 /*
   Social media icons
 */
