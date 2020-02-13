@@ -4,12 +4,24 @@ title:
 ---
 
 
+<p>
+<em>Our research</em>
+<img src="/assets/img/topogr.jpg" alt="Smiley face"/> 
+<br>
 
-<img src="/assets/img/topogr.jpg" alt="Smiley face" width="200" /> **Our research**
-<br />
----
-<img src="/assets/img/ppl1.jpg" alt="Smiley face" width="200" /> **People**
-<br />
----
-<img src="/assets/img/Pubs1.jpg" alt="Smiley face" width="200"/>**Publications**
-<br />
+</p>
+
+<p>
+<em>People</em>
+<img src="/assets/img/ppl1.jpg" alt="Smiley face" /> **People**
+
+  <br>
+</p>
+
+<p>
+  
+<em>Publications</em>
+  
+<br>
+<img src="/assets/img/Pubs1.jpg" alt="Smiley face" />**Publications**
+</p>
