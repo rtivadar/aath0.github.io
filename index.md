@@ -3,27 +3,15 @@ layout: page
 title: 
 ---
 
+### About us
 
-<p>
-<em>Our research</em>
-    <br>
-<img src="/assets/img/topogr.jpg" alt="Smiley face"/> 
+---
 
+Our lab focuses on studying human perception and cognition from a cognitive and computational neuroscience perspective. 
 
-</p>
+Our research interests focus in the following areas:
+* Investigating the neural underpinnings and computational contents of predictive circuits of the human brain
+* Evaluating how these circuits are modulated by the loss of consciousness
+* Developing novel computational and machine learning techniques for analyzing electrophysiological activity
 
-<p>
-<em>People</em>
-  <br>
-<img src="/assets/img/ppl1.jpg" alt="Smiley face" /> 
-
-
-</p>
-
-<p>
-  
-<em>Publications</em>
-  
-<br>
-<img src="/assets/img/Pubs1.jpg" alt="Smiley face" />
-</p>
+To answer these questions we are using electrophysiological recordings in humans (scalp and intracranial electroencephalography -EEG- and measurements of single unit activity), in combination with machine learning algorithms.
