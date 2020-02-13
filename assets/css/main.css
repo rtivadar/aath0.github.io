@@ -337,7 +337,7 @@ pre code {
 
 table {
   border-collapse: collapse;
-  border: none;
+  border: 10px;
   margin-bottom: 5px;
   width: 100%;
 }
