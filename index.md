@@ -14,3 +14,6 @@ Our research interests focus in the following areas:
 * Developing novel computational and machine learning techniques for analyzing electrophysiological activity
 
 To answer these questions we are using electrophysiological recordings in humans (scalp and intracranial electroencephalography -EEG- and measurements of single unit activity), in combination with machine learning algorithms.
+
+We are located in the [Institute for Computer Science](https://www.inf.unibe.ch/index_eng.html), [University of Bern](https://www.inf.unibe.ch/index_eng.html).
+
