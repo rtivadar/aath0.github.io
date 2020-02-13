@@ -13,7 +13,7 @@ title:
 
 <p>
 <em>People</em>
-<img src="/assets/img/ppl1.jpg" alt="Smiley face" /> **People**
+<img src="/assets/img/ppl1.jpg" alt="Smiley face" /> 
 
   <br>
 </p>
@@ -23,5 +23,5 @@ title:
 <em>Publications</em>
   
 <br>
-<img src="/assets/img/Pubs1.jpg" alt="Smiley face" />**Publications**
+<img src="/assets/img/Pubs1.jpg" alt="Smiley face" />
 </p>
