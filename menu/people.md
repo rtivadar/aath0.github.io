@@ -10,7 +10,8 @@ title: Lab Members
 |<a href="https://aath0.github.io/menu/pgoektepe.html"><img align="center" src="https://raw.githubusercontent.com/aath0/aath0.github.io/master/assets/img/GoktepePinar_Picture.jpg" alt="Smiley face"/> | **[Pinar Göktepe](https://aath0.github.io/menu/pgoektepe.html)** <br/> **Research Assistant**<br/><br/> |
 
 # Former member
-|||
+
+| | |
 |:---:|:---|
 |<img align="center" src="https://raw.githubusercontent.com/ccneuro/ccneuro.github.io/master/assets/img/posts/Brainy2.jpg" alt="Smiley face"/> | **<a href="https://aath0.github.io/">Corinne Alison Donnay</a>** <br/> **Research Assistant**<br/><br/> |
 
