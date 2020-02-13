@@ -3,7 +3,7 @@ layout: page
 title: Athina Tzovara
 ---
 
-<img align="left" style="display:inline" src="https://raw.githubusercontent.com/aath0/aath0.github.io/master/assets/img/TzovaraAthina_Picture.jpg" alt="Smiley face" style="padding:25px"/> <br/> <br/>
+<img align="left" style="display:inline" src="https://raw.githubusercontent.com/aath0/aath0.github.io/master/assets/img/TzovaraAthina_Picture.jpg" alt="Smiley face" style="padding:25px"/> <br/>
 Email: athina.tzovara@inf.unibe.ch<br/>
 Tel: +41 (0) 31 511 7636<br/>
 <a href="https://scholar.google.com/citations?user=XdOdIKYAAAAJ&hl=en">Google Scholar</a><br/>
