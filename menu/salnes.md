@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Sigurd Lerkerød Alnes
+title: Sigurd Alnes
 ---
 
 <img align="left" style="display:inline" src="https://raw.githubusercontent.com/aath0/aath0.github.io/master/assets/img/AlnesSigurd_Picture.jpg" alt="Smiley face" style="width:300px;padding:25px"/> <br/> <br/>
