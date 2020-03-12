@@ -3,6 +3,8 @@ layout: page
 title: News
 ---
 
+* **March 2020**: Our new paper with [Johannes Sarthein](https://www.ini.uzh.ch/~johannes/), [Tommaso Fedele](https://www.hse.ru/en/org/persons/134977270) and colleagues from [EPI Klinik](https://www.swissepi.ch/epi-portal.html), investigating iEEG, single unit activity and BOLD responses in the amygdala is [out](https://www.sciencedirect.com/science/article/pii/S1053811920301920?via%3Dihub).
+
 * **December 2019**: [Corinne Donnay](https://aath0.github.io/menu/people.html) finished her Bachelor's thesis: 'Spike Sorting During an Auditory Oddball Paradigm in Humans'. Congratulations!
 
 * **October 2019**: Athina will be presenting work on intracranial EEG recordings and auditory predictions at the annual meeting for the [Society for Neuroscience](https://www.sfn.org/Meetings/Neuroscience-2019/Sessions-and-Events/Scientific-Program) in Chicago.
