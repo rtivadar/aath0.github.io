@@ -3,6 +3,8 @@ layout: page
 title: Representative Publications
 ---
 
+Fedele T.*, **Tzovara A.** *, Steiger B, Hilfiker P, Grunwald T, Stieglitz L, Jokeit H, Sarnthein J (**2020**). [The relation between neuronal firing, local field potentials and hemodynamic activity in the human amygdala in response to aversive dynamic visual stimuli](https://www.sciencedirect.com/science/article/pii/S1053811920301920), Neuroimage. * Equal contribution
+
 **Tzovara A.**, Meyer S.S., Bonaiuto J., Abivardi A., Dolan R., Barnes G.R., Bac D. R. (**2019**). [High‐precision magnetoencephalography for reconstructing amygdalar and hippocampal oscillations during prediction of safety and threat](https://onlinelibrary.wiley.com/doi/full/10.1002/hbm.24689), Human Brain Mapping.
 
 Greshake Tzovaras B., Angrist M., Arvai K., Dulaney M., Estrada-Galiñanes V., Gunderson B., Head T., Lewis D., Nov O., Shaer O., **Tzovara A**, Bobe J., Price Ball M. (**2019**). [Open Humans: A platform for participant-centered research and personal data exploration](https://academic.oup.com/gigascience/article/8/6/giz076/5523201), GigaScience.
