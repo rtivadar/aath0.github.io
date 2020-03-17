@@ -9,7 +9,7 @@ Fedele T.*, **Tzovara A.** *, Steiger B, Hilfiker P, Grunwald T, Stieglitz L, Jo
 
 Greshake Tzovaras B., Angrist M., Arvai K., Dulaney M., Estrada-Galiñanes V., Gunderson B., Head T., Lewis D., Nov O., Shaer O., **Tzovara A**, Bobe J., Price Ball M. (**2019**). [Open Humans: A platform for participant-centered research and personal data exploration](https://academic.oup.com/gigascience/article/8/6/giz076/5523201), GigaScience.
 
-**Tzovara A.**, Korn C.W. Bach D.R. (**2018**). [Human Pavlovian fear conditioningconforms to probabilistic learning](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006243), PLOS Computational Biology.
+**Tzovara A.**, Korn C.W. Bach D.R. (**2018**). [Human Pavlovian fear conditioning conforms to probabilistic learning](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006243), PLOS Computational Biology.
 
 Bach D. R., **Tzovara A.**, Vunder J. (**2017**). [Blocking human fear memory with thematrix metalloproteinase inhibitor doxycycline](https://www.nature.com/articles/mp201765), Molecular Psychiatry.
 
