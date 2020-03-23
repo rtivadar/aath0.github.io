@@ -353,6 +353,10 @@ th, td {
   text-align: left;
 }
 
+thead th {
+  min-width: 75px;
+}
+
 @media all and (max-width: 30em)
 {
 table {
