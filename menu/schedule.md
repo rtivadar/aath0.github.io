@@ -13,6 +13,6 @@ Lab meetings generally take place biweekly.<br>
 | Date | Presenter  | Topic |
 | --- | --- | --- |
 | March 23 | Sigurd | How to deal with the mandatory home office situation |
-| March 30 | Athina | TBA |
+| March 30 | Athina | Studying auditory predictions using machine learning and MEG recordings |
 | April 6 | Florence | TBA |
 | April 14 | Pinar | TBA |
