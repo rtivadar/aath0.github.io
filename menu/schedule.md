@@ -14,5 +14,6 @@ Lab meetings generally take place biweekly.<br>
 | --- | --- | --- |
 | March 23 | Sigurd | How to deal with the mandatory home office situation |
 | March 30 | Athina | Studying auditory predictions using machine learning and MEG recordings |
-| April 6 | Florence | Analysis of Approximate Entropy and Lempel-Ziv Complexity on synthetic data |
-| April 14 | Pinar | TBA |
+| April 14 | Florence | Analysis of Approximate Entropy and Lempel-Ziv Complexity on synthetic data |
+| April 20 | Pinar | Relation between Confidence, Accuracy and Noise |
+| April 27 | Sigurd | TBA |
