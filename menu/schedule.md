@@ -17,4 +17,6 @@ Lab meetings generally take place biweekly.<br>
 | April 14 | Florence | Analysis of Approximate Entropy and Lempel-Ziv Complexity on synthetic data |
 | April 20 | Pinar | Relation between Confidence, Accuracy and Noise |
 | April 27 | Sigurd | Can pupil dilation be used as a measure of response to violation of auditory predictions? |
-| May 4 | Athina | TBA |
+| May 4 | Athina | Untitled |
+| May 11 | Florence | Project update and finding subnetworks in trained and untrained neural networks |
+| May 18 | Pinar | TBA |
