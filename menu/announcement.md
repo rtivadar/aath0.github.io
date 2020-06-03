@@ -3,14 +3,13 @@ layout: page
 title: Open positions
 ---
 
-* [Master theses](#master-thesis)
-
 ## Master theses
 
 **Machine learning for detecting pattern sequences in time-series data**
 
 Machine learning techniques are often used in the field of neuroscience to model patterns of neural activity. Electroencephalography -EEG- is a non-invasive neuroimaging technique that allows measuring time-series of electric activity of the human brain. Machine learning techniques are well established for analyzing EEG responses to external stimuli such as sounds, but there is a lack of techniques for analyzing spontaneous neural activity that occurs during rest.
-The goal of this project is to use machine learning techniques to model patterns of EEG responses to sound sequences. These models will then be used to assess a possible reactivation of the detected patterns during rest. The student working on this project will gain experience with analyzing time-series data, machine learning techniques for classification and sequence detection, and handling biomedical data.
+
+The goal of this project is to use machine learning techniques for modeling patterns of EEG responses to sound sequences. These models will then be used to assess a possible reactivation of the detected patterns during rest. The student working on this project will gain experience with analyzing time-series data, machine learning techniques for classification and sequence detection, and handling biomedical data.
 
 Please contact Athina Tzovara: athina.tzovara@inf.unibe.ch
 
