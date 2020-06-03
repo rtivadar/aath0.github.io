@@ -3,15 +3,15 @@ layout: page
 title: News
 ---
 
-* **June 2020**: [Flo Aellen](https://neuro.inf.unibe.ch/menu/FAellen.html) will present her work on convolutional neural networks for analyzing EEG data at the annual meeting of the [Organization for Human Brain Mapping](https://www.humanbrainmapping.org/i4a/pages/index.cfm?pageid=3958).
+* **June 2020**: [Flo](https://neuro.inf.unibe.ch/menu/FAellen.html) will present her work on convolutional neural networks for analyzing EEG data at the annual meeting of the [Organization for Human Brain Mapping](https://www.humanbrainmapping.org/i4a/pages/index.cfm?pageid=3958).
 
 * **May 2020**: Our [new paper](https://www.nature.com/articles/s41467-020-16202-y) with [Dominik Bach](http://bachlab.org/) and colleagues, using machine learning techniques to evaluate representation of probabilistic outcomes in the human brain is online.
 
 * **March 2020**: Our new paper with [Johannes Sarthein](https://www.ini.uzh.ch/~johannes/), [Tommaso Fedele](https://www.hse.ru/en/org/persons/134977270) and colleagues from [EPI Klinik](https://www.swissepi.ch/epi-portal.html), investigating iEEG, single unit activity and BOLD responses in the amygdala is [out](https://www.sciencedirect.com/science/article/pii/S1053811920301920?via%3Dihub).
 
-* **December 2019**: [Corinne Donnay](https://aath0.github.io/menu/people.html) finished her Bachelor's thesis: 'Spike Sorting During an Auditory Oddball Paradigm in Humans'. Congratulations!
+* **December 2019**: [Corinne](https://aath0.github.io/menu/people.html) finished her Bachelor's thesis: 'Spike Sorting During an Auditory Oddball Paradigm in Humans'. Congratulations!
 
-* **October 2019**: Athina will be presenting work on intracranial EEG recordings and auditory predictions at the annual meeting for the [Society for Neuroscience](https://www.sfn.org/Meetings/Neuroscience-2019/Sessions-and-Events/Scientific-Program) in Chicago.
+* **October 2019**: [Athina](https://aath0.github.io/menu/people.html) will be presenting work on intracranial EEG recordings and auditory predictions at the annual meeting for the [Society for Neuroscience](https://www.sfn.org/Meetings/Neuroscience-2019/Sessions-and-Events/Scientific-Program) in Chicago.
 
 * **September 2019**: [Pinar Göktepe](https://ccneuro.github.io/pgoektepe/) is joining us to work as a research assistant on the development of reproducible pipelines for algorithmic decision-making in the field of neuroscience.
 
