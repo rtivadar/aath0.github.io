@@ -19,4 +19,9 @@ Lab meetings generally take place biweekly.<br>
 | April 27 | Sigurd | Can pupil dilation be used as a measure of response to violation of auditory predictions? |
 | May 4 | Athina | Untitled |
 | May 11 | Florence | Project update and finding subnetworks in trained and untrained neural networks |
-| May 18 | Pinar | TBA |
+| May 18 | Pinar |  |
+| May 25 | Sigurd |  |
+| June 2 | Plenum discussion |  |
+| June 8 | Florence | Poster presentation |
+| June 15 | Pinar | TBA |
+| June 22 | Sigurd | TBA |
