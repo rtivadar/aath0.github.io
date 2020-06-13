@@ -21,7 +21,7 @@ Lab meetings generally take place biweekly.<br>
 | May 11 | Florence | Project update and finding subnetworks in trained and untrained neural networks |
 | May 18 | Pinar |  |
 | May 25 | Sigurd |  |
-| June 2 | Plenum discussion |  |
+| June 2 | Plenum discussion / progress update |  |
 | June 8 | Florence | Poster presentation |
-| June 15 | Pinar | TBA |
+| June 15 | Plenum discussion / progress update |  |
 | June 22 | Sigurd | TBA |
