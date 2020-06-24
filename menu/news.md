@@ -5,6 +5,9 @@ title: News
 
 * **June 2020**: [Flo](https://neuro.inf.unibe.ch/menu/FAellen.html) will present her work on convolutional neural networks for analyzing EEG data at the annual meeting of the [Organization for Human Brain Mapping](https://www.humanbrainmapping.org/i4a/pages/index.cfm?pageid=3958). You can find a video of her presentation [here](https://www.youtube.com/watch?v=kO6WwMdV6AY).
 
+<a href="https://www.youtube.com/watch?v=kO6WwMdV6AY"><img align="center" src="https://raw.githubusercontent.com/aath0/aath0.github.io/master/assets/img/Flo_OHBM.png" alt="Smiley face"/></a> 
+
+
 * **May 2020**: Our [new paper](https://www.nature.com/articles/s41467-020-16202-y) with [Dominik Bach](http://bachlab.org/) and colleagues, using machine learning techniques to evaluate representation of probabilistic outcomes in the human brain is online.
 
 * **March 2020**: Our new paper with [Johannes Sarthein](https://www.ini.uzh.ch/~johannes/), [Tommaso Fedele](https://www.hse.ru/en/org/persons/134977270) and colleagues from [EPI Klinik](https://www.swissepi.ch/epi-portal.html), investigating iEEG, single unit activity and BOLD responses in the amygdala is [out](https://www.sciencedirect.com/science/article/pii/S1053811920301920?via%3Dihub).
