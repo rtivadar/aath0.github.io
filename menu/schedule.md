@@ -24,4 +24,5 @@ Lab meetings generally take place biweekly.<br>
 | June 2 | Plenum discussion / progress update |  |
 | June 8 | Florence | Poster presentation |
 | June 15 | Plenum discussion / progress update |  |
-| June 22 | Sigurd | TBA |
+| June 22 | Sigurd | Modulation of language processing by level of consciousness |
+| June 29 | Florence | TBA |
