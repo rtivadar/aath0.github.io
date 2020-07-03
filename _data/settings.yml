@@ -11,7 +11,7 @@ menu:
 - {name: 'Publications', path: 'https://aath0.github.io/menu', url: 'publications.html'}
 - {name: 'News', path: 'https://aath0.github.io/menu', url: 'news.html'}
 - {name: 'Meetings', path: 'https://aath0.github.io/menu', url: 'schedule.html'}
-- {name: 'Open Resources', path: 'https://aath0.github.io/AlgorithmsNeuroscience/Tutorial_files/Introduction', url: ''}
+- {name: 'Resources', path: 'https://aath0.github.io/AlgorithmsNeuroscience/Tutorial_files', url: 'Introduction'}
 - {name: 'Positions', path: 'https://aath0.github.io/menu', url: 'announcement.html'}
 - {name: 'Contact', path: 'https://aath0.github.io/menu', url: 'contact.html'}
 
