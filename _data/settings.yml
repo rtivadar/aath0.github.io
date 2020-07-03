@@ -11,7 +11,8 @@ menu:
 - {name: 'Publications', path: 'https://aath0.github.io/menu', url: 'publications.html'}
 - {name: 'News', path: 'https://aath0.github.io/menu', url: 'news.html'}
 - {name: 'Meetings', path: 'https://aath0.github.io/menu', url: 'schedule.html'}
-- {name: 'Open positions', path: 'https://aath0.github.io/menu', url: 'announcement.html'}
+- {name: 'Resources', path: 'https://aath0.github.io/AlgorithmsNeuroscience/Tutorial_files/Introduction', url: 'https://aath0.github.io/AlgorithmsNeuroscience/Tutorial_files/Introduction'}
+- {name: 'Positions', path: 'https://aath0.github.io/menu', url: 'announcement.html'}
 - {name: 'Contact', path: 'https://aath0.github.io/menu', url: 'contact.html'}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
