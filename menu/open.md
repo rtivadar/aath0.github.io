@@ -3,7 +3,7 @@ layout: page
 title: Material
 ---
 
-Bellow you can find scripts for running experiments or analyzing (intracranial) EEG data, and other shared material.
+Bellow you can find some openly available material from our lab.
 
 #### Neuroscience-related material:
 * [Open educational resources for algorithmic decision-making in neuroscience](#open-educational-resources-in-neuroscience)
@@ -12,7 +12,7 @@ Bellow you can find scripts for running experiments or analyzing (intracranial) 
 * [Scripts to import neuralynx data](#importing-neuralynx-data)
 
 ### Open educational resources in neuroscience
-We have developped a [series of tutorials](https://aath0.github.io/AlgorithmsNeuroscience/) for analyzing EEG data using signal processing and machine learning techniques, thanks to support from [Mozilla Science Lab](https://wiki.mozilla.org/ScienceLab). The project's repository is [here](https://github.com/aath0/AlgorithmsNeuroscience).
+We have developped a [series of tutorials](https://aath0.github.io/AlgorithmsNeuroscience/) for analyzing EEG data using signal processing and machine learning techniques, thanks to support from [Mozilla Science Lab](https://wiki.mozilla.org/ScienceLab). We welcome contributions through the project's [repository](https://github.com/aath0/AlgorithmsNeuroscience).
 
 ### Machine learning for EEG in python
 [Here](https://github.com/aath0/PIP_SummerSchoolML) you can find material for the PIP Summer school on Machine Learning, including a tutorial for applying maching learning techniques on EEG data.
