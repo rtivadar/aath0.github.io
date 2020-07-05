@@ -9,8 +9,6 @@ title: Open positions
 * [Signal processing and classification techniques to analyze simultaneously acquired intracranial EEG data](#signal-processing-and-classification-techniques-to-analyze-simultaneously-acquired-intracranial-eeg-data)
 * [EEG measurements of auditory predictions during sleep](#eeg-measurements-of-auditory-predictions-during-sleep)
 
-<br/><br/>
-
 ## Machine learning for detecting pattern sequences in time series data
 
 Machine learning techniques are often used in the field of neuroscience to model patterns of neural activity. Electroencephalography -EEG- is a non-invasive neuroimaging technique that allows measuring time-series of electric activity of the human brain. Machine learning techniques are well established for analyzing EEG responses to external stimuli such as sounds, but there is a lack of techniques for analyzing spontaneous neural activity that occurs during rest.
