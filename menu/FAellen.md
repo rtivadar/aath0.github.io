@@ -15,6 +15,5 @@ Email: florence.aellen@inf.unibe.ch<br/>
 
 ---
 #### Bio
-Under Construction
-
+I have a bachelor degree in mathematics and a master of science in theoretical physics both from the University of Bern. Now I am PhD working on analysis of neurological data and developing new methods using deep learning.
 
