@@ -3,9 +3,10 @@ layout: page
 title: Open positions
 ---
 
-## Short-term research assistant position
+* [Short term research assistant position](#identifying-and-mitigating-bias-in-deep-learning-for-biomedical-data-through-open-science-practices)
+* [Master theses](#master-theses)
 
-### Identifying and mitigating bias in deep learning for biomedical data through open science practices
+## Identifying and mitigating bias in deep learning for biomedical data through open science practices
 
 Artificial intelligence (AI) has an astonishing potential to assist clinical decision-making, improve diagnosis and design personalized therapies. In one of many examples, convolutional neural networks (CNNs) have been used to classify images of lesioned vs. healthy skin samples (10.1038/nature21056), with a level of performance comparable to healthcare practitioners. However, the use of AI in the biomedical field needs to ensure that it is free of bias and takes into account the needs of diverse populations, that are often underrepresented in existing datasets.
 
