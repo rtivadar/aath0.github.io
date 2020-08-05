@@ -3,6 +3,28 @@ layout: page
 title: Open positions
 ---
 
+## Short-term research assistant position
+
+### Identifying and mitigating bias in deep learning for biomedical data through open science practices
+
+Artificial intelligence (AI) has an astonishing potential to assist clinical decision-making, improve diagnosis and design personalized therapies. In one of many examples, convolutional neural networks (CNNs) have been used to classify images of lesioned vs. healthy skin samples (10.1038/nature21056), with a level of performance comparable to healthcare practitioners. However, the use of AI in the biomedical field needs to ensure that it is free of bias and takes into account the needs of diverse populations, that are often underrepresented in existing datasets.
+
+In the present project, funded by Mozilla Foundation, we will evaluate the impact of bias on CNNs trained on biomedical datasets, and identify ways to mitigate it. To this aim, we are looking for a researcher to preprocess a dataset of biomedical dermatology images and use them to train CNNs. This project is ideal either for a master student looking for a flexible part-time job for the next few months that could turn into a master thesis, or for a computer scientist interested in a short-term research project.
+
+*Desired skills:*
+
+-	Python programming
+-	Experience with deep learning algorithms
+-	Hands-on experience with training CNNs
+-	Interest in open science and/or algorithmic bias is advantageous
+
+If interested, please send your CV to: 
+Athina Tzovara: athina.tzovara@inf.unibe.ch
+Institute for Computer Science
+University of Bern, Switzerland
+
+
+
 ## Master theses
 
 * [Machine learning for detecting pattern sequences in time series data](#machine-learning-for-detecting-pattern-sequences-in-time-series-data)
