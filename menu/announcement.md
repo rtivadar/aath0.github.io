@@ -3,26 +3,37 @@ layout: page
 title: Open positions
 ---
 
-* [Short term research assistant position](#identifying-and-mitigating-bias-in-deep-learning-for-biomedical-data-through-open-science-practices)
+* [Postdoc position in cognitive neuroscience and machine learning](#postdoc-position-in-cognitive-neuroscience-and-machine-learning)
 * [Master theses](#master-theses)
 
-## Identifying and mitigating bias in deep learning for biomedical data through open science practices
+## Postdoc position in cognitive neuroscience and machine learning
 
-Artificial intelligence (AI) has an astonishing potential to assist clinical decision-making, improve diagnosis and design personalized therapies. In one of many examples, convolutional neural networks (CNNs) have been used to classify images of lesioned vs. healthy skin samples (10.1038/nature21056), with a level of performance comparable to healthcare practitioners. However, the use of AI in the biomedical field needs to ensure that it is free of bias and takes into account the needs of diverse populations, that are often underrepresented in existing datasets.
+A 2-year postdoc position is available for a researcher with an interest in neural predictions, electroencephalography (EEG), and machine learning. 
 
-In the present project, funded by Mozilla Foundation, we will evaluate the impact of bias on CNNs trained on biomedical datasets, and identify ways to mitigate it. To this aim, we are looking for a researcher to preprocess a dataset of biomedical dermatology images and use them to train CNNs. This project is ideal either for a master student looking for a flexible part-time job for the next few months that could turn into a master thesis, or for a computer scientist interested in a short-term research project.
+In our daily lives we are constantly faced with multiple decisions. Being able to anticipate the outcome of our decisions is a fundamental cross-species skill for survival. However, the temporal dynamics and computational processes underlying this neural ability in humans are underexplored. To address this question, we seek a postdoctoral research who will use a combination of EEG and machine learning techniques to study the temporal dynamics of anticipatory processes.
 
-*Desired skills:*
+The position will be based at the University of Bern, Switzerland, in between the Institute of Computer Science and sitem-insel. Our group is using high-density EEG, MEG and ECoG recordings in humans, in combination with machine learning and computational modeling techniques.
 
--	Python programming
--	Experience with deep learning algorithms
--	Hands-on experience with training CNNs
--	Interest in open science and/or algorithmic bias is advantageous
+The selected candidate will be expected to design novel EEG experiments and use signal processing and machine learning techniques to analyze EEG data. Moreover, they will be expected to closely collaborate with our group of PhD students and postdoc. This position could be ideal for candidates with a background in computer science and a strong interest in neuroscience, or with a background in neuroscience, but with strong computational and programming skills. 
 
-If interested, please send your CV to: 
+*Qualifications:*
+
+-	PhD in neuroscience, biomedical engineering, computer science, or a related discipline
+-	Experience with machine learning / computational modeling
+-	Experience with recording and analyzing electroencephalography (EEG) data is a big plus
+-	Programming skills, in particular Python / R
+
+*What we offer:*
+
+-	Funding for 2 years following regulations of the University of Bern
+-	Access to high-density scalp EEG and ECoG recordings
+-	Opportunities to attend conferences & summer schools
+-	Interdisciplinary & international research environment
+
+*Applications:*
+Applications will be accepted until the positions are filled. The first review of applications will begin on the 26th October 2020. If you are interested, please send one pdf-document including your CV, a brief statement of research interests, and the contact details of two referees to:  
 Athina Tzovara: athina.tzovara@inf.unibe.ch
-Institute for Computer Science
-University of Bern, Switzerland
+Informal inquiries are welcome.
 
 
 
@@ -30,7 +41,6 @@ University of Bern, Switzerland
 
 * [Machine learning for detecting pattern sequences in time series data](#machine-learning-for-detecting-pattern-sequences-in-time-series-data)
 * [Signal processing and classification techniques to analyze simultaneously acquired intracranial EEG data](#signal-processing-and-classification-techniques-to-analyze-simultaneously-acquired-intracranial-eeg-data)
-* [EEG measurements of auditory predictions during sleep](#eeg-measurements-of-auditory-predictions-during-sleep)
 
 ## Machine learning for detecting pattern sequences in time series data
 
@@ -51,8 +61,3 @@ This project is in collaboration with [Dr. Anais Llorens](https://knightlab.neur
 
 Please contact Athina Tzovara: athina.tzovara@inf.unibe.ch or Anais Llorens: anais@berkeley.edu  
 
-## EEG measurements of auditory predictions during sleep
-
-In our daily lives we are constantly immersed in streams of sensory information. Very often these do not occur in a random way but follow repetitive rules and patterns. The human brain possesses astonishing capacities of detecting patterns from the environment and predicting future events before these occur even when conscious access to the environment is reduced, e.g. during sleep. Predictive traces manifest in multiple stages of information processing, but it still remains unknown how they are modulated by conscious perception of the environment. The goal of this thesis is to study the neural mechanisms underlying the generation of sensory predictions during sleep and wakefulness. To this aim, we will perform electroencephalography (EEG) recordings in healthy volunteers, in awake and asleep conditions, while presenting them with sound sequences, following regular or irregular patterns. We are looking for a master student to help us perform overnight EEG recordings at Inselspital and assist with data analysis.
-
-Please contact Sigurd Alnes: sigurd.alnes@inf.unibe.ch
