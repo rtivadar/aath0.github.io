@@ -3,7 +3,7 @@ layout: page
 title: Open positions
 ---
 
-* [Postdoc position in cognitive neuroscience and machine learning](#postdoc-position-in-cognitive-neuroscience-and-machine-learning)
+* [Postdoc position in neuroscience and machine learning](#postdoc-position-in-cognitive-neuroscience-and-machine-learning)
 * [Master theses](#master-theses)
 
 ## Postdoc position in cognitive neuroscience and machine learning
