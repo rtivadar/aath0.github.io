@@ -3,7 +3,7 @@ layout: page
 title: News
 ---
 
-* **September 2020** * New [review article](https://iopscience.iop.org/article/10.1088/1741-2552/abb7a5/meta) on the use of intracranial EEG to study congition in humans.
+* **September 2020**: New [review article](https://iopscience.iop.org/article/10.1088/1741-2552/abb7a5/meta) on the use of intracranial EEG to study congition in humans.
 
 * **June 2020**: [Flo](https://neuro.inf.unibe.ch/menu/FAellen.html) will present her work on convolutional neural networks for analyzing EEG data at the annual meeting of the [Organization for Human Brain Mapping](https://www.humanbrainmapping.org/i4a/pages/index.cfm?pageid=3958).
 
