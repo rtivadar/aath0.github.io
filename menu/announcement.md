@@ -3,10 +3,10 @@ layout: page
 title: Open positions
 ---
 
-* [Postdoc position in neuroscience and machine learning](#postdoc-position-in-cognitive-neuroscience-and-machine-learning)
+* [Postdoc position in neuroscience and machine learning](#postdoc-position-in-neuroscience-and-machine-learning)
 * [Master theses](#master-theses)
 
-## Postdoc position in cognitive neuroscience and machine learning
+## Postdoc position in neuroscience and machine learning
 
 A 2-year postdoc position is available for a researcher with an interest in neural predictions, electroencephalography (EEG), and machine learning. 
 
