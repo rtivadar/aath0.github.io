@@ -3,7 +3,7 @@ layout: page
 title: News
 ---
 
-* **September 2020**: We are starting a new project to investigate bias in machine learning algorithms applied on biomedical data, with funding from [Mozilla Foundation](https://foundation.mozilla.org/en/). In collaboration with [Natalia Norori](https://neuro.inf.unibe.ch/menu/people.html), we will investigate how open science tools can be used to recognise and mitigate bias.
+* **September 2020**: We are starting a new project to investigate bias in machine learning algorithms for biomedical data, funded from [Mozilla Foundation](https://foundation.mozilla.org/en/). In collaboration with [Natalia Norori](https://neuro.inf.unibe.ch/menu/people.html), we will investigate how open science tools can be used to recognise and mitigate bias.
 
 * **September 2020**: New [review article](https://iopscience.iop.org/article/10.1088/1741-2552/abb7a5/meta) on the use of intracranial EEG to study congition in humans.
 
